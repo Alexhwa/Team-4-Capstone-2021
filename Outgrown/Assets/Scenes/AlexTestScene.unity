@@ -828,7 +828,7 @@ MonoBehaviour:
   targetTagMask:
   - Player
   acceleration: 10
-  maxSpeed: 70
+  maxSpeed: 15
 --- !u!50 &1898238692
 Rigidbody2D:
   serializedVersion: 4
