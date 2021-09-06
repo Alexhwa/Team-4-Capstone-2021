@@ -4,9 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
+/*
+ * Attach to enemy with chasing behavior
+ * Script is designed to be able to chase any target and has different possible behavoirs
+ *
+ * 1. Leave target as null. When a GameObject with a tag included in targetTagMask
+ * enters the included trigger hitbox, they are set as the target and the chaser tracks them
+ * 
+ * 2. Put an object in target and the chaser immediately starts tracking it on start
+ */
 public class Chaser : MonoBehaviour
 {
     //What the chaser moves towards
+    [Tooltip("Leave blank to have chaser start tracking when something enters its sight.")]
     [SerializeField] private Transform target;
     //Defines what objects the chaser will chase
     [SerializeField] private string[] targetTagMask;
