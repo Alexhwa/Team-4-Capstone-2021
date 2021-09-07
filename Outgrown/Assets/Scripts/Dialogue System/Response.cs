@@ -9,6 +9,5 @@ public class Response
     [SerializeField] private DialogueState dialogueState;
 
     public string ResponseText => responseText;
-
     public DialogueState DialogueState => dialogueState;
 }

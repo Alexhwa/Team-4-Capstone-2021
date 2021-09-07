@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc59e7fe97d2d8549b664570648af89c, type: 3}
-  m_Name: 2-1_Response(player)
+  m_Name: 2-2_Response(player)
   m_EditorClassIdentifier: 
   sentences:
-  - ok well that's cool
-  - I can program too!
+  - NO?! Well I didn't care anyway
+  - I'm going to go get dinner now :P

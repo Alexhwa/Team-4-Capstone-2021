@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] DialogueState[] dialogueStates;
+    [SerializeField] DialogueState dialogueStates;
+    private TypewriterEffect typewriterEffect;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(StepThroughDialogueStates(dialogueStates));
+        typewriterEffect = GetComponent<TypewriterEffect>();
+        dialogueStates.ShowDialogue(typewriterEffect);
     }
 
-    private IEnumerator StepThroughDialogueStates(DialogueState[] dialogueState)
+    /*
+    private IEnumerator StepThroughDialogueStates(DialogueState dialogueState)
     {
+        
         foreach (DialogueState state in dialogueState)
         {
             state.ShowDialogue();
@@ -21,5 +25,7 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
             print("moving to next state");
         }
+        
     }
+    */
 }

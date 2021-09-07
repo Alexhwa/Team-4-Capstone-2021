@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class DialogueState : MonoBehaviour
 {
@@ -10,24 +11,28 @@ public class DialogueState : MonoBehaviour
     [SerializeField] private Response[] responses;
     [SerializeField] private RectTransform responseContainer;
     [SerializeField] private RectTransform responseButtonTemplate;
-
+    
     private TypewriterEffect typewriterEffect;
+    private List<GameObject> tempResponseButtons;
 
     // Start is called before the first frame update
     void Start()
     {
-        typewriterEffect = GetComponent<TypewriterEffect>();
+        tempResponseButtons = new List<GameObject>();
     }
 
-    public void ShowDialogue()
+    public void ShowDialogue(TypewriterEffect typewriterEffect)
     {
+        this.typewriterEffect = typewriterEffect;
+        // loop through all the actors that contain dialogue
         for (int i=0; i< dialogueContainer.Length; i++)
         {
-            StartCoroutine(StepThroughDialogue(dialogueContainer[i]));
+            StartCoroutine(StepThroughDialogue(dialogueContainer[i], typewriterEffect));
         }
+        StartCoroutine(PressSpaceToContinue());
     }
 
-    private IEnumerator StepThroughDialogue(DialogueContainer dialogueContainer)
+    private IEnumerator StepThroughDialogue(DialogueContainer dialogueContainer, TypewriterEffect typewriterEffect)
     {
         foreach (string sentence in dialogueContainer.Dialogues.Sentences)
         {
@@ -38,6 +43,15 @@ public class DialogueState : MonoBehaviour
         dialogueContainer.TMP.text = string.Empty;
     }
 
+    private IEnumerator PressSpaceToContinue()
+    {
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+        if (responses != null && responses.Length > 0)
+        {
+            ShowResponses();
+        }
+    }
+
     public void ShowResponses()
     {
         foreach (Response response in responses)
@@ -46,11 +60,20 @@ public class DialogueState : MonoBehaviour
             responseButton.SetActive(true);
             responseButton.GetComponent<TMP_Text>().text = response.ResponseText;
             responseButton.GetComponent<Button>().onClick.AddListener(() => OnPickedResponse(response));
+
+            tempResponseButtons.Add(responseButton);
         }
+        responseContainer.gameObject.SetActive(true);
     }
 
     private void OnPickedResponse(Response response)
     {
-        response.DialogueState.ShowDialogue();
+        responseContainer.gameObject.SetActive(false);
+        foreach (GameObject tempButton in tempResponseButtons)
+        {
+            Destroy(tempButton);
+        }
+        tempResponseButtons.Clear();
+        response.DialogueState.ShowDialogue(typewriterEffect);
     }
 }

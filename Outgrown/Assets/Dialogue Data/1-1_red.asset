@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc59e7fe97d2d8549b664570648af89c, type: 3}
-  m_Name: red
+  m_Name: 1-1_red
   m_EditorClassIdentifier: 
   sentences:
   - why am I red?
