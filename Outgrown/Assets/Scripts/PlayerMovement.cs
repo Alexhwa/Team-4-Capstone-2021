@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private float gravity = 9.8f;
 	[SerializeField] private Vector2 veloc;
 	[SerializeField] private float jumpForce = 1;
-	
+	[SerializeField] private float minDistFromGround = 1;
 	
 	[SerializeField] private GameObject groundCheck;
 	private bool grounded;
@@ -30,7 +31,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-	    GroundCheck();
+	    var gamePad = Gamepad.current;
+	    grounded = GroundCheck();
 	    switch (currentState)
 	    {
 		    case PlayerState.Idle:
@@ -76,13 +78,15 @@ public class PlayerMovement : MonoBehaviour
 	    //	apply lerp: accel/decel
 	    veloc.x = Mathf.Lerp(veloc.x, horzInput, Time.deltaTime);
     }
-    private void GroundCheck()
+    private bool GroundCheck()
     {
 	    RaycastHit2D hit = Physics2D.Raycast(groundCheck.transform.position, Vector2.down);
 	    if (hit.collider != null)
 	    {
 		    float groundDistance = Mathf.Abs(hit.point.y - groundCheck.transform.position.y);
 	    }
+
+	    return false;
     }
 
     private void InputChecks()
