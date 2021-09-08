@@ -6,42 +6,43 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-	[SerializeField] private float accelFactor = 1;
-	[SerializeField] private float gravity = 9.8f;
-	[SerializeField] private Vector2 veloc;
+	//Movement
+	[SerializeField] private float walkSpeed = 10;
+	[SerializeField] private float maxWalkSpeed = 15;
 	[SerializeField] private float jumpForce = 1;
-	[SerializeField] private float minDistFromGround = 1;
+	private Rigidbody2D rb;
 	
+	//Ground check
+	[SerializeField] private float minDistFromGround = 1;
 	[SerializeField] private GameObject groundCheck;
-	private bool grounded;
+	[SerializeField] private LayerMask groundMask;
+	public bool grounded;
 
+	//State
 	private enum PlayerState
 	{
 		Idle, Crouch, Hang, Run, Fall
 	}
 	private PlayerState currentState;
-	
-	
-    // Start is called before the first frame update
+
+	// Start is called before the first frame update
     void Start()
     {
-        
+	    currentState = PlayerState.Idle;
+	    rb = GetComponent<Rigidbody2D>();
     }
-
+    
     // Update is called once per frame
     void Update()
     {
-	    var gamePad = Gamepad.current;
 	    grounded = GroundCheck();
 	    switch (currentState)
 	    {
 		    case PlayerState.Idle:
-			    
-			    MoveCheck(0);
+			    DoMovement();
 			    break;
 		    case PlayerState.Crouch:
 			    break;
-		    
 	    }
         
 		
@@ -67,32 +68,50 @@ public class PlayerMovement : MonoBehaviour
 		// }
 		
         //  update position
-		transform.position += new Vector3(veloc.x, veloc.y, 0);
+		// transform.position += new Vector3(veloc.x, veloc.y, 0);
 		
     }
-
-    private void MoveCheck(float horzInput)
+	
+    public void DoMovement()
     {
-	    //  analyze left/right input
-	    
-	    //	apply lerp: accel/decel
-	    veloc.x = Mathf.Lerp(veloc.x, horzInput, Time.deltaTime);
+	    Vector2 moveDir = new Vector2();
+	    //Get input
+	    if (Keyboard.current.aKey.isPressed)
+	    {
+		    moveDir.x -= 1;
+	    }
+	    if (Keyboard.current.dKey.isPressed)
+	    {
+		    moveDir.x += 1;
+	    }
+	    if (Keyboard.current.wKey.isPressed)
+	    {
+		    moveDir.y = 1;
+	    }
+	    //Side to side
+	    if (Mathf.Abs(rb.velocity.x) < maxWalkSpeed)
+	    {
+		    rb.velocity += new Vector2(walkSpeed * Time.deltaTime * moveDir.x, 0);
+	    }
+
+	    if (moveDir.y > 0 && grounded)
+	    {
+		    var newVel = rb.velocity;
+		    newVel.y = jumpForce;
+		    rb.velocity = newVel;
+	    }
     }
     private bool GroundCheck()
     {
-	    RaycastHit2D hit = Physics2D.Raycast(groundCheck.transform.position, Vector2.down);
+	    RaycastHit2D hit = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, 1000, groundMask);
 	    if (hit.collider != null)
 	    {
 		    float groundDistance = Mathf.Abs(hit.point.y - groundCheck.transform.position.y);
+		    if (groundDistance <= minDistFromGround)
+		    {
+			    return true;
+		    }
 	    }
-
 	    return false;
-    }
-
-    private void InputChecks()
-    {
-	    float horzInput = 0;
-	    horzInput += Convert.ToInt32(Input.GetKey("right"));
-	    horzInput -= Convert.ToInt32(Input.GetKey("left"));
     }
 }
