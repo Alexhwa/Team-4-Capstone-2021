@@ -102,7 +102,7 @@ MonoBehaviour:
   target: {fileID: 0}
   targetTagMask:
   - Player
-  acceleration: 12
+  acceleration: 10
   maxSpeed: 15
 --- !u!50 &7289775086790168101
 Rigidbody2D:

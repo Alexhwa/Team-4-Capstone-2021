@@ -8071,21 +8071,6 @@ PrefabInstance:
       propertyPath: m_ShapeTexture
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 3096293052629739728, guid: 682fe2ae6a12eaa45962548bc9d505fc,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3096293052629739728, guid: 682fe2ae6a12eaa45962548bc9d505fc,
-        type: 3}
-      propertyPath: m_DynamicOccludee
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3139920089978432770, guid: 682fe2ae6a12eaa45962548bc9d505fc,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3139920089978432781, guid: 682fe2ae6a12eaa45962548bc9d505fc,
         type: 3}
       propertyPath: m_RootOrder
