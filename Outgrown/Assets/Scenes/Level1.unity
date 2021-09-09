@@ -9524,6 +9524,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 271511779226080290, guid: ce04b7f6c1bee5c46acd4ca168888150,
         type: 3}
+      propertyPath: m_ShapeTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 9fa1999c7fd56004c8a12c8ee7541c6e, type: 3}
+    - target: {fileID: 271511779226080290, guid: ce04b7f6c1bee5c46acd4ca168888150,
+        type: 3}
       propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
