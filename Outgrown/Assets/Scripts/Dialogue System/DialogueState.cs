@@ -27,6 +27,7 @@ public class DialogueState : MonoBehaviour
         // loop through all the actors that contain dialogue
         for (int i=0; i< dialogueContainer.Length; i++)
         {
+            dialogueContainer[i].TMP.transform.parent.transform.parent.gameObject.SetActive(true);
             StartCoroutine(StepThroughDialogue(dialogueContainer[i], typewriterEffect));
         }
         StartCoroutine(PressSpaceToContinue());
@@ -41,6 +42,8 @@ public class DialogueState : MonoBehaviour
             yield return new WaitForSeconds(2);
         }
         dialogueContainer.TMP.text = string.Empty;
+        print("hiding");
+        dialogueContainer.TMP.transform.parent.transform.parent.gameObject.SetActive(false);
     }
 
     private IEnumerator PressSpaceToContinue()
@@ -54,6 +57,7 @@ public class DialogueState : MonoBehaviour
 
     public void ShowResponses()
     {
+        dialogueContainer[0].TMP.transform.parent.transform.parent.gameObject.SetActive(true);
         foreach (Response response in responses)
         {
             GameObject responseButton = Instantiate(responseButtonTemplate.gameObject, responseContainer);

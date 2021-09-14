@@ -248,16 +248,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 29027142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_SubmitAction: {fileID: 2064916234097673511, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_CancelAction: {fileID: -1967631576421560919, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_LeftClickAction: {fileID: 8056856818456041789, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_MiddleClickAction: {fileID: 3279352641294131588, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_RightClickAction: {fileID: 3837173908680883260, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
 --- !u!114 &29027144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,7 +657,7 @@ GameObject:
   - component: {fileID: 526634125}
   - component: {fileID: 526634124}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TMP Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1891,7 +1910,7 @@ GameObject:
   - component: {fileID: 1450070629}
   - component: {fileID: 1450070628}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TMP Pink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2368,9 +2387,9 @@ MonoBehaviour:
   - textLabel: {fileID: 1450070628}
     dialogues: {fileID: 11400000, guid: eb3f93c9445b1ee49a5599b2683c2fbd, type: 2}
   responses:
-  - responseText: Yesyesyesyes
+  - responseText: more response chains
     dialogueState: {fileID: 1637628559}
-  - responseText: Nononononono
+  - responseText: stop the conversation
     dialogueState: {fileID: 1587822839}
   responseContainer: {fileID: 191207973}
   responseButtonTemplate: {fileID: 1726928978}
@@ -2400,7 +2419,7 @@ GameObject:
   - component: {fileID: 1978608905}
   - component: {fileID: 1978608904}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TMP Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
