@@ -25,11 +25,18 @@ public class PlayerMovement : MonoBehaviour
 	}
 	private PlayerState currentState;
 
+	//Inputs
+	private PlayerInput inputSource;
+	private InputAction moveAction;
+	private InputAction interactAction;
+
 	// Start is called before the first frame update
     void Start()
     {
 	    currentState = PlayerState.Idle;
 	    rb = GetComponent<Rigidbody2D>();
+	    inputSource = GetComponent<PlayerInput>();
+	    
     }
     
     // Update is called once per frame
@@ -74,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
 	
     public void DoMovement()
     {
+	    PlayerInputManager.
 	    Vector2 moveDir = new Vector2();
 	    //Get input
 	    if (Keyboard.current.aKey.isPressed)
@@ -103,14 +111,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private bool GroundCheck()
     {
-	    RaycastHit2D hit = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, 1000, groundMask);
+	    RaycastHit2D hit = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, minDistFromGround, groundMask);
 	    if (hit.collider != null)
 	    {
-		    float groundDistance = Mathf.Abs(hit.point.y - groundCheck.transform.position.y);
-		    if (groundDistance <= minDistFromGround)
-		    {
 			    return true;
-		    }
 	    }
 	    return false;
     }
