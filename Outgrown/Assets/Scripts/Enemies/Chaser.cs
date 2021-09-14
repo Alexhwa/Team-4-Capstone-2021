@@ -50,7 +50,8 @@ public class Chaser : MonoBehaviour
             if (Mathf.Abs(rb.velocity.x) < maxSpeed)
             {
                 //flip chaser if target is behind it
-                if(((target.position - transform.position).x < 0 && transform.localScale.x > 0) || ((target.position - transform.position).x > 0 && transform.localScale.x < 0))
+                if(((target.position - transform.position).x < 0 && transform.localScale.x > 0) || //turn left
+                   ((target.position - transform.position).x > 0 && transform.localScale.x < 0)) // turn right
                 {
                     var flipScale = transform.localScale;
                     flipScale.x *= -1;
