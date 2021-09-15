@@ -4,15 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement_LedgeTest : MonoBehaviour
 {
 	//Movement
-	[SerializeField] private float walkSpeed = 10;
-	[SerializeField] private float maxWalkSpeed = 15;
-	[SerializeField] private float jumpForce = 1;
+	[SerializeField] private float walkSpeed = 14;
+	[SerializeField] private float maxWalkSpeed = 9;
+	[SerializeField] private float jumpForce = 10;
 	private Rigidbody2D rb;
 	private Vector2 walkVectorDebug;
 	
+	//Ledgegrab Check
+	[SerializeField] private GameObject ledgeGrab;
+	[SerializeField] private float edgeJumpForce = 11.25f;
+	private int ledgeLayer = 2;
+	private float gravity = 2.3f;
+
 	//Ground check
 	[SerializeField] private float minDistFromGround = 1;
 	[SerializeField] private GameObject groundCheck;
@@ -32,13 +38,13 @@ public class PlayerMovement : MonoBehaviour
     {
 	    currentState = PlayerState.Idle;
 	    rb = GetComponent<Rigidbody2D>();
-	    
     }
     
     // Update is called once per frame
     void Update()
-    {
+    {	
 	    grounded = GroundCheck();
+		
 	    switch (currentState)
 	    {
 		    case PlayerState.Idle:
@@ -47,32 +53,6 @@ public class PlayerMovement : MonoBehaviour
 		    case PlayerState.Crouch:
 			    break;
 	    }
-        
-		
-		//	jump
-		// if(/* we're on the ground or on an edge */) {
-		// 	if(Input.GetKey("jump")) {
-		// 		veloc.y = jumpForce;
-		// 	} else if(veloc.y != 0) {
-		// 		veloc.y = 0;
-		// 	}
-		// }
-		// //	fall
-		// else {
-		// 	veloc.y -= gravity * Time.deltaTime;
-		// }
-		
-		//	hit wall or ceiling
-		// if(/* collide with wall */) {
-		// 	veloc.x = 0;
-		// }
-		// if(/* collide with ceiling */ && veloc.y != 0) {
-		// 	veloc.y = 0;
-		// }
-		
-        //  update position
-		// transform.position += new Vector3(veloc.x, veloc.y, 0);
-		
     }
 	
     public void DoMovement()
@@ -82,17 +62,44 @@ public class PlayerMovement : MonoBehaviour
 	    if (Mathf.Abs(rb.velocity.x) < maxWalkSpeed)
 	    {
 		    Vector2 walkVector = new Vector2(walkSpeed * Time.deltaTime * moveDir.x, 0);
-		    walkVector = AccountForSlope(walkVector);
-		    
+		    if (grounded)
+		    {
+			    float rotateAngle = Vector2.Angle(groundAngle, Vector2.up) + 20;
+			    walkVector = Macros.Rotate(walkVector, -rotateAngle);
+		    }
+
+		    if (walkVector.y > 0)
+		    {
+			    walkVector *= 1.05f;
+		    }
+
+		    walkVectorDebug = walkVector;
 		    rb.velocity += walkVector;
 	    }
 
-	    //jump
-	    if (moveDir.y > 0 && grounded)
+		//	ledge hang check
+		bool hanging = false;
+		if(canHangFromLedge())
+		{
+			print("we're on a ledge");
+			hanging = true;
+			rb.velocity *= 0;
+			rb.gravityScale = 0;
+		}
+		else
+			rb.gravityScale = gravity;
+
+		//Jumping
+	    if (moveDir.y > 0 && (grounded || hanging))
 	    {
 		    var newVel = rb.velocity;
-		    newVel.y = jumpForce;
+			//	Give player enough force to reach platform from ledge
+			//	TODO: Fix to be a crawling animation
+			if (hanging)
+				newVel.y = edgeJumpForce;
+		    else newVel.y = jumpForce;
 		    rb.velocity = newVel;
+			print("jumped");
 	    }
     }
     private bool GroundCheck()
@@ -105,32 +112,15 @@ public class PlayerMovement : MonoBehaviour
 	    }
 	    return false;
     }
+	
+	//	check if our ledgeGrab collider found a ledge
+    private bool canHangFromLedge()
+    {
+		return (Physics2D.IsTouchingLayers(ledgeGrab.GetComponent<Collider2D>(), ledgeLayer));
+	}
 
     private void OnDrawGizmos()
     { 
 	    Gizmos.DrawRay(new Ray(groundCheck.transform.position, walkVectorDebug));
-    }
-
-    private Vector2 AccountForSlope(Vector2 v)
-    {
-	    Vector2 rotatedV = v;
-	    if (grounded)
-	    {
-		    float rotateAngle = Vector2.Angle(groundAngle, Vector2.up) + 20;
-		    //account for non negative result of Vector2.Angle
-		    if (groundAngle.x < 0)
-		    {
-			    rotateAngle *= -1;
-		    }
-		    rotatedV = Macros.Rotate(v, -rotateAngle);
-	    }
-
-	    if (rotatedV.y > 0)
-	    {
-		    rotatedV *= 1.05f;
-	    }
-
-	    walkVectorDebug = rotatedV;
-	    return rotatedV;
     }
 }
