@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private GameObject groundCheck;
 	[SerializeField] private LayerMask groundMask;
 	public bool grounded;
+	private Vector2 groundAngle;
 
 	//State
 	private enum PlayerState
@@ -24,18 +25,12 @@ public class PlayerMovement : MonoBehaviour
 		Idle, Crouch, Hang, Run, Fall
 	}
 	private PlayerState currentState;
-
-	//Inputs
-	private PlayerInput inputSource;
-	private InputAction moveAction;
-	private InputAction interactAction;
-
+	
 	// Start is called before the first frame update
     void Start()
     {
 	    currentState = PlayerState.Idle;
 	    rb = GetComponent<Rigidbody2D>();
-	    inputSource = GetComponent<PlayerInput>();
 	    
     }
     
@@ -81,25 +76,15 @@ public class PlayerMovement : MonoBehaviour
 	
     public void DoMovement()
     {
-	    PlayerInputManager.
-	    Vector2 moveDir = new Vector2();
-	    //Get input
-	    if (Keyboard.current.aKey.isPressed)
-	    {
-		    moveDir.x -= 1;
-	    }
-	    if (Keyboard.current.dKey.isPressed)
-	    {
-		    moveDir.x += 1;
-	    }
-	    if (Keyboard.current.wKey.isPressed)
-	    {
-		    moveDir.y = 1;
-	    }
+	    var moveDir = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>();
 	    //Side to side
 	    if (Mathf.Abs(rb.velocity.x) < maxWalkSpeed)
 	    {
-		    rb.velocity += new Vector2(walkSpeed * Time.deltaTime * moveDir.x, 0);
+		    Vector2 walkVector = new Vector2(walkSpeed * Time.deltaTime * moveDir.x, 0);
+		    float rotateAngle = Vector2.Angle(groundAngle, Vector2.up);
+		    print(groundAngle);
+		    print(rotateAngle);
+		    rb.velocity += Macros.Rotate(walkVector, rotateAngle);
 	    }
 
 	    if (moveDir.y > 0 && grounded)
@@ -114,7 +99,8 @@ public class PlayerMovement : MonoBehaviour
 	    RaycastHit2D hit = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, minDistFromGround, groundMask);
 	    if (hit.collider != null)
 	    {
-			    return true;
+		    groundAngle = hit.normal;
+		    return true;
 	    }
 	    return false;
     }
