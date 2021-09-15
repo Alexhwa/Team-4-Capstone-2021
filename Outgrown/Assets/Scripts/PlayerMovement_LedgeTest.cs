@@ -7,15 +7,17 @@ using UnityEngine.InputSystem;
 public class PlayerMovement_LedgeTest : MonoBehaviour
 {
 	//Movement
-	[SerializeField] private float walkSpeed = 10;
-	[SerializeField] private float maxWalkSpeed = 15;
-	[SerializeField] private float jumpForce = 1;
+	[SerializeField] private float walkSpeed = 14;
+	[SerializeField] private float maxWalkSpeed = 9;
+	[SerializeField] private float jumpForce = 10;
 	private Rigidbody2D rb;
 	private Vector2 walkVectorDebug;
 	
 	//Ledgegrab Check
 	[SerializeField] private GameObject ledgeGrab;
+	[SerializeField] private float edgeJumpForce = 11.25f;
 	private int ledgeLayer = 2;
+	private float gravity = 2.3f;
 
 	//Ground check
 	[SerializeField] private float minDistFromGround = 1;
@@ -40,8 +42,9 @@ public class PlayerMovement_LedgeTest : MonoBehaviour
     
     // Update is called once per frame
     void Update()
-    {
+    {	
 	    grounded = GroundCheck();
+		
 	    switch (currentState)
 	    {
 		    case PlayerState.Idle:
@@ -50,9 +53,6 @@ public class PlayerMovement_LedgeTest : MonoBehaviour
 		    case PlayerState.Crouch:
 			    break;
 	    }
-        
-		if(canHangFromLedge())
-			print("we're on a ledge");
     }
 	
     public void DoMovement()
@@ -77,11 +77,29 @@ public class PlayerMovement_LedgeTest : MonoBehaviour
 		    rb.velocity += walkVector;
 	    }
 
-	    if (moveDir.y > 0 && grounded)
+		//	ledge hang check
+		bool hanging = false;
+		if(canHangFromLedge())
+		{
+			print("we're on a ledge");
+			hanging = true;
+			rb.velocity *= 0;
+			rb.gravityScale = 0;
+		}
+		else
+			rb.gravityScale = gravity;
+
+		//Jumping
+	    if (moveDir.y > 0 && (grounded || hanging))
 	    {
 		    var newVel = rb.velocity;
-		    newVel.y = jumpForce;
+			//	Give player enough force to reach platform from ledge
+			//	TODO: Fix to be a crawling animation
+			if (hanging)
+				newVel.y = edgeJumpForce;
+		    else newVel.y = jumpForce;
 		    rb.velocity = newVel;
+			print("jumped");
 	    }
     }
     private bool GroundCheck()
