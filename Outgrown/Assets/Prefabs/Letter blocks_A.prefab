@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 240091713925903388}
   - component: {fileID: 4666499641406508965}
   - component: {fileID: 7734490873534857152}
+  - component: {fileID: 3848316118536090503}
   m_Layer: 0
   m_Name: Letter blocks_A
   m_TagString: Untagged
@@ -95,7 +96,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.5540881, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 1.0699999, w: 0.17999999}
     pivot: {x: 0.5, y: 0.5}
@@ -106,5 +107,31 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 17.72, y: 16.85}
+  m_Size: {x: 16.61182, y: 16.85}
   m_EdgeRadius: 0
+--- !u!114 &3848316118536090503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9177967657176662636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 533ed3dec152f03e00000000
+  m_ShapePath:
+  - {x: -8.775961, y: -8.13446, z: 0}
+  - {x: 7.7121115, y: -8.267442, z: 0}
+  - {x: 7.6234593, y: 8.1344595, z: 0}
+  - {x: -8.687309, y: 8.178788, z: 0}
+  m_ShapePathHash: -1406411034
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 26868

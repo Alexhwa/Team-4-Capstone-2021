@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 94196578703883102}
   - component: {fileID: 94196578703883103}
   - component: {fileID: 94196578703883100}
+  - component: {fileID: 6174968357105850799}
   m_Layer: 0
   m_Name: monkey_pupil
   m_TagString: Untagged
@@ -120,10 +121,50 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0.019996643, y: -0.023853302}
-  m_ConnectedAnchor: {x: -37.98, y: 17.06731}
+  m_ConnectedAnchor: {x: -1.5178314, y: 4.2930775}
   m_AutoConfigureDistance: 0
   m_Distance: 0.3
   m_MaxDistanceOnly: 0
+--- !u!60 &6174968357105850799
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94196578703883101}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5064078, y: 0.49426672}
+    oldSize: {x: 3, y: 3}
+    newSize: {x: 3, y: 3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.32077667, y: 0.21719986}
+      - {x: 0.21077667, y: 0.30719987}
+      - {x: 0.09077667, y: 0.35719985}
+      - {x: -0.11922333, y: 0.35719985}
+      - {x: -0.3192233, y: 0.21719986}
+      - {x: -0.3592233, y: 0.09719986}
+      - {x: -0.3592233, y: -0.122800134}
+      - {x: -2.517435, y: -6.3407764}
+      - {x: -1.6385055, y: -7.191424}
+      - {x: 0.13286252, y: -7.3484783}
+      - {x: 1.6916102, y: -7.1818237}
+      - {x: 2.5413206, y: -6.3589387}
+      - {x: 0.32077667, y: -0.21280013}
+      - {x: 0.36077666, y: -0.13280013}
+      - {x: 0.36077666, y: 0.09719986}
 --- !u!1 &94196579054750364
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,12 +301,12 @@ MonoBehaviour:
   m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_ShadowIntensity: 0
+  m_ShadowIntensity: 1
   m_ShadowVolumeIntensity: 0
-  m_PointLightInnerAngle: 37.82
-  m_PointLightOuterAngle: 61.94
+  m_PointLightInnerAngle: 32.940002
+  m_PointLightOuterAngle: 57.06
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 6.9970827
+  m_PointLightOuterRadius: 7.339813
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5

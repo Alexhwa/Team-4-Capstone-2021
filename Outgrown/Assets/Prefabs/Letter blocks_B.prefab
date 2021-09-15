@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4820224195730851492}
   - component: {fileID: 8899882122769591714}
   - component: {fileID: 2616681854822289554}
+  - component: {fileID: 3577002282431218884}
   m_Layer: 0
   m_Name: Letter blocks_B
   m_TagString: Untagged
@@ -108,3 +109,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 16.71871, y: 16.85}
   m_EdgeRadius: 0
+--- !u!114 &3577002282431218884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8178754907875193152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 533ed3dec152f03e00000000
+  m_ShapePath:
+  - {x: -8.782683, y: -8.112536, z: 0}
+  - {x: 7.7060204, y: -8.321889, z: 0}
+  - {x: 7.7060175, y: 8.052722, z: 0}
+  - {x: -8.842498, y: 8.172351, z: 0}
+  m_ShapePathHash: -1991081343
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 26928

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2574280398718867783}
   - component: {fileID: 1803335530964331371}
+  - component: {fileID: 1561993148104467041}
   m_Layer: 0
   m_Name: Plastic shovel
   m_TagString: Untagged
@@ -81,3 +82,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1561993148104467041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6511573487787970257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 533ed3dec152f03e00000000
+  m_ShapePath:
+  - {x: -14.320314, y: -51.29314, z: 0}
+  - {x: 14.3203, y: -51.01599, z: 0}
+  - {x: 12.540698, y: -18.914988, z: 0}
+  - {x: 5.7507057, y: -16.004988, z: 0}
+  - {x: 1.8707185, y: -12.12499, z: 0}
+  - {x: 0.7621424, y: 27.367834, z: 0}
+  - {x: 8.916014, y: 51.985996, z: 0}
+  - {x: -17.368866, y: 51.986008, z: 0}
+  - {x: -4.7807145, y: 25.566418, z: 0}
+  - {x: -4.2264323, y: -12.956418, z: 0}
+  - {x: -7.9678493, y: -17.667849, z: 0}
+  - {x: -14.203559, y: -23.072128, z: 0}
+  m_ShapePathHash: -1445847975
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -79198
