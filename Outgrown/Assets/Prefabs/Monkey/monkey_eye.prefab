@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 94196578703883103}
   - component: {fileID: 94196578703883100}
   - component: {fileID: 6174968357105850799}
+  - component: {fileID: 4022325713934286941}
   m_Layer: 0
   m_Name: monkey_pupil
   m_TagString: Untagged
@@ -165,6 +166,18 @@ PolygonCollider2D:
       - {x: 0.32077667, y: -0.21280013}
       - {x: 0.36077666, y: -0.13280013}
       - {x: 0.36077666, y: 0.09719986}
+--- !u!114 &4022325713934286941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94196578703883101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef64bbd5e42bf34cae25e862205f783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &94196579054750364
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,7 +33,6 @@ public class MonkeyAI : MonoBehaviour
             /*Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             left_eye.transform.rotation = Quaternion.Slerp(left_eye.transform.rotation, rotation, rotate_speed * Time.deltaTime);*/
             yield return rotateOverTime(angle, 2);
-            print(count);
         }
     }
 
