@@ -82,21 +82,12 @@ public class PlayerMovement : MonoBehaviour
 	    if (Mathf.Abs(rb.velocity.x) < maxWalkSpeed)
 	    {
 		    Vector2 walkVector = new Vector2(walkSpeed * Time.deltaTime * moveDir.x, 0);
-		    if (grounded)
-		    {
-			    float rotateAngle = Vector2.Angle(groundAngle, Vector2.up) + 20;
-			    walkVector = Macros.Rotate(walkVector, -rotateAngle);
-		    }
-
-		    if (walkVector.y > 0)
-		    {
-			    walkVector *= 1.05f;
-		    }
-
-		    walkVectorDebug = walkVector;
+		    walkVector = AccountForSlope(walkVector);
+		    
 		    rb.velocity += walkVector;
 	    }
 
+	    //jump
 	    if (moveDir.y > 0 && grounded)
 	    {
 		    var newVel = rb.velocity;
@@ -118,5 +109,28 @@ public class PlayerMovement : MonoBehaviour
     private void OnDrawGizmos()
     { 
 	    Gizmos.DrawRay(new Ray(groundCheck.transform.position, walkVectorDebug));
+    }
+
+    private Vector2 AccountForSlope(Vector2 v)
+    {
+	    Vector2 rotatedV = v;
+	    if (grounded)
+	    {
+		    float rotateAngle = Vector2.Angle(groundAngle, Vector2.up) + 20;
+		    //account for non negative result of Vector2.Angle
+		    if (groundAngle.x < 0)
+		    {
+			    rotateAngle *= -1;
+		    }
+		    rotatedV = Macros.Rotate(v, -rotateAngle);
+	    }
+
+	    if (rotatedV.y > 0)
+	    {
+		    rotatedV *= 1.05f;
+	    }
+
+	    walkVectorDebug = rotatedV;
+	    return rotatedV;
     }
 }
