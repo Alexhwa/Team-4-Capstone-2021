@@ -13,6 +13,12 @@ public class PlayerMovement : MonoBehaviour
 	private Rigidbody2D rb;
 	private Vector2 walkVectorDebug;
 	
+	//Ledgegrab Check
+	[SerializeField] private GameObject ledgeGrab;
+	[SerializeField] private float edgeJumpForce = 11.25f;
+	private int ledgeLayer = 2;
+	private float gravity = 2.3f;
+	
 	//Ground check
 	[SerializeField] private float minDistFromGround = 1;
 	[SerializeField] private GameObject groundCheck;
@@ -32,7 +38,6 @@ public class PlayerMovement : MonoBehaviour
     {
 	    currentState = PlayerState.Idle;
 	    rb = GetComponent<Rigidbody2D>();
-	    
     }
     
     // Update is called once per frame
@@ -86,9 +91,20 @@ public class PlayerMovement : MonoBehaviour
 		    
 		    rb.velocity += walkVector;
 	    }
+	    //	ledge hang check
+	    bool hanging = false;
+	    if(CanHangFromLedge())
+	    {
+		    print("we're on a ledge");
+		    hanging = true;
+		    rb.velocity *= 0;
+		    rb.gravityScale = 0;
+	    }
+	    else
+		    rb.gravityScale = gravity;
 
 	    //jump
-	    if (moveDir.y > 0 && grounded)
+	    if (moveDir.y > 0 && (grounded || hanging))
 	    {
 		    var newVel = rb.velocity;
 		    newVel.y = jumpForce;
@@ -104,6 +120,12 @@ public class PlayerMovement : MonoBehaviour
 		    return true;
 	    }
 	    return false;
+    }
+    
+    //	check if our ledgeGrab collider found a ledge
+    private bool CanHangFromLedge()
+    {
+	    return (Physics2D.IsTouchingLayers(ledgeGrab.GetComponent<Collider2D>(), ledgeLayer));
     }
 
     private void OnDrawGizmos()
