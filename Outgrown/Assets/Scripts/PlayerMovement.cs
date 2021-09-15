@@ -82,15 +82,19 @@ public class PlayerMovement : MonoBehaviour
 	    if (Mathf.Abs(rb.velocity.x) < maxWalkSpeed)
 	    {
 		    Vector2 walkVector = new Vector2(walkSpeed * Time.deltaTime * moveDir.x, 0);
-		    float rotateAngle = Vector2.Angle(groundAngle, Vector2.up);
-		    print(groundAngle);
-		    print(rotateAngle);
+		    if (grounded)
+		    {
+			    float rotateAngle = Vector2.Angle(groundAngle, Vector2.up) + 20;
+			    walkVector = Macros.Rotate(walkVector, -rotateAngle);
+		    }
+
 		    if (walkVector.y > 0)
 		    {
-			    walkVector *= 4f;
+			    walkVector *= 1.05f;
 		    }
-		    walkVectorDebug = Macros.Rotate(walkVector, -rotateAngle);
-		    rb.velocity += Macros.Rotate(walkVector, rotateAngle);
+
+		    walkVectorDebug = walkVector;
+		    rb.velocity += walkVector;
 	    }
 
 	    if (moveDir.y > 0 && grounded)
