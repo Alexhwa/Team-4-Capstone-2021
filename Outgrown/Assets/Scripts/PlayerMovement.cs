@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private float maxWalkSpeed = 15;
 	[SerializeField] private float jumpForce = 1;
 	private Rigidbody2D rb;
+	private Vector2 walkVectorDebug;
 	
 	//Ground check
 	[SerializeField] private float minDistFromGround = 1;
@@ -84,6 +85,11 @@ public class PlayerMovement : MonoBehaviour
 		    float rotateAngle = Vector2.Angle(groundAngle, Vector2.up);
 		    print(groundAngle);
 		    print(rotateAngle);
+		    if (walkVector.y > 0)
+		    {
+			    walkVector *= 4f;
+		    }
+		    walkVectorDebug = Macros.Rotate(walkVector, -rotateAngle);
 		    rb.velocity += Macros.Rotate(walkVector, rotateAngle);
 	    }
 
@@ -103,5 +109,10 @@ public class PlayerMovement : MonoBehaviour
 		    return true;
 	    }
 	    return false;
+    }
+
+    private void OnDrawGizmos()
+    { 
+	    Gizmos.DrawRay(new Ray(groundCheck.transform.position, walkVectorDebug));
     }
 }
