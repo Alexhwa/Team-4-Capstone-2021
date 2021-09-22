@@ -26,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
 	public bool grounded;
 	private Vector2 groundAngle;
 
+	//Audio
+	[SerializeField] private AudioClip footstepAClip;
+	
 	//State
 	private enum PlayerState
 	{
@@ -69,8 +72,13 @@ public class PlayerMovement : MonoBehaviour
 	    {
 		    Vector2 walkVector = new Vector2(walkSpeed * Time.deltaTime * moveDir.x, 0);
 		    walkVector = AccountForSlope(walkVector);
-		    
 		    rb.velocity += walkVector;
+		    
+		    if(Mathf.Abs(walkVector.x) > 0)
+		    {
+			    print("trying to play footsteps");
+			    AudioManager.Instance.TryPlaySFX(footstepAClip);
+		    }
 	    }
 	    //	ledge hang check
 	    bool hanging = false;

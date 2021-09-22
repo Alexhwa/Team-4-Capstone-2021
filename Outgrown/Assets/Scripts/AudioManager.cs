@@ -8,15 +8,15 @@ using Random = UnityEngine.Random;
 public class AudioManager : MonoBehaviour
 {
     private static AudioManager _instance;
-    public static AudioManager Instance { get { return _instance ? _instance : _instance = FindObjectOfType<AudioManager>(); } }
-
+    public static AudioManager Instance { get { return _instance; } }
     public static float defaultSFXVolume { get { return .75f; } }
+    
     private void Awake()
     {
         //if there already exists a GameState somewhere in the scene, destroy this one
         if (_instance != null && _instance != this)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
         //otherwise, store reference
         else
@@ -45,7 +45,8 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX(AudioClip clip)
     {
         AudioSource source = SearchSFX(clip);
-        source.PlayOneShot(clip);
+        source.clip = clip;
+        source.Play();
     }
 
 
@@ -55,7 +56,8 @@ public class AudioManager : MonoBehaviour
     {
         AudioSource source = SearchSFX(clip);
         source.volume = volume;
-        source.PlayOneShot(clip);
+        source.clip = clip;
+        source.Play();
     }
 
 
@@ -65,7 +67,8 @@ public class AudioManager : MonoBehaviour
         AudioSource source = SearchSFX(clip);
         source.volume = volume;
         source.pitch = pitch;
-        source.PlayOneShot(clip);
+        source.clip = clip;
+        source.Play();
     }
     
     //Overload with volume and pitch
@@ -73,7 +76,21 @@ public class AudioManager : MonoBehaviour
     {
         AudioSource source = SearchSFX(clip);
         source.pitch = Random.Range(minPitch, maxPitch);
-        source.PlayOneShot(clip);
+        source.clip = clip;
+        source.Play();
+    }
+    
+    /*
+     * Plays sfx but checks if its playing first
+     */
+    public void TryPlaySFX(AudioClip clip)
+    {
+        AudioSource source = SearchSFX(clip);
+        if (!source.isPlaying)
+        {
+            source.clip = clip;
+            source.Play();
+        }
     }
 
     private AudioSource SearchSFX(AudioClip clip)
