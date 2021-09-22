@@ -4,11 +4,28 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
     private static AudioManager _instance;
-    public static AudioManager Instance { get { return _instance; } }
+
+    public static AudioManager Instance
+    {
+        get
+        {
+            if (Application.isEditor)
+            {
+                if (_instance == null)
+                {
+                    PlayerPrefs.SetString("Debug Level", SceneManager.GetActiveScene().name);
+                    SceneManager.LoadScene("Preload");
+                }
+            }
+
+            return _instance;
+        }
+    }
     public static float defaultSFXVolume { get { return .75f; } }
     
     private void Awake()
