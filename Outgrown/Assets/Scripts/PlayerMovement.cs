@@ -62,7 +62,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void HangMovement()
     {
-	    
+	    var moveDir = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>();
+	    if (moveDir.y > 0)
+	    {
+		    var newVel = rb.velocity;
+		    newVel.y = jumpForce * 1.7f;
+		    rb.velocity = newVel;
+	    }
+
+	    currentState = PlayerState.Idle;
     }
     public void DoMovement()
     {
@@ -77,10 +85,10 @@ public class PlayerMovement : MonoBehaviour
 		    if(Mathf.Abs(walkVector.x) > 0)
 		    {
 			    print("trying to play footsteps");
-//			    AudioSource source = AudioManager.Instance.SearchSFX(footstepAClip);
-//			    source.volume = .4f;
-//			    source.pitch = 1.71f;
-//			    AudioManager.Instance.TryPlaySFX(footstepAClip);
+			    AudioSource source = AudioManager.Instance.SearchSFX(footstepAClip);
+			    source.volume = .4f;
+			    source.pitch = 1.71f;
+			    AudioManager.Instance.TryPlaySFX(footstepAClip);
 		    }
 	    }
 	    //	ledge hang check
@@ -88,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
 	    if(CanHangFromLedge())
 	    {
 		    print("we're on a ledge");
-		    hanging = true;
+		    currentState = PlayerState.Hang;
 		    rb.velocity *= 0;
 		    rb.gravityScale = 0;
 	    }

@@ -15,7 +15,6 @@ public class IntroBunny : MonoBehaviour
 	
     void Start(){
 		movePhase = 0;
-		moveSpeed = 0;
 		// i'm gonna hardcode the paths here probably
 		//	unless anyone knows of a better way to 
 	}

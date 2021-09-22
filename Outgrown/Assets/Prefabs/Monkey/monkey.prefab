@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1055937217
   m_SortingLayer: -1
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 0f62d7d388500e745be5878aac412364, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -340,17 +340,27 @@ PrefabInstance:
     - target: {fileID: 94196580577883391, guid: a49aab60b8f01ad41a329d04dda3ac75,
         type: 3}
       propertyPath: m_PointLightInnerAngle
-      value: 11.75
+      value: 16.34
       objectReference: {fileID: 0}
     - target: {fileID: 94196580577883391, guid: a49aab60b8f01ad41a329d04dda3ac75,
         type: 3}
       propertyPath: m_PointLightOuterAngle
-      value: 21.43
+      value: 26.82
       objectReference: {fileID: 0}
     - target: {fileID: 94196580577883391, guid: a49aab60b8f01ad41a329d04dda3ac75,
         type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 24.00465
+      value: 79.574394
+      objectReference: {fileID: 0}
+    - target: {fileID: 94196580577883391, guid: a49aab60b8f01ad41a329d04dda3ac75,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 94196580577883391, guid: a49aab60b8f01ad41a329d04dda3ac75,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: 1055937217
       objectReference: {fileID: 0}
     - target: {fileID: 6174968357105850799, guid: a49aab60b8f01ad41a329d04dda3ac75,
         type: 3}
@@ -541,22 +551,22 @@ PrefabInstance:
     - target: {fileID: 94196580577883391, guid: a49aab60b8f01ad41a329d04dda3ac75,
         type: 3}
       propertyPath: m_PointLightInnerAngle
-      value: 11.75
+      value: 9.26
       objectReference: {fileID: 0}
     - target: {fileID: 94196580577883391, guid: a49aab60b8f01ad41a329d04dda3ac75,
         type: 3}
       propertyPath: m_PointLightOuterAngle
-      value: 21.43
+      value: 25.59
       objectReference: {fileID: 0}
     - target: {fileID: 94196580577883391, guid: a49aab60b8f01ad41a329d04dda3ac75,
         type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 24.004648
+      value: 80.416885
       objectReference: {fileID: 0}
     - target: {fileID: 94196580577883391, guid: a49aab60b8f01ad41a329d04dda3ac75,
         type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 94196580577883391, guid: a49aab60b8f01ad41a329d04dda3ac75,
         type: 3}

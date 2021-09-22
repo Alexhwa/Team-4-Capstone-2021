@@ -25,7 +25,6 @@ public class PlayerDeath : MonoBehaviour
     {
         if (damage >= playerHealth)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             preloader = GameObject.FindGameObjectWithTag("Preloader").GetComponent<Preloaded>();
             transform.position = preloader.lastCheckpointPos;
         }
