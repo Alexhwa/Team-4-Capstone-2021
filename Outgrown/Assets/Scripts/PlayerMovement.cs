@@ -141,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
 
 	    if (rotatedV.y > 0)
 	    {
-		    rotatedV *= 1.05f;
+		    rotatedV *= 1f +  3 * rotatedV.y;
 	    }
 
 	    walkVectorDebug = rotatedV;

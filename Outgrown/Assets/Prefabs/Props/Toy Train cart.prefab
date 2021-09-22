@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2462435993134416291}
   - component: {fileID: -5890579866604920908}
   - component: {fileID: 596924964881414544}
+  - component: {fileID: 7544666167163067604}
   m_Layer: 0
   m_Name: Toy Train cart
   m_TagString: Untagged
@@ -99,7 +100,7 @@ MonoBehaviour:
   m_HasRenderer: 1
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
-  m_SelfShadows: 0
+  m_SelfShadows: 1
   m_ApplyToSortingLayers: 533ed3dec152f03e00000000
   m_ShapePath:
   - {x: -33.38007, y: -12.652648, z: 0}
@@ -127,7 +128,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -231,3 +232,15 @@ PolygonCollider2D:
       - {x: -20.260548, y: -17.683155}
       - {x: -19.677834, y: -17.234913}
       - {x: -18.422754, y: -15.890186}
+--- !u!114 &7544666167163067604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130059199500894929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c6fadf70dd4414788129986c62e6ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

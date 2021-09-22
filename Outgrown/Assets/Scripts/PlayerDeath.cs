@@ -21,7 +21,7 @@ public class PlayerDeath : MonoBehaviour
         
     }
 
-    void damagePlayer(float damage)
+    public void damagePlayer(float damage)
     {
         if (damage >= playerHealth)
         {
