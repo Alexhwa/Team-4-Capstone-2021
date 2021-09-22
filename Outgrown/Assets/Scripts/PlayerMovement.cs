@@ -26,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
 	public bool grounded;
 	private Vector2 groundAngle;
 
+	//Audio
+	[SerializeField] private AudioClip footstepAClip;
+	
 	//State
 	private enum PlayerState
 	{
@@ -51,35 +54,16 @@ public class PlayerMovement : MonoBehaviour
 			    break;
 		    case PlayerState.Crouch:
 			    break;
+		    case PlayerState.Hang:
+			    HangMovement();
+			    break;
 	    }
-        
-		
-		//	jump
-		// if(/* we're on the ground or on an edge */) {
-		// 	if(Input.GetKey("jump")) {
-		// 		veloc.y = jumpForce;
-		// 	} else if(veloc.y != 0) {
-		// 		veloc.y = 0;
-		// 	}
-		// }
-		// //	fall
-		// else {
-		// 	veloc.y -= gravity * Time.deltaTime;
-		// }
-		
-		//	hit wall or ceiling
-		// if(/* collide with wall */) {
-		// 	veloc.x = 0;
-		// }
-		// if(/* collide with ceiling */ && veloc.y != 0) {
-		// 	veloc.y = 0;
-		// }
-		
-        //  update position
-		// transform.position += new Vector3(veloc.x, veloc.y, 0);
-		
     }
-	
+
+    private void HangMovement()
+    {
+	    
+    }
     public void DoMovement()
     {
 	    var moveDir = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>();
@@ -88,8 +72,16 @@ public class PlayerMovement : MonoBehaviour
 	    {
 		    Vector2 walkVector = new Vector2(walkSpeed * Time.deltaTime * moveDir.x, 0);
 		    walkVector = AccountForSlope(walkVector);
-		    
 		    rb.velocity += walkVector;
+		    
+		    if(Mathf.Abs(walkVector.x) > 0)
+		    {
+			    print("trying to play footsteps");
+			    AudioSource source = AudioManager.Instance.SearchSFX(footstepAClip);
+			    source.volume = .4f;
+			    source.pitch = 1.71f;
+			    AudioManager.Instance.TryPlaySFX(footstepAClip);
+		    }
 	    }
 	    //	ledge hang check
 	    bool hanging = false;
