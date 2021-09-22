@@ -51,35 +51,16 @@ public class PlayerMovement : MonoBehaviour
 			    break;
 		    case PlayerState.Crouch:
 			    break;
+		    case PlayerState.Hang:
+			    HangMovement();
+			    break;
 	    }
-        
-		
-		//	jump
-		// if(/* we're on the ground or on an edge */) {
-		// 	if(Input.GetKey("jump")) {
-		// 		veloc.y = jumpForce;
-		// 	} else if(veloc.y != 0) {
-		// 		veloc.y = 0;
-		// 	}
-		// }
-		// //	fall
-		// else {
-		// 	veloc.y -= gravity * Time.deltaTime;
-		// }
-		
-		//	hit wall or ceiling
-		// if(/* collide with wall */) {
-		// 	veloc.x = 0;
-		// }
-		// if(/* collide with ceiling */ && veloc.y != 0) {
-		// 	veloc.y = 0;
-		// }
-		
-        //  update position
-		// transform.position += new Vector3(veloc.x, veloc.y, 0);
-		
     }
-	
+
+    private void HangMovement()
+    {
+	    
+    }
     public void DoMovement()
     {
 	    var moveDir = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>();
