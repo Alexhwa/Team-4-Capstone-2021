@@ -23,13 +23,11 @@ public class MonkeyLight : MonoBehaviour
             if (!collider.GetComponent<PlayerCover>().InCover())
             {
                 print("Player found, Oo Oo Ah AH");
-                collider.GetComponent<SpriteRenderer>().color = Color.red;
-                //transform.GetChild(0).GetComponent<Light>().color = Color.red;
+                MonkeyAI monkey = transform.parent.parent.GetComponent<MonkeyAI>();
+                monkey.lookAtObject(collider.transform.position);
             }
             else
             {
-                //transform.GetChild(0).GetComponent<Light>().color = Color.white;
-                collider.GetComponent<SpriteRenderer>().color = Color.white;
             }
         }
     }

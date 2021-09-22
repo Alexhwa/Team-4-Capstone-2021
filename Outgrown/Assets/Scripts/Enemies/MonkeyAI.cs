@@ -30,8 +30,9 @@ public class MonkeyAI : MonoBehaviour
     {
     }
 
-    void lookAtObject(Vector3 pos)
+    public void lookAtObject(Vector3 pos)
     {
+        StopCoroutine("scanner");
         pos[2] = 0;     // ensure we are in 2D
         Vector3 direction;
         direction = left_eye.transform.position - pos;
@@ -59,7 +60,6 @@ public class MonkeyAI : MonoBehaviour
                 forward = true;
                 pathIndex += 2;
             }
-            print(pathIndex);
             // yield return new WaitForSeconds(6);
             yield return rotateOverTime(5);
         }
