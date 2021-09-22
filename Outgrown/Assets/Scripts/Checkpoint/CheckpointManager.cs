@@ -35,7 +35,10 @@ public class CheckpointManager : MonoBehaviour
 
     public void setCheckpoint(int index)
     {
-        preloaded.lastCheckpointPos = checkpoints[index].transform.position;
+        if (index >= checkpoints.Length)
+            preloaded.lastCheckpointPos = checkpoints[0].transform.position;
+        else
+            preloaded.lastCheckpointPos = checkpoints[index].transform.position;
     }
 
     public void sceneChanged()
