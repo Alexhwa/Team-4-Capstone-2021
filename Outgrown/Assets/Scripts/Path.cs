@@ -15,7 +15,7 @@ public class Path : MonoBehaviour {
 		return checkpoints;
 	}
 	
-	//	may not really use but who knows
+	//	may not really use this method, but who knows
 	public Vector3 getCheckpoint(int num) {
 		return checkpoints[num];
 	}
