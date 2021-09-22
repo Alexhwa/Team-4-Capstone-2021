@@ -93,10 +93,10 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private AudioSource SearchSFX(AudioClip clip)
+    public AudioSource SearchSFX(AudioClip clip)
     {
-        AudioSource source = sfxLibrary[clip];
-        if (!source)
+        AudioSource source = null;
+        if (!sfxLibrary.TryGetValue(clip, out source))
         {
             sfxLibrary.Add(clip, gameObject.AddComponent<AudioSource>());
             source = sfxLibrary[clip];
