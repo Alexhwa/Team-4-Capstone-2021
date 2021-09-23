@@ -84,11 +84,13 @@ public class PlayerMovement : MonoBehaviour
 		    
 		    if(Mathf.Abs(walkVector.x) > 0)
 		    {
-			    print("trying to play footsteps");
-			    AudioSource source = AudioManager.Instance.SearchSFX(footstepAClip);
-			    source.volume = .4f;
-			    source.pitch = 1.71f;
-			    AudioManager.Instance.TryPlaySFX(footstepAClip);
+			    AudioSource source = AudioManager.Instance?.SearchSFX(footstepAClip);
+			    if (source)
+			    {
+				    source.volume = .4f;
+				    source.pitch = 1.71f;
+				    AudioManager.Instance.TryPlaySFX(footstepAClip);
+			    }
 		    }
 	    }
 	    //	ledge hang check
