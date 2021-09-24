@@ -29,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
 	//Audio
 	[SerializeField] private AudioClip footstepAClip;
 	
+	//Animation
+	public Animator anim;
+	
 	//State
 	private enum PlayerState
 	{
@@ -47,9 +50,21 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 	    grounded = GroundCheck();
+	    AnimatorStateInfo animStateInfo = anim.GetCurrentAnimatorStateInfo(0);
 	    switch (currentState)
-	    {
+	    { 
+		    case PlayerState.Run:
+			    if (!animStateInfo.IsName("PlayerRun"))
+			    {
+				    anim.Play("PlayerRun");
+			    }
+			    DoMovement();
+			    break;
 		    case PlayerState.Idle:
+			    if (!animStateInfo.IsName("PlayerIdlev2"))
+			    {
+				    anim.Play("PlayerIdlev2");
+			    }
 			    DoMovement();
 			    break;
 		    case PlayerState.Crouch:
@@ -84,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
 		    
 		    if(Mathf.Abs(walkVector.x) > 0)
 		    {
+			    currentState = PlayerState.Run;
 			    AudioSource source = AudioManager.Instance?.SearchSFX(footstepAClip);
 			    if (source)
 			    {
@@ -91,6 +107,10 @@ public class PlayerMovement : MonoBehaviour
 				    source.pitch = 1.71f;
 				    AudioManager.Instance.TryPlaySFX(footstepAClip);
 			    }
+		    }
+		    else
+		    {
+			    currentState = PlayerState.Idle;
 		    }
 	    }
 	    //	ledge hang check
