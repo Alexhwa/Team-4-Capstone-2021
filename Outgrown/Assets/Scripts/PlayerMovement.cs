@@ -72,6 +72,13 @@ public class PlayerMovement : MonoBehaviour
 		    case PlayerState.Hang:
 			    HangMovement();
 			    break;
+		    case PlayerState.Fall:
+			    if (!animStateInfo.IsName("PlayerJump"))
+			    {
+				    anim.Play("PlayerJump");
+			    }
+			    DoMovement();
+			    break;
 	    }
     }
 
@@ -131,6 +138,11 @@ public class PlayerMovement : MonoBehaviour
 		    var newVel = rb.velocity;
 		    newVel.y = jumpForce;
 		    rb.velocity = newVel;
+	    }
+
+	    if (!grounded)
+	    {
+		    currentState = PlayerState.Fall;
 	    }
     }
     private bool GroundCheck()
