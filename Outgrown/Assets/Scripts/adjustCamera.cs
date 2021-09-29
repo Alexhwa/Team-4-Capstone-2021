@@ -23,7 +23,7 @@ public class adjustCamera : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            cam.orthographicSize = 20.0f;
+            cam.orthographicSize = 19;
             cam.GetComponent<DampCamera2D>().offset.y = 5;
         }
     }

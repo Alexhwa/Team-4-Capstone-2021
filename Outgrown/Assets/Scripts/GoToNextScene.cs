@@ -9,12 +9,14 @@ public class GoToNextScene : MonoBehaviour
     void Start()
     {
         string debugLevel = PlayerPrefs.GetString("Debug Level");
-        if (debugLevel != null)
+        if (debugLevel != "" && debugLevel != "Preload")
         {
             SceneManager.LoadScene(debugLevel);
+            PlayerPrefs.SetString("Debug Level", null);
         }
         else
         {
+            print("load first scene");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }

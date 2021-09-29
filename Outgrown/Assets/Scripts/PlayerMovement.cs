@@ -124,8 +124,8 @@ public class PlayerMovement : MonoBehaviour
 			    AudioSource source = AudioManager.Instance?.SearchSFX(footstepAClip);
 			    if (source)
 			    {
-				    source.volume = .2f;
-				    source.pitch = 1.1f;
+				    source.volume = .1f;
+				    source.pitch = 1.6f;
 				    AudioManager.Instance.TryPlaySFX(footstepAClip);
 			    }
 		    }
