@@ -19,12 +19,12 @@ public class IntroBunny : MonoBehaviour
 	private bool waitForPlayer = true;
 	
 	//	vars for storing current locations/speeds
-	private Vector2 nextLocation;
+	private Vector3 nextLocation;
 	private float moveSpeed = 0;
 	
     void Start(){
 		//	init paths
-		//	Currently, speeds must be edited manually HERE
+		//	Currently, speeds must be edited manually HERE: update this to some fix later but idk how
 		Path path1 = new Path(points1, new int[]{}),
 			path2 = new Path(points2, new int[]{}),
 			path3 = new Path(points3, new int[]{}),
@@ -32,22 +32,24 @@ public class IntroBunny : MonoBehaviour
 		paths = new Path[]{path1, path2, path3, path4};
 	}
     
+	//	Somebody move this to some method that only runs when waitForPlayer
 	void Update() {
 		if(!waitForPlayer) {
 			// move to nextLocation if not there yet
 			if(transform.position != nextLocation) {
+				//	ADD LERP HERE
 			}
 			else {
 				//	choose a new nextLocation
 				iter++;
 				
 				//	if we're all out of checkpoints for this path, stop
-				if(paths[currentPath].getCheckpoints().size() >= iter) {
+				if(paths[currentPath].getPoints().Capacity >= iter) {
 					waitForPlayer = true;
 				}
-				//	else select next checkpoint to move towards
+				//	else select next point to move towards
 				else {
-					nextLocation = paths[currentPath].getCheckpoint(iter);
+					nextLocation = paths[currentPath].getPoint(iter);
 					moveSpeed = paths[currentPath].getSpeed(iter);
 				}
 			}
@@ -58,7 +60,7 @@ public class IntroBunny : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D collider) {
 		if(waitForPlayer) {
 			currentPath++;
-			nextLocation = paths[currentPath].getCheckpoint(0);
+			nextLocation = paths[currentPath].getPoint(0);
 			moveSpeed = paths[currentPath].getSpeed(0);
 			//	ideally there will always be a nextLocation, add troubleshooting case here if needed
 			waitForPlayer = false;
