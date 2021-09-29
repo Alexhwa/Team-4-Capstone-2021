@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 	
 	//Animation
 	public Animator anim;
+	public SpriteRenderer sprtRnd;
 	
 	//State
 	private enum PlayerState
@@ -73,11 +74,13 @@ public class PlayerMovement : MonoBehaviour
 			    HangMovement();
 			    break;
 		    case PlayerState.Fall:
-			    if (!animStateInfo.IsName("PlayerJump"))
+			    if (!animStateInfo.IsName("PlayerJump") && !animStateInfo.IsName("PlayerJumpFall"))
 			    {
 				    anim.Play("PlayerJump");
 			    }
 			    DoMovement();
+			    
+			    anim.SetFloat("vSpeed", rb.velocity.y);
 			    break;
 	    }
     }
@@ -103,7 +106,12 @@ public class PlayerMovement : MonoBehaviour
 		    Vector2 walkVector = new Vector2(walkSpeed * Time.deltaTime * moveDir.x, 0);
 		    walkVector = AccountForSlope(walkVector);
 		    rb.velocity += walkVector;
-		    
+
+		    if (walkVector.x != 0)
+		    {
+			    TryFipSprite(walkVector.x > 0);
+		    }
+
 		    if(Mathf.Abs(walkVector.x) > 0)
 		    {
 			    currentState = PlayerState.Run;
@@ -188,5 +196,17 @@ public class PlayerMovement : MonoBehaviour
 
 	    walkVectorDebug = rotatedV;
 	    return rotatedV;
+    }
+
+    private void TryFipSprite(bool isMovingRight)
+    {
+	    if (isMovingRight && sprtRnd.flipX)
+	    {
+		    sprtRnd.flipX = false;
+	    }
+	    else if(!isMovingRight && !sprtRnd.flipX)
+	    {
+		    sprtRnd.flipX = true;
+	    }
     }
 }

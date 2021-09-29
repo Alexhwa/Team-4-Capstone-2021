@@ -171,6 +171,7 @@ MonoBehaviour:
   grounded: 0
   footstepAClip: {fileID: 8300000, guid: e85bd6e52e24b423ca6beff915a992e9, type: 3}
   anim: {fileID: 1969196757058915726}
+  sprtRnd: {fileID: 4896143902456909547}
 --- !u!114 &4589858785173858441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +305,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4589858785173858438}
     m_Modifications:
+    - target: {fileID: 109977618409112488, guid: 9dda5b4e4a9625840bf61bce0a3d43b5,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 395494176433111657, guid: 9dda5b4e4a9625840bf61bce0a3d43b5,
         type: 3}
       propertyPath: m_ConstrainRotation
@@ -969,6 +975,12 @@ PrefabInstance:
 --- !u!4 &3336113580597606294 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7798089818936130261, guid: 9dda5b4e4a9625840bf61bce0a3d43b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 4788488585901198659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &4896143902456909547 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 109977618409112488, guid: 9dda5b4e4a9625840bf61bce0a3d43b5,
     type: 3}
   m_PrefabInstance: {fileID: 4788488585901198659}
   m_PrefabAsset: {fileID: 0}
