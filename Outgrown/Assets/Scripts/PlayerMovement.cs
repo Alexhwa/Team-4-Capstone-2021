@@ -71,6 +71,10 @@ public class PlayerMovement : MonoBehaviour
 		    case PlayerState.Crouch:
 			    break;
 		    case PlayerState.Hang:
+			    if (!animStateInfo.IsName("PlayerLedgeGrab"))
+			    {
+				    anim.Play("PlayerLedgeGrab");
+			    }
 			    HangMovement();
 			    break;
 		    case PlayerState.Fall:
@@ -91,11 +95,13 @@ public class PlayerMovement : MonoBehaviour
 	    if (moveDir.y > 0)
 	    {
 		    var newVel = rb.velocity;
-		    newVel.y = jumpForce * 1.7f;
+		    newVel.y = jumpForce * 1.4f;
 		    rb.velocity = newVel;
+		    currentState = PlayerState.Idle;
+		    rb.gravityScale = gravity;
 	    }
 
-	    currentState = PlayerState.Idle;
+	    
     }
     public void DoMovement()
     {
@@ -136,6 +142,7 @@ public class PlayerMovement : MonoBehaviour
 		    currentState = PlayerState.Hang;
 		    rb.velocity *= 0;
 		    rb.gravityScale = 0;
+		    return;
 	    }
 	    else
 		    rb.gravityScale = gravity;
