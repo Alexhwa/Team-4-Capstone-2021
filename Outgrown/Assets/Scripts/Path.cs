@@ -4,19 +4,34 @@ using UnityEngine;
 
 public class Path : MonoBehaviour {
 	//	first two axes are XY plane, third is speed to move
-	private Vector3[] checkpoints;
+	private ArrayList points;
+	private ArrayList speeds;
 	
-	//	create paths with predetermined positions
-	void createCheckpoints(Vector3[] these) {
-		checkpoints = these;
+	//	Constructor takes a parent object to a series of point objects as param
+	//	Stores their positions in points, speeds in speeds
+	public Path(GameObject pointArr, int[] speedArr) {
+		points = new ArrayList();
+		speeds = new ArrayList();
+		
+		//	 Iterate through points in points, stores locations
+		for(int i = 0; i < pointArr; i++)
+			points.Add(pointArr.GetChild(i));
+		
+		//	troubleshooting for not enough speeds
+		if(pointArr.Length != speeds.Length)
+			print("ERROR: wrong number of speeds in Path param!");
+		
+		//	set speeds
+		speeds.AddRange(speedArr);
 	}
 	
-	public Vector3[] getCheckpoints() {
-		return checkpoints;
-	}
-	
-	//	may not really use this method, but who knows
-	public Vector3 getCheckpoint(int num) {
-		return checkpoints[num];
-	}
+	//	getters
+	public Vector2[] getPoints()
+		return points;
+	public int[] getSpeeds()
+		return speeds;
+	public Vector3 getPoint(int num)
+		return points[num];
+	public int getSpeed(int num)
+		return speeds[num];
 }
