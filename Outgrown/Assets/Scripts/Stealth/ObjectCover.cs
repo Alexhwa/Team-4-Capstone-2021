@@ -10,7 +10,6 @@ public class ObjectCover : MonoBehaviour
         if (collider.tag == "Player")
         {
             collider.GetComponent<PlayerCover>().SetInCover(true);
-            print("player entering cover");
         }
     }
     void OnTriggerExit2D(Collider2D collider)
@@ -18,7 +17,6 @@ public class ObjectCover : MonoBehaviour
         if (collider.tag == "Player")
         {
             collider.GetComponent<PlayerCover>().SetInCover(false);
-            print("player exiting cover");
         }
     }
 }
