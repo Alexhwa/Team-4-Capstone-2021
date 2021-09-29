@@ -12,7 +12,12 @@ public class PlayerDeath : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        preloader = GameObject.FindGameObjectWithTag("Preloader").GetComponent<Preloaded>();
+        if (preloader.sceneChange)
+        {
+            print(preloader.lastCheckpointPos);
+            transform.position = preloader.lastCheckpointPos;
+        }
     }
 
     // Update is called once per frame
@@ -26,7 +31,8 @@ public class PlayerDeath : MonoBehaviour
         if (damage >= playerHealth)
         {
             preloader = GameObject.FindGameObjectWithTag("Preloader").GetComponent<Preloaded>();
-            transform.position = preloader.lastCheckpointPos;
+            preloader.sceneChange = true;
+            SceneManager.LoadScene("Level1");
         }
         else
         {
