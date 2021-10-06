@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Color: {r: 0.7311321, g: 1, b: 0.8663465, a: 1}
   m_Intensity: 2.6
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000533ed3de
+  m_ApplyToSortingLayers: 533ed3de
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -1028,7 +1028,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2521209984378620964}
   m_LocalRotation: {x: -0, y: -0, z: 0.9999988, w: 0.0015361017}
-  m_LocalPosition: {x: 2.6, y: 16.6, z: 24.989998}
+  m_LocalPosition: {x: 2.6, y: 16.6, z: -0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2277926654270714167}
