@@ -208,7 +208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5074529519621306150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 192.86479, y: -15.15717, z: -22.334003}
+  m_LocalPosition: {x: 192.86479, y: -15.15717, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1852527401709108235}
@@ -230,8 +230,8 @@ MonoBehaviour:
   KeyPressText: {fileID: 4990395725716856929}
   ActionText: {fileID: 8133019236910984274}
   Canvas: {fileID: 3601968233986511201}
-  newKeyPress: 
-  newAction: 
+  newKeyPressText: 
+  newActionText: 
 --- !u!61 &8708408237054744198
 BoxCollider2D:
   m_ObjectHideFlags: 0

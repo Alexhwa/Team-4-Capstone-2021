@@ -5,6 +5,8 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using TMPro;
+using Yarn.Unity;
+using Yarn.Unity.Example;
 
 
 public class InteractButton : MonoBehaviour
@@ -12,22 +14,25 @@ public class InteractButton : MonoBehaviour
     [SerializeField] TMP_Text KeyPressText;
     [SerializeField] TMP_Text ActionText;
     [SerializeField] GameObject Canvas;
+    [SerializeField] GameObject dialogueEvent;
+    [SerializeField] DialogueRunner dialogueRunner;
+    [SerializeField] NPC npc;
 
     UnityEvent m_MyEvent = new UnityEvent();
 
-    public string newKeyPress;
-    public string newAction;
+    public string newKeyPressText;
+    public string newActionText;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (newKeyPress.Length != 0)
+        if (newKeyPressText.Length != 0)
         {
-            KeyPressText.text = newKeyPress;
+            KeyPressText.text = newKeyPressText;
         }
-        if (newAction.Length != 0)
+        if (newActionText.Length != 0)
         {
-            ActionText.text = newAction;
+            ActionText.text = newActionText;
         }
         Canvas.SetActive(false);
     }
@@ -39,12 +44,20 @@ public class InteractButton : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        print("hi");
         Canvas.SetActive(true);
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
         Canvas.SetActive(false);
+    }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (InputController.Inst.inputMaster.Player.Interact.triggered && !dialogueRunner.IsDialogueRunning)
+        {
+            dialogueEvent.SetActive(true);
+            dialogueRunner.StartDialogue(npc.talkToNode);
+        }
     }
 }

@@ -42,7 +42,7 @@ namespace Yarn.Unity.Example {
         void Start () {
             if (scriptToLoad != null) {
                 DialogueRunner dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
-                dialogueRunner.Add(scriptToLoad);                
+                dialogueRunner.Add(scriptToLoad);
             }
         }
     }
