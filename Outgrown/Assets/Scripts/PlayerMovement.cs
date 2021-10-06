@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-	    grounded = GroundCheck();
+		grounded = GroundCheck();
 	    AnimatorStateInfo animStateInfo = anim.GetCurrentAnimatorStateInfo(0);
 	    switch (currentState)
 	    { 
@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HangMovement()
     {
-	    var moveDir = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>();
+		var moveDir = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>();
 	    if (moveDir.y > 0)
 	    {
 		    var newVel = rb.velocity;
