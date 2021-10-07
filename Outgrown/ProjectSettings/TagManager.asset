@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Checkpoint
   - Preloader
+  - Obstacle
   layers:
   - Default
   - TransparentFX
