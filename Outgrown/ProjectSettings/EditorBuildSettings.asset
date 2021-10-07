@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MonkeyTest.unity
     guid: fddc6198ec7a0f248badcfe679d8b3e5
   - enabled: 0
-    path: Assets/Scenes/Level2.unity
+    path: Assets/Scenes/Level2oldTest.unity
     guid: b7d479c63cc247848936c6ece1f18777
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 7f3d8bac5f4b8b34ba7128bffeefdd94,

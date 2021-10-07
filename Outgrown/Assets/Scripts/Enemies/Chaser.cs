@@ -24,7 +24,10 @@ public class Chaser : MonoBehaviour
     [SerializeField] private float acceleration;
     //Max speed before the chaser stops running toward the target
     [SerializeField] private float maxSpeed;
-
+    //How much the chaser slows down when it runs into and destroys an obstacle
+    [Range(0f,1f)]
+    [SerializeField] private float obstacleDampenFactor;
+    
     private Rigidbody2D rb;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,6 +38,23 @@ public class Chaser : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag.Equals("Obstacle"))
+        {
+            Destroy(other.gameObject);
+            rb.velocity *= obstacleDampenFactor;
+        }
+
+        if (other.gameObject.tag.Equals("Player"))
+        {
+            GameObject that = other.gameObject;
+            var PDscript = that.GetComponent<PlayerDeath>();
+            if(PDscript != null) {
+                PDscript.damagePlayer(1);
+            }
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
