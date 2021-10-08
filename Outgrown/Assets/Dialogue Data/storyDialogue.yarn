@@ -1,0 +1,49 @@
+title: Doll
+tags: 
+colorID: 0
+position: 0,0
+---
+<<SetSpeaker DollDialogueEvent dollBubble>>
+my sister lost my arm #line:000001
+can you find it for me? #line:000002
+===
+title: DollAfterBringArm
+tags:
+colorID: 0
+position: 0,0
+---
+<<SetSpeaker DollDialogueEvent dollBubble>>
+thank you for finding my arm #line:000011
+you should not be here #line:000012
+you are in the quondam #line:000013
+where forgotten toys go #line:000014
+some toys go mad in here #line:000015
+others rot away #line:000016
+you must escape #line:000017
+look out for my sister #line:000018
+good luck #line:000019
+===
+title: Cat
+tags: 
+colorID: 0
+position: 0,0
+---
+<<SetSpeaker CatDialogueEvent catBubble>>
+<<if visited("Cat") is false>>
+	you don't look like a soldier #line:000021
+	quick come hide with me #line:000021
+<<else>>
+	quick come hide before they come #line:000023
+<<endif>>
+===
+title: CatWhenHiding
+tags:
+colorID: 0
+position: 0,0
+---
+<<SetSpeaker CatDialogueEvent catBubble>>
+those soldiers once protected this house from bad toys #line:000031
+but now they kill any toy they see #line:000032
+they may think you are a bad toy #line:000033
+you should avoid them #line:000034
+===
