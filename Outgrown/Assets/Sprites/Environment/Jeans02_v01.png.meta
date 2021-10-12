@@ -1,7 +1,49 @@
 fileFormatVersion: 2
 guid: ffbf8799ce3640c4b85275a99f28634c
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3811412048124827664
+    second: Jeans02_v01_0
+  - first:
+      213: -2365915711553606973
+    second: Jeans02_v01_1
+  - first:
+      213: 7072134055681701088
+    second: Jeans02_v01_2
+  - first:
+      213: -7152351965009410833
+    second: Jeans02_v01_3
+  - first:
+      213: -7953281075752833109
+    second: Jeans02_v01_4
+  - first:
+      213: -8927133324267494315
+    second: Jeans02_v01_5
+  - first:
+      213: -8848753056348767476
+    second: Jeans02_v01_6
+  - first:
+      213: 5108335586587421199
+    second: Jeans02_v01_7
+  - first:
+      213: -4017804721641994008
+    second: Jeans02_v01_8
+  - first:
+      213: -1214396854659486745
+    second: Jeans02_v01_9
+  - first:
+      213: -8876505016224679658
+    second: Jeans02_v01_10
+  - first:
+      213: 5649214443372319725
+    second: Jeans02_v01_11
+  - first:
+      213: 1857152851635385495
+    second: Jeans02_v01_12
+  - first:
+      213: -8040046127697763927
+    second: Jeans02_v01_13
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,7 +139,301 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Jeans02_v01_0
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 1866
+        width: 427
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 018df15601bd4e430800000000000000
+      internalID: 3811412048124827664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeans02_v01_1
+      rect:
+        serializedVersion: 2
+        x: 1989
+        y: 2288
+        width: 768
+        height: 418
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cae45c02349a2fd0800000000000000
+      internalID: -2365915711553606973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeans02_v01_2
+      rect:
+        serializedVersion: 2
+        x: 2819
+        y: 1871
+        width: 422
+        height: 801
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e4b9d03474452260800000000000000
+      internalID: 7072134055681701088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeans02_v01_3
+      rect:
+        serializedVersion: 2
+        x: 1953
+        y: 1840
+        width: 838
+        height: 418
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe40c0958cdbdbc90800000000000000
+      internalID: -7152351965009410833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeans02_v01_4
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 1028
+        width: 778
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baf6ae8fff440a190800000000000000
+      internalID: -7953281075752833109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeans02_v01_5
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 1055
+        width: 425
+        height: 758
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 554eb702a837c1480800000000000000
+      internalID: -8927133324267494315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeans02_v01_6
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 996
+        width: 427
+        height: 828
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0bfd2b5af9e23580800000000000000
+      internalID: -8848753056348767476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeans02_v01_7
+      rect:
+        serializedVersion: 2
+        x: 1953
+        y: 998
+        width: 844
+        height: 832
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0aa700a62474e640800000000000000
+      internalID: 5108335586587421199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeans02_v01_8
+      rect:
+        serializedVersion: 2
+        x: 2819
+        y: 1002
+        width: 417
+        height: 824
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e844a594e3ed38c0800000000000000
+      internalID: -4017804721641994008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeans02_v01_9
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 150
+        width: 427
+        height: 797
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eb6badae78952fe0800000000000000
+      internalID: -1214396854659486745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeans02_v01_10
+      rect:
+        serializedVersion: 2
+        x: 1958
+        y: 550
+        width: 839
+        height: 418
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61974fca7b150d480800000000000000
+      internalID: -8876505016224679658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeans02_v01_11
+      rect:
+        serializedVersion: 2
+        x: 2819
+        y: 156
+        width: 422
+        height: 798
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de3963dfa9a066e40800000000000000
+      internalID: 5649214443372319725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeans02_v01_12
+      rect:
+        serializedVersion: 2
+        x: 1958
+        y: 104
+        width: 839
+        height: 419
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 794b45fcdaee5c910800000000000000
+      internalID: 1857152851635385495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeans02_v01_13
+      rect:
+        serializedVersion: 2
+        x: 3239
+        y: 1002
+        width: 426
+        height: 785
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a1e1d415a40c6090800000000000000
+      internalID: -8040046127697763927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
