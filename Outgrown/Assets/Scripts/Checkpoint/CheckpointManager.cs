@@ -3,45 +3,65 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CheckpointManager : MonoBehaviour
+public class CheckpointManager : Singleton<CheckpointManager>
 {
-    [SerializeField] GameObject[] checkpoints;
+    [SerializeField] List<Vector3> checkpoints;
     [SerializeField] GameObject player;
 
-    private Preloaded preloaded;
-    //private int checkpointIndex = 0;
+    public Vector3 lastCheckpointPos;
+    private int checkpointIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        checkpoints = new List<Vector3>();
         if (SceneManager.GetActiveScene().name != "Title")
         {
             player = GameObject.FindGameObjectWithTag("Player");
+            findCheckPoints();
         }
-        //preloaded = GameObject.FindGameObjectWithTag("Preloader").GetComponent<Preloaded>();
-        Preloaded.Instance.lastCheckpointPos = transform.position;
+    }
+
+    public void findCheckPoints()
+    {
+        GameObject levelCheckpoints = GameObject.FindGameObjectWithTag("Checkpoint");
+        if (levelCheckpoints.transform.childCount == 0)
+        {
+            print("There are no checkpoints");
+        }
+        for (int i=0; i< levelCheckpoints.transform.childCount; i++)
+        {
+            checkpoints.Add(levelCheckpoints.transform.GetChild(i).transform.position);
+        }
     }
 
     public void loadCheckpoint()
     {
-        player.transform.position = preloaded.lastCheckpointPos;
+        player.transform.position = lastCheckpointPos;
     }
 
     public void setCheckpoint(Checkpoint cpt)
     {
-        Preloaded.Instance.lastCheckpointPos = cpt.transform.position;
+        lastCheckpointPos = cpt.transform.position;
     }
 
     public void setCheckpoint(int index)
     {
-        if (index >= checkpoints.Length)
-            preloaded.lastCheckpointPos = checkpoints[0].transform.position;
+        if (index >= checkpoints.Count)
+        {
+            checkpointIndex = 0;
+            Debug.LogError("Set checkpoint index to invalid index");
+        }
         else
-            preloaded.lastCheckpointPos = checkpoints[index].transform.position;
+        {
+            checkpointIndex = index;
+        }
+        lastCheckpointPos = checkpoints[checkpointIndex];
     }
 
     public void sceneChanged()
     {
-         
+        findCheckPoints();
+        checkpointIndex = 0;
     }
 }

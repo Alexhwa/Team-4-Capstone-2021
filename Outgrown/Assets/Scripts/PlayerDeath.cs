@@ -15,7 +15,7 @@ public class PlayerDeath : MonoBehaviour
         // preloader = GameObject.FindGameObjectWithTag("Preloader").GetComponent<Preloaded>();
         if (Preloaded.Instance.sceneChange)
         {
-            transform.position = Preloaded.Instance.lastCheckpointPos;
+            transform.position = CheckpointManager.Instance.lastCheckpointPos;
         }
     }
 

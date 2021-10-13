@@ -9,7 +9,7 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            transform.parent.GetComponent<CheckpointManager>().setCheckpoint(this);
+            CheckpointManager.Instance.setCheckpoint(this);
             print("triggered checkpoint");
         }
     }

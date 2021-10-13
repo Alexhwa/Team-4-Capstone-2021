@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 public class Preloaded : Singleton<Preloaded>
 {
-    public Vector3 lastCheckpointPos;
     public bool sceneChange = false;
 
     // Start is called before the first frame update
