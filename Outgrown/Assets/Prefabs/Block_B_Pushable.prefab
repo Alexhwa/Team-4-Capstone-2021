@@ -116,6 +116,11 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.border.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3577002282431218884, guid: a5d8eec3789867b4790d17a3d006bde6,
+        type: 3}
+      propertyPath: m_InstanceId
+      value: -28758
+      objectReference: {fileID: 0}
     - target: {fileID: 4820224195730851492, guid: a5d8eec3789867b4790d17a3d006bde6,
         type: 3}
       propertyPath: m_RootOrder
