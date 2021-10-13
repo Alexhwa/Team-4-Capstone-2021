@@ -15,7 +15,7 @@ public class DampCamera2D : MonoBehaviour
 
     private void Start()
     {
-        if (delayFollow > 0 && !GameObject.FindGameObjectWithTag("Preloader").GetComponent<Preloaded>().sceneChange)
+        if (delayFollow > 0 && !Preloaded.Instance.sceneChange)
         {
             StartCoroutine(StartFollowing(delayFollow));
         }

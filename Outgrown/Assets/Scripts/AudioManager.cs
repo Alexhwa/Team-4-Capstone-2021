@@ -6,41 +6,10 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEngine.SceneManagement;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
-    private static AudioManager _instance;
-
-    public static AudioManager Instance
-    {
-        get
-        {
-            if (Application.isEditor)
-            {
-                if (_instance == null)
-                {
-                    PlayerPrefs.SetString("Debug Level", SceneManager.GetActiveScene().name);
-                    SceneManager.LoadScene("Preload");
-                }
-            }
-
-            return _instance;
-        }
-    }
     public static float defaultSFXVolume { get { return .75f; } }
     
-    private void Awake()
-    {
-        //if there already exists a GameState somewhere in the scene, destroy this one
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        //otherwise, store reference
-        else
-        {
-            _instance = this;
-        }
-    }
     private Dictionary<AudioClip, AudioSource> sfxLibrary = new Dictionary<AudioClip, AudioSource>();
     public AudioSource musicSource;
 

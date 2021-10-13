@@ -27,7 +27,6 @@ public class MonkeyLight : MonoBehaviour
                 MonkeyAI monkey = transform.parent.parent.GetComponent<MonkeyAI>();
                 monkey.lookAtObject(collider.transform.position);
                 transform.GetChild(0).GetComponent<Light2D>().color = Color.red;
-                GameObject.FindGameObjectWithTag("Preloader").GetComponent<Preloaded>();
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDeath>().damagePlayer(1);
             }
         }

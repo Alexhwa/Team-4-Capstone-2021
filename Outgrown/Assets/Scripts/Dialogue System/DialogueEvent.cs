@@ -41,7 +41,6 @@ public class DialogueEvent : MonoBehaviour
             }
             if (InputController.Inst.inputMaster.Player.Move.triggered)
             {
-                print("move press");
                 buttonIndex = dialogueUI.optionButtons.Count % ++buttonIndex;
                 dialogueUI.optionButtons[buttonIndex].Select();
             }

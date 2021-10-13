@@ -17,6 +17,16 @@ ScriptedImporter:
   - introtest-Start-4
   - introtest-someone-5
   - introtest-something-6
+  - introtest-Start.setspeaker-7
+  - introtest-Start.setspeaker-8
+  - introtest-Start.setspeaker-9
+  - introtest-Start.setspeaker-10
+  - introtest-Start.setspeaker-11
+  - introtest-Start.setspeaker-12
+  - introtest-Start.setspeaker-13
+  - introtest-res1-14
+  - introtest-res2-15
+  - introtest-res3-16
   compilationStatus: 1
   isSuccesfullyCompiled: 1
   compilationErrorMessage: 

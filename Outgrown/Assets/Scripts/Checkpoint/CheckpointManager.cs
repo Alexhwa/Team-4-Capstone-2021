@@ -18,8 +18,8 @@ public class CheckpointManager : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
-        preloaded = GameObject.FindGameObjectWithTag("Preloader").GetComponent<Preloaded>();
-        preloaded.lastCheckpointPos = transform.position;
+        //preloaded = GameObject.FindGameObjectWithTag("Preloader").GetComponent<Preloaded>();
+        Preloaded.Instance.lastCheckpointPos = transform.position;
     }
 
     public void loadCheckpoint()
@@ -29,8 +29,7 @@ public class CheckpointManager : MonoBehaviour
 
     public void setCheckpoint(Checkpoint cpt)
     {
-        preloaded.lastCheckpointPos = cpt.transform.position;
-        print(preloaded.lastCheckpointPos);
+        Preloaded.Instance.lastCheckpointPos = cpt.transform.position;
     }
 
     public void setCheckpoint(int index)
