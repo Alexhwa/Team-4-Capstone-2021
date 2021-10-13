@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: a4cf37c27182f8344b25b0f0985a9996
   - enabled: 1
+    path: Assets/Scenes/Level1_WhiteboxTest.unity
+    guid: ecd61145ddb7353468680f817df100dd
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 4a35e6e00416f324397e6a89e7223491
   - enabled: 1
