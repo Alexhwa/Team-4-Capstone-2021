@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpiderBehavior : MonoBehaviour {
-	private enum State {Inactive, Begin, Chase};
-	int currentState = State.Inactive;
+	private enum SpiderState {Inactive, Begin, Chase};
+	SpiderState currentState = SpiderState.Inactive;
 	bool isClose = false;
 	[SerializeField] private int speed;
-	[SerializeField] private int breakSlow = 0.9;
-	[SerializeField] private int closeBreakSlowMult = 0.8;
+	//[SerializeField] private int breakSlow = 0.9;
+	//[SerializeField] private int closeBreakSlowMult = 0.8;
 	
 	void Update()
 	{
-		switch() {
-			case State.Inactive: break;
-			case State.Begin: begin(); break;
-			case State.Chase: chase(); break;
+		switch(currentState) {
+			case SpiderState.Inactive: break;
+			case SpiderState.Begin: begin(); break;
+			case SpiderState.Chase: chase(); break;
 			default: print("ERROR: Invalid SpiderBehavior State!");
+				break;
 		}
 	}
 	
@@ -37,7 +38,7 @@ public class SpiderBehavior : MonoBehaviour {
 	//	when receive signal onActivate
 	void onActivate()
 	{
-		currentState = State.Begin();
+		//currentState = SpiderState.Begin();
 	}
 	
 	void onEndBeginAnimation()
@@ -53,12 +54,12 @@ public class SpiderBehavior : MonoBehaviour {
 		if(isClose)
 		{
 			//	play animation/sound of opening mouth
-			breakSlow *= closeBreakSlowMult;
+			//breakSlow *= closeBreakSlowMult;
 		}
 		else
 		{
 			//	close mouth
-			breakSlow /= closeBreakSlowMult;
+			//breakSlow /= closeBreakSlowMult;
 		}
 		isClose = !isClose;
 	}
