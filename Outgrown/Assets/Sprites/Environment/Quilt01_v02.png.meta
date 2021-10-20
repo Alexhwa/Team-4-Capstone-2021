@@ -1,7 +1,49 @@
 fileFormatVersion: 2
 guid: 30eb853aa7b848f4590821f229b5a184
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3975227895950310184
+    second: TL
+  - first:
+      213: 8535279563146919159
+    second: Top
+  - first:
+      213: -1660100713134371760
+    second: TR
+  - first:
+      213: 2318793693820808858
+    second: Quilt01_v02_3
+  - first:
+      213: -2565207321547927959
+    second: Fill
+  - first:
+      213: -1227029760356361683
+    second: L
+  - first:
+      213: -7071629183634357513
+    second: Quilt01_v02_6
+  - first:
+      213: -1420274641571526595
+    second: Closed
+  - first:
+      213: 728026949319881294
+    second: Quilt01_v02_8
+  - first:
+      213: -1781592288368322183
+    second: R
+  - first:
+      213: -634849744110493064
+    second: BL
+  - first:
+      213: 8366099146216786210
+    second: Quilt01_v02_11
+  - first:
+      213: 8448870480255703836
+    second: BR
+  - first:
+      213: 259507214488060789
+    second: Bottom
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -42,7 +84,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -97,7 +139,301 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: TL
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 1864
+        width: 418
+        height: 798
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d488a05a4725d8c0800000000000000
+      internalID: -3975227895950310184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top
+      rect:
+        serializedVersion: 2
+        x: 1997
+        y: 2286
+        width: 754
+        height: 419
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fcf5047a87637670800000000000000
+      internalID: 8535279563146919159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TR
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 1864
+        width: 415
+        height: 802
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05cc04e623326f8e0800000000000000
+      internalID: -1660100713134371760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quilt01_v02_3
+      rect:
+        serializedVersion: 2
+        x: 1966
+        y: 1843
+        width: 827
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9eea9b34920e2020800000000000000
+      internalID: 2318793693820808858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fill
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 1028
+        width: 757
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96e87e7388d866cd0800000000000000
+      internalID: -2565207321547927959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: L
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 996
+        width: 420
+        height: 827
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2a502d1fe6b8fee0800000000000000
+      internalID: -1227029760356361683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quilt01_v02_6
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 1026
+        width: 420
+        height: 766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f2403e79b68cdd90800000000000000
+      internalID: -7071629183634357513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Closed
+      rect:
+        serializedVersion: 2
+        x: 1978
+        y: 993
+        width: 801
+        height: 830
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3842a90dbb2a4ce0800000000000000
+      internalID: -1420274641571526595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quilt01_v02_8
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 1013
+        width: 414
+        height: 772
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e427f1537a87a1a00800000000000000
+      internalID: 728026949319881294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: R
+      rect:
+        serializedVersion: 2
+        x: 3245
+        y: 993
+        width: 415
+        height: 828
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9791b35c0438647e0800000000000000
+      internalID: -1781592288368322183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BL
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 154
+        width: 418
+        height: 797
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 872eb84758f8037f0800000000000000
+      internalID: -634849744110493064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quilt01_v02_11
+      rect:
+        serializedVersion: 2
+        x: 1964
+        y: 554
+        width: 827
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22943f519da5a1470800000000000000
+      internalID: 8366099146216786210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BR
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 150
+        width: 415
+        height: 799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1bdce010fa604570800000000000000
+      internalID: 8448870480255703836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bottom
+      rect:
+        serializedVersion: 2
+        x: 1997
+        y: 113
+        width: 754
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5734638cf64f99300800000000000000
+      internalID: 259507214488060789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

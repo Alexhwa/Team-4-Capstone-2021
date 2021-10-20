@@ -1,7 +1,34 @@
 fileFormatVersion: 2
-guid: f2d41fee1a7d3cc44b1a2df70ecc1649
+guid: 3030aa92897b54f43af8b97f4319c220
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7845438112628951597
+    second: TOPLEFT
+  - first:
+      213: -3777355877407976547
+    second: TOP
+  - first:
+      213: 7340573900916458860
+    second: TOPRIGHT
+  - first:
+      213: 465624102948708239
+    second: LEFT
+  - first:
+      213: 5005197659951090738
+    second: FILL
+  - first:
+      213: 6645669437559994438
+    second: RIGHT
+  - first:
+      213: 2444573170308521607
+    second: BOTTOMLEFT
+  - first:
+      213: -1723802162178733967
+    second: BOTTOM
+  - first:
+      213: -5636635243753719918
+    second: BOTTOMRIGHT
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -99,295 +126,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TL
+      name: TOPLEFT
       rect:
         serializedVersion: 2
-        x: 1528
-        y: 1862
-        width: 418
-        height: 791
+        x: 338
+        y: 1235
+        width: 391
+        height: 406
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c947723c999083660800000000000000
-      internalID: 7365647746573235356
+      spriteID: 3d5b07d7a976f1390800000000000000
+      internalID: -7845438112628951597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Quilt02_v02_1
+      name: TOP
       rect:
         serializedVersion: 2
-        x: 1998
-        y: 2282
-        width: 753
-        height: 426
+        x: 799
+        y: 1228
+        width: 743
+        height: 405
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4bbf5b816e1094d0800000000000000
-      internalID: -3129968336723526837
+      spriteID: d931dd0c7d2249bc0800000000000000
+      internalID: -3777355877407976547
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TR
+      name: TOPRIGHT
       rect:
         serializedVersion: 2
-        x: 2818
-        y: 1864
-        width: 411
-        height: 783
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df2079a68f773eb30800000000000000
-      internalID: 4315424776774943485
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Top
-      rect:
-        serializedVersion: 2
-        x: 1966
-        y: 1843
-        width: 826
-        height: 417
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba8f8145600e54650800000000000000
-      internalID: 6216621178440186027
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fill
-      rect:
-        serializedVersion: 2
-        x: 118
-        y: 1029
-        width: 754
-        height: 754
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d8e1e86ae62a94c0800000000000000
-      internalID: -4280065707638396718
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Quilt02_v02_5
-      rect:
-        serializedVersion: 2
-        x: 1088
-        y: 996
-        width: 419
-        height: 823
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec1876f7e4bcdc3e0800000000000000
-      internalID: -2031744318868848178
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Quilt02_v02_6
-      rect:
-        serializedVersion: 2
-        x: 1528
-        y: 1028
-        width: 418
-        height: 759
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8a46971ca45cde90800000000000000
-      internalID: -6999626622733759862
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Closed
-      rect:
-        serializedVersion: 2
-        x: 1966
-        y: 994
-        width: 818
-        height: 825
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 7, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d8fe6378c8435a30800000000000000
-      internalID: 4202782903034116308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Quilt02_v02_8
-      rect:
-        serializedVersion: 2
-        x: 2818
-        y: 1034
-        width: 411
-        height: 753
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1b036d9821cf388f0800000000000000
-      internalID: -539310373802200911
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Quilt02_v02_9
-      rect:
-        serializedVersion: 2
-        x: 3243
-        y: 994
+        x: 1621
+        y: 1235
         width: 412
-        height: 823
+        height: 403
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 3, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f914a576fac714260800000000000000
-      internalID: 7080077181998219679
+      spriteID: c6501a32215fed560800000000000000
+      internalID: 7340573900916458860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BL
+      name: LEFT
       rect:
         serializedVersion: 2
-        x: 1528
-        y: 152
-        width: 418
-        height: 791
+        x: 9
+        y: 821
+        width: 734
+        height: 394
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 3, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d8efd3ee3b1eecd0800000000000000
-      internalID: -2527052383983245095
+      spriteID: f8f1e1797aa367600800000000000000
+      internalID: 465624102948708239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Quilt02_v02_12
+      name: FILL
       rect:
         serializedVersion: 2
-        x: 1966
-        y: 556
-        width: 825
-        height: 412
+        x: 790
+        y: 464
+        width: 752
+        height: 752
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 218b1d1ce18b610b0800000000000000
-      internalID: -5758212631306323950
+      spriteID: 23c4008c0c8067540800000000000000
+      internalID: 5005197659951090738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BR
+      name: RIGHT
       rect:
         serializedVersion: 2
-        x: 2818
-        y: 158
-        width: 411
-        height: 783
+        x: 1567
+        y: 812
+        width: 742
+        height: 414
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fa2f2238ec05b4f0800000000000000
-      internalID: -813729966256608528
+      spriteID: 648fe68a4292a3c50800000000000000
+      internalID: 6645669437559994438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Quilt02_v02_14
+      name: BOTTOMLEFT
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 115
-        width: 755
-        height: 412
+        x: 314
+        y: 7
+        width: 395
+        height: 438
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 2, w: 3}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9dfbfa20187ef79b0800000000000000
-      internalID: -5080087313368760359
+      spriteID: 78e90b3b85edce120800000000000000
+      internalID: 2444573170308521607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BOTTOM
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 21
+        width: 745
+        height: 429
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 2, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 178494c0113d318e0800000000000000
+      internalID: -1723802162178733967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BOTTOMRIGHT
+      rect:
+        serializedVersion: 2
+        x: 1576
+        y: 9
+        width: 438
+        height: 427
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 26, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 297bc972c16a6c1b0800000000000000
+      internalID: -5636635243753719918
       vertices: []
       indices: 
       edges: []
