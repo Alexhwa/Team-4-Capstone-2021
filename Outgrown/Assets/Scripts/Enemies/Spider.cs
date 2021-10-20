@@ -12,7 +12,12 @@ public class Spider : MonoBehaviour
     public float minDistAway;
     [Range(0f,1f)]
     public float bodyYAdjustSpeed;
+    
     public LayerMask groundMask;
+    
+    private enum SpiderState {Inactive, Begin, Chase};
+    SpiderState currentState = SpiderState.Inactive;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +51,12 @@ public class Spider : MonoBehaviour
                 newYLoc.y += minDistAway;
                 bodyTransform.position = Vector3.Lerp(bodyTransform.position, newYLoc, bodyYAdjustSpeed);
             }
+        }
+        else
+        {
+            Vector3 newYLoc = bodyTransform.position;
+            newYLoc.y = -200;
+            bodyTransform.position = Vector3.Lerp(bodyTransform.position, newYLoc, .2f);
         }
     }
 
