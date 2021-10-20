@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5382139440761468333}
   - component: {fileID: 2492519871471321058}
   - component: {fileID: -295560134225620065}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Letter blocks_D
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

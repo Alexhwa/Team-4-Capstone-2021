@@ -27,14 +27,22 @@ public class Chaser : MonoBehaviour
     //How much the chaser slows down when it runs into and destroys an obstacle
     [Range(0f,1f)]
     [SerializeField] private float obstacleDampenFactor;
+    [Range(1f, 2f)]
+    [SerializeField] private float rubberBandStrength;
+
+    [SerializeField] private float maxDistBeforeRubberBanding;
     
     private Rigidbody2D rb;
+    public Animator anim;
+    
+    public bool chasing;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (targetTagMask.Contains(other.tag))
         {
             target = other.transform;
+            anim.Play("WakeUp");
         }
     }
 
@@ -66,7 +74,7 @@ public class Chaser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target)
+        if (chasing)
         {
             if (Mathf.Abs(rb.velocity.x) < maxSpeed)
             {
@@ -78,9 +86,12 @@ public class Chaser : MonoBehaviour
                     flipScale.x *= -1;
                     transform.localScale = flipScale;
                 }
+                //Rubber band factor
+                var bandForce = 1 + Mathf.Abs(target.position.x - transform.position.x) / maxDistBeforeRubberBanding *
+                    rubberBandStrength;
                 //accelerate toward target
                 rb.velocity += new Vector2((target.position - transform.position).x, 0).normalized * Time.deltaTime *
-                               acceleration;
+                               acceleration * bandForce;
             }
         }
     }

@@ -1108,7 +1108,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 5.3780336, y: 1.3297467}
@@ -2351,9 +2351,13 @@ MonoBehaviour:
   target: {fileID: 0}
   targetTagMask:
   - Player
-  acceleration: 4.42
+  acceleration: 1.8
   maxSpeed: 10
-  obstacleDampenFactor: 0.884
+  obstacleDampenFactor: 0.921
+  rubberBandStrength: 1.15
+  maxDistBeforeRubberBanding: 30
+  anim: {fileID: 837357673649549873}
+  chasing: 0
 --- !u!60 &5647433735512605517
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2396,9 +2400,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyTransform: {fileID: 4210368924523828650}
-  raycastDirection: {x: -7.83, y: -7}
-  minDistAway: 3
-  bodyYAdjustSpeed: 0.143
+  raycastDirection: {x: 1.48, y: -7}
+  minDistAway: 3.08
+  bodyYAdjustSpeed: 0.107
   groundMask:
     serializedVersion: 2
     m_Bits: 256

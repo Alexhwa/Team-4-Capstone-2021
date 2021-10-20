@@ -20,6 +20,7 @@ public class SpiderAnimScript : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.enabled = false;
+        animator.transform.GetComponentInChildren<Chaser>().chasing = true;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

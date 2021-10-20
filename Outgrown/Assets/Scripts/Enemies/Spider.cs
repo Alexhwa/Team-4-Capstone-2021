@@ -55,8 +55,8 @@ public class Spider : MonoBehaviour
         else
         {
             Vector3 newYLoc = bodyTransform.position;
-            newYLoc.y = -200;
-            bodyTransform.position = Vector3.Lerp(bodyTransform.position, newYLoc, .2f);
+            newYLoc.y = -100;
+            bodyTransform.position = Vector3.Lerp(bodyTransform.position, newYLoc, .07f);
         }
     }
 
