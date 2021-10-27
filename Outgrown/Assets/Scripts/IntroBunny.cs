@@ -9,6 +9,7 @@ public class IntroBunny : MonoBehaviour
 	int iter = 0;
 	float initialV = 0f;
 	[SerializeField] float elapsedTime = 0f;
+	[SerializeField] float timeBetweenPaths = 1f;
 	float currentGravity = 0f;
 	
 	//	NOTE: update this if more/less movement paths used
@@ -39,7 +40,7 @@ public class IntroBunny : MonoBehaviour
 	void Update() {
 		if(!waitForPlayer) {
 			// move to nextLocation if not there yet
-			if(elapsedTime < 1)
+			if(elapsedTime < timeBetweenPaths)
 			{
 				float newX = prevLocation.x + (elapsedTime * (nextLocation.x - prevLocation.x));
 				float newY = prevLocation.y + (initialV * elapsedTime) + (currentGravity * elapsedTime * elapsedTime/2);
@@ -72,6 +73,9 @@ public class IntroBunny : MonoBehaviour
 		if(waitForPlayer) {
 			//	move to next path
 			currentPath++;
+			
+			//	if all out of paths, do nothing
+			if(paths[currentPath] == null) {return;}
 			
 			setVarsForNewPoint(0);
 			
