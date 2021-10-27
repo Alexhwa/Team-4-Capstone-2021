@@ -21,7 +21,7 @@ public class adjustCamera : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (change)
         {
