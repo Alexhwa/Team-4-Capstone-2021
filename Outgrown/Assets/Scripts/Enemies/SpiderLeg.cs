@@ -21,7 +21,7 @@ public class SpiderLeg : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, raycastDirection, 10000, groundMask);
         if (hit.collider != null)
