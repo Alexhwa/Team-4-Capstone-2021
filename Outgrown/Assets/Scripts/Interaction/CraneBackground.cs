@@ -29,7 +29,6 @@ public class CraneBackground : MonoBehaviour
             int rng = Random.Range(-1, 1);
             Vector3 dir;
             Vector3 position;
-            print(rng);
             if (rng >= 0)
             {
                 position = (left_spawn.transform.position);

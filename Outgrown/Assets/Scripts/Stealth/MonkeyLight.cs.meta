@@ -3,7 +3,8 @@ guid: bef64bbd5e42bf34cae25e862205f783
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - monkey_scream: {fileID: 8300000, guid: f887456a571b04651abf12518fbf1ece, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
