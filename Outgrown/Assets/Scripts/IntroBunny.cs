@@ -5,67 +5,90 @@ using UnityEngine;
 public class IntroBunny : MonoBehaviour
 {
 	//	paths and path accessories
-	Path[] paths;
+	private List<GameObject> paths;
 	int iter = 0;
+	float initialV = 0f;
+	[SerializeField] float elapsedTime = 0f;
+	float currentGravity = 0f;
 	
 	//	NOTE: update this if more/less movement paths used
-	[SerializeField] private GameObject points1, points2, points3, points4;
+	[SerializeField] private GameObject path1, path2, path3, path4;
 	
 	//	current path bunny is moving on
-	private int currentPath = 0;
+	private int currentPath = -1;
 	
 	//	if true, stop and wait for player to get close
 	//	if false, move around path to next stop location
 	private bool waitForPlayer = true;
 	
 	//	vars for storing current locations/speeds
+	private Vector3 prevLocation;
 	private Vector3 nextLocation;
-	private float moveSpeed = 0;
 	
     void Start(){
 		//	init paths
-		//	Currently, speeds must be edited manually HERE: update this to some fix later but idk how
-		Path path1 = new Path(points1, new int[]{}),
-			path2 = new Path(points2, new int[]{}),
-			path3 = new Path(points3, new int[]{}),
-			path4 = new Path(points4, new int[]{});
-		paths = new Path[]{path1, path2, path3, path4};
+		paths = new List<GameObject>();
+		paths.Add(path1);
+		paths.Add(path2);
+		paths.Add(path3);
+		paths.Add(path4);
+		nextLocation = transform.position;
 	}
     
-	//	Somebody move this to some method that only runs when waitForPlayer
+	//	Somebody move this to some method that only runs when !waitForPlayer
 	void Update() {
 		if(!waitForPlayer) {
 			// move to nextLocation if not there yet
-			if(transform.position != nextLocation) {
-				//	ADD LERP HERE
+			if(elapsedTime < 1)
+			{
+				float newX = prevLocation.x + (elapsedTime * (nextLocation.x - prevLocation.x));
+				float newY = prevLocation.y + (initialV * elapsedTime) + (currentGravity * elapsedTime * elapsedTime/2);
+				transform.position = new Vector3(newX, newY, 0);
+				
+				elapsedTime += Time.deltaTime;
 			}
+			
+			//	if we ARE there, then reset vars and choose new nextLocation
 			else {
-				//	choose a new nextLocation
 				iter++;
 				
 				//	if we're all out of checkpoints for this path, stop
-				if(paths[currentPath].getPoints().Capacity >= iter) {
+				// if(paths[currentPath].GetComponent<Path>().getPoints().Capacity >= iter) {
+				if(paths[currentPath].GetComponent<Path>().getPoints().Length <= iter) {
+					print("Bunny out of locations, waiting for player");
 					waitForPlayer = true;
 				}
 				//	else select next point to move towards
 				else {
-					nextLocation = paths[currentPath].getPoint(iter);
-					moveSpeed = paths[currentPath].getSpeed(iter);
-				}
+					setVarsForNewPoint(iter);
+				}	
 			}
 		}
 	}
 	
 	//	Ideally should only trigger if player enters area while out of checkpoints
 	void OnTriggerEnter2D(Collider2D collider) {
+		print("Player triggered bunny");
 		if(waitForPlayer) {
+			//	move to next path
 			currentPath++;
-			nextLocation = paths[currentPath].getPoint(0);
-			moveSpeed = paths[currentPath].getSpeed(0);
+			
+			setVarsForNewPoint(0);
+			
 			//	ideally there will always be a nextLocation, add troubleshooting case here if needed
 			waitForPlayer = false;
 			iter = 0;
 		}
+	}
+	
+	//	set vars for movement to first point in path
+	void setVarsForNewPoint(int iter) {
+		elapsedTime = 0f;
+		prevLocation = nextLocation;
+		nextLocation = paths[currentPath].GetComponent<Path>().getPoint(iter);
+		currentGravity = paths[currentPath].GetComponent<Path>().getGravity(iter);
+		initialV = nextLocation.y - prevLocation.y - (currentGravity/2);
+		print("Bunny moving from point " + (iter - 1) + " " + prevLocation + " to point " + iter + " " + nextLocation);
 	}
 	
 	//	Insert method to remove bunny from level here
