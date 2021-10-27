@@ -9,6 +9,7 @@ Outgrown/[Bb]uild/
 Outgrown/[Bb]uilds/
 Outgrown/[Ll]ogs/
 Outgrown/[Mm]emoryCaptures/
+Outgrown/UWP/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
