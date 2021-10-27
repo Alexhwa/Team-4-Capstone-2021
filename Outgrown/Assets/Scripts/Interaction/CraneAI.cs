@@ -20,7 +20,6 @@ public class CraneAI : MonoBehaviour
         gameObject.transform.localScale += new Vector3(scale, scale, scale);
         Vector2 size = GetComponent<SpriteRenderer>().size;
         GetComponent<SpriteRenderer>().size.Set(size.x, Random.Range(400, 1200));
-        print(GetComponent<SpriteRenderer>().size);
         startHeight = Random.Range(138, 540);
     }
 
