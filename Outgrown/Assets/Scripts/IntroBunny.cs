@@ -13,7 +13,7 @@ public class IntroBunny : MonoBehaviour
 	float currentGravity = 0f;
 	
 	//	NOTE: update this if more/less movement paths used
-	[SerializeField] private GameObject path1, path2, path3, path4;
+	[SerializeField] private GameObject path1, path2, path3, path4, path5;
 	
 	//	current path bunny is moving on
 	private int currentPath = -1;
@@ -33,6 +33,7 @@ public class IntroBunny : MonoBehaviour
 		paths.Add(path2);
 		paths.Add(path3);
 		paths.Add(path4);
+		paths.Add(path5);
 		nextLocation = transform.position;
 	}
     
