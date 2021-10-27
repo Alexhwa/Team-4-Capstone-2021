@@ -5,6 +5,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class MonkeyLight : MonoBehaviour
 {
+    [SerializeField] AudioClip monkey_scream;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,7 @@ public class MonkeyLight : MonoBehaviour
         {
             if (!collider.GetComponent<PlayerCover>().InCover())
             {
-                print("Player found, Oo Oo Ah AH");
+                AudioManager.Instance.PlaySFX(monkey_scream, 0.5f);
                 MonkeyAI monkey = transform.parent.parent.GetComponent<MonkeyAI>();
                 monkey.lookAtObject(collider.transform.position);
                 transform.GetChild(0).GetComponent<Light2D>().color = Color.red;

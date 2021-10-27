@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: bef64bbd5e42bf34cae25e862205f783
+guid: 49bae38fb163c824eacc107238615e01
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - monkey_scream: {fileID: 8300000, guid: f887456a571b04651abf12518fbf1ece, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
