@@ -43,14 +43,25 @@ public class PlayerMovement : MonoBehaviour
 		Idle, Crouch, Hang, Run, Fall, Climb
 	}
 	private PlayerState currentState;
+
+	private PlayerDeath deathScript;
 	
 	// Start is called before the first frame update
     void Start()
     {
 	    currentState = PlayerState.Idle;
 	    rb = GetComponent<Rigidbody2D>();
+	    deathScript = GetComponent<PlayerDeath>();
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+	    if (other.tag.Equals("KillZone"))
+	    {
+		    deathScript.damagePlayer(1);
+	    }
+    }
+
     // Update is called once per frame
     void Update()
     {

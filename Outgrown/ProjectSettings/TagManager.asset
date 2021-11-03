@@ -7,6 +7,7 @@ TagManager:
   - Checkpoint
   - Preloader
   - Obstacle
+  - KillZone
   layers:
   - Default
   - TransparentFX
