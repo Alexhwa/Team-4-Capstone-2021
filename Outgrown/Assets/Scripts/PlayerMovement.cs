@@ -65,6 +65,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+	    if (Keyboard.current.escapeKey.isPressed)
+	    {
+		    Application.Quit();
+	    }
 		grounded = GroundCheck();
 	    AnimatorStateInfo animStateInfo = anim.GetCurrentAnimatorStateInfo(0);
 	    switch (currentState)
