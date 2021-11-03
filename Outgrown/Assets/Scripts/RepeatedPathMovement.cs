@@ -14,45 +14,49 @@ public class RepeatedPathMovement : MonoBehaviour
 {
 	//	paths and path accessories
 	[SerializeField] private GameObject path;
-	int iter;
+	[SerializeField] private bool stopped;
+	int iter = 0;
 	float initialV = 0f;
 	[SerializeField] float elapsedTime = 0f;
-	[SerializeField] float timeBetweenPaths = 1f;
+	[SerializeField] float timeBetweenPoints = 1f;
 	float currentGravity = 0f;
-	
-	private Vector3 prevLocation, nextLocation;
+	[SerializeField] private Vector3 prevLocation, nextLocation;
 	
 	
     // Start is called before the first frame update
     void Start()
     {
         nextLocation = transform.position;
+		prevLocation = nextLocation;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // move to nextLocation if not there yet
-		if(elapsedTime < 1)
-		{
-			float newX = prevLocation.x + (elapsedTime * (nextLocation.x - prevLocation.x));
-			float newY = prevLocation.y + (initialV * elapsedTime) + (currentGravity * elapsedTime * elapsedTime/2);
-			transform.position = new Vector3(newX, newY, 0);
-			
-			elapsedTime += Time.deltaTime;
-		}
-		
-		//	if we ARE there, then reset vars and choose new nextLocation
-		else {
-			iter++;
-			
-			//	if we're all out of checkpoints for this path, loop back around
-			if(path.GetComponent<Path>().getPoints().Length <= iter) {
-				print(name + " out of points, going back to 0");
-				iter = 0;
+		if(!stopped) {
+			// move to nextLocation if not there yet
+			if(elapsedTime < timeBetweenPoints)
+			{
+				float timeDiv = elapsedTime/timeBetweenPoints;
+				float newX = prevLocation.x + (timeDiv * (nextLocation.x - prevLocation.x));
+				float newY = prevLocation.y + (initialV * timeDiv) + (currentGravity * timeDiv * timeDiv/2);
+				transform.position = new Vector3(newX, newY, 0);
+				
+				elapsedTime += Time.deltaTime;
 			}
-			//	select next point to move towards
-			setVarsForNewPoint(iter);	
+			
+			//	if we ARE there, then reset vars and choose new nextLocation
+			else {
+				iter++;
+				
+				//	if we're all out of points, loop back around
+				if(path.GetComponent<Path>().getPoints().Length <= iter) {
+					print(name + " out of points, going back to 0");
+					iter = 0;
+				}
+				//	select next point to move towards
+				setVarsForNewPoint(iter);	
+			}
 		}
     }
 	
@@ -64,5 +68,13 @@ public class RepeatedPathMovement : MonoBehaviour
 		currentGravity = path.GetComponent<Path>().getGravity(iter);
 		initialV = nextLocation.y - prevLocation.y - (currentGravity/2);
 		print(name + " moving from point " + (iter - 1) + " " + prevLocation + " to point " + iter + " " + nextLocation);
+	}
+	
+	void OnTriggerEnter2D(Collider2D collider) {
+		print("Player triggered " + name);
+		if(stopped) {
+			stopped = false;
+			setVarsForNewPoint(0);
+		}
 	}
 }
