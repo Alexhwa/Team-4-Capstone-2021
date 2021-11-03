@@ -18,7 +18,11 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private float edgeJumpForce = 11.25f;
 	private int ledgeLayer = 2;
 	private float gravity = 2.3f;
-	
+
+	//Ledgegrab Check
+	[SerializeField] private GameObject climbGrab;
+	private int climbLayer = 512;
+
 	//Ground check
 	[SerializeField] private float minDistFromGround = 1;
 	[SerializeField] private GameObject groundCheck;
@@ -36,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 	//State
 	private enum PlayerState
 	{
-		Idle, Crouch, Hang, Run, Fall
+		Idle, Crouch, Hang, Run, Fall, Climb
 	}
 	private PlayerState currentState;
 	
@@ -86,6 +90,9 @@ public class PlayerMovement : MonoBehaviour
 			    
 			    anim.SetFloat("vSpeed", rb.velocity.y);
 			    break;
+			case PlayerState.Climb:
+				ClimbMovement();
+				break;
 	    }
     }
 
@@ -103,7 +110,44 @@ public class PlayerMovement : MonoBehaviour
 
 	    
     }
-    public void DoMovement()
+
+	public void ClimbMovement()
+	{
+		var moveDir = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>();
+		if (Mathf.Abs(moveDir.y) > 0)
+		{
+			int dir = 0;
+			if (moveDir.y > 0)
+				dir = 1;
+			else
+				dir = -1;
+			var newVel = rb.velocity;
+			newVel.y = jumpForce * 1.4f * dir;
+			rb.velocity = newVel;
+			currentState = PlayerState.Idle;
+		}
+		if (Mathf.Abs(moveDir.x) > 0)
+        {
+			if (Mathf.Abs(rb.velocity.x) < maxWalkSpeed)
+			{
+				print("running");
+				climbGrab.SetActive(false);
+				StartCoroutine(ClimbCooldown());
+				Vector2 walkVector = new Vector2(walkSpeed * Time.deltaTime * moveDir.x, 0);
+				walkVector = AccountForSlope(walkVector);
+				rb.velocity += walkVector;
+				currentState = PlayerState.Fall;
+			}
+        }
+	}
+
+	IEnumerator ClimbCooldown()
+    {
+		yield return new WaitForSeconds(0.5f);
+		climbGrab.SetActive(true);
+	}
+
+	public void DoMovement()
     {
 	    var moveDir = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>();
 	    //Side to side
@@ -147,6 +191,15 @@ public class PlayerMovement : MonoBehaviour
 	    else
 		    rb.gravityScale = gravity;
 
+        if (CanClimb())
+        {
+			print("we're on a rope");
+			currentState = PlayerState.Climb;
+			rb.velocity *= 0;
+			rb.gravityScale = 0;
+			return;
+		}
+
 	    //jump
 	    if (moveDir.y > 0 && (grounded || hanging))
 	    {
@@ -160,6 +213,7 @@ public class PlayerMovement : MonoBehaviour
 		    currentState = PlayerState.Fall;
 	    }
     }
+
     private bool GroundCheck()
     {
 	    RaycastHit2D hit = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, minDistFromGround, groundMask);
@@ -177,7 +231,12 @@ public class PlayerMovement : MonoBehaviour
 	    return (Physics2D.IsTouchingLayers(ledgeGrab.GetComponent<Collider2D>(), ledgeLayer));
     }
 
-    private void OnDrawGizmos()
+	private bool CanClimb()
+	{
+		return (Physics2D.IsTouchingLayers(climbGrab.GetComponent<Collider2D>(), climbLayer));
+	}
+
+	private void OnDrawGizmos()
     { 
 	    Gizmos.DrawRay(new Ray(groundCheck.transform.position, walkVectorDebug));
     }
