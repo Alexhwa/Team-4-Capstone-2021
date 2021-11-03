@@ -196,7 +196,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.12
   m_AngularDrag: 0.05
   m_GravityScale: 2.3
   m_Material: {fileID: 0}
@@ -216,8 +216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff99d5dd9340c341bc08442f660b893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 14
-  maxWalkSpeed: 9
+  walkSpeed: 30
+  maxWalkSpeed: 8.5
   jumpForce: 10
   ledgeGrab: {fileID: 4146105328957767228}
   edgeJumpForce: 11.25
