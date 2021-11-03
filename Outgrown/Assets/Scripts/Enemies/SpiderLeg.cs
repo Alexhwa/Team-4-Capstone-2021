@@ -26,7 +26,7 @@ public class SpiderLeg : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, raycastDirection, 10000, groundMask);
         if (hit.collider != null)
         {
-            print(gameObject.name + Mathf.Abs(hit.point.x - targetTransform.position.x));
+            // print(gameObject.name + Mathf.Abs(hit.point.x - targetTransform.position.x));
             if (Mathf.Abs(hit.point.x - targetTransform.position.x) >= maxDistBeforeStep)
             {
                 targetPosition = hit.point + new Vector2(0, targetHeightOnStep);
