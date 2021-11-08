@@ -12,4 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63eba178e7591f347929869e351b4d60, type: 3}
   m_Name: Audio Library
   m_EditorClassIdentifier: 
-  library: []
+  library:
+  - clipName: 
+    clip: {fileID: 8300000, guid: f5014b38445be4c8cbf6d36e5fe7c77f, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 1.08
+    volumeVariance: 0.5
+    pitch: 0.67
+    pitchVariance: 0.66
+  - clipName: 
+    clip: {fileID: 8300000, guid: 23a4395b9ef9f432b8a2c1528859ebc9, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
