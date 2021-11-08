@@ -180,13 +180,7 @@ public class PlayerMovement : MonoBehaviour
 		    if(Mathf.Abs(walkVector.x) > 0)
 		    {
 			    currentState = PlayerState.Run;
-			    AudioSource source = AudioManager.Instance?.SearchSFX(footstepAClip);
-			    if (source)
-			    {
-				    source.volume = .1f;
-				    source.pitch = 1.6f;
-				    AudioManager.Instance.TryPlaySFX(footstepAClip);
-			    }
+			    AudioManager.Instance.PlaySfx(footstepAClip);
 		    }
 		    else
 		    {
