@@ -20,7 +20,6 @@ public class AudioManager : Singleton<AudioManager>
         if (audioLibrary == null)
         {
             audioLibrary = Resources.Load<AudioLibrary>("Audio Library");
-            print("tried to get library");
         }
         soundSources = new Dictionary<AudioAsset, AudioSource>();
         musicSource = gameObject.AddComponent<AudioSource>();
@@ -40,18 +39,30 @@ public class AudioManager : Singleton<AudioManager>
     public void PlayMusic(string clipName)
     {
         AudioAsset sfxAsset = audioLibrary.FindSound(clipName);
-        FillSource(musicSource, sfxAsset);
-        musicSource.Play();
-        
-        if(sfxAsset.fadeIn){ StartCoroutine(FadeIn(musicSource, musicSource.volume)); }
+        if (sfxAsset.overlaps || !musicSource.isPlaying)
+        {
+            FillSource(musicSource, sfxAsset);
+            musicSource.Play();
+
+            if (sfxAsset.fadeIn)
+            {
+                StartCoroutine(FadeIn(musicSource, musicSource.volume));
+            }
+        }
     }
     public void PlayMusic(AudioClip clip)
     {
         AudioAsset sfxAsset = audioLibrary.FindSound(clip);
-        FillSource(musicSource, sfxAsset);
-        musicSource.Play();
-        
-        if(sfxAsset.fadeIn){ StartCoroutine(FadeIn(musicSource, musicSource.volume)); }
+        if (sfxAsset.overlaps || !musicSource.isPlaying)
+        {
+            FillSource(musicSource, sfxAsset);
+            musicSource.Play();
+
+            if (sfxAsset.fadeIn)
+            {
+                StartCoroutine(FadeIn(musicSource, musicSource.volume));
+            }
+        }
     }
 
     /*
@@ -62,37 +73,41 @@ public class AudioManager : Singleton<AudioManager>
     {
         AudioAsset sfxAsset = audioLibrary.FindSound(clip);
         AudioSource source = soundSources[sfxAsset];
-        FillSource(source, sfxAsset);
         if (sfxAsset.overlaps)
         {
+            FillSource(source, sfxAsset);
             source.PlayOneShot(sfxAsset.clip, source.volume);
+            if(sfxAsset.fadeIn){ StartCoroutine(FadeIn(source, source.volume)); }
         }
         else
         {
             if (!source.isPlaying)
             {
+                FillSource(source, sfxAsset);
                 source.Play();
+                if(sfxAsset.fadeIn){ StartCoroutine(FadeIn(source, source.volume)); }
             }
         }
-        if(sfxAsset.fadeIn){ StartCoroutine(FadeIn(source, source.volume)); }
     }
     public void PlaySfx(string clipName)
     {
         AudioAsset sfxAsset = audioLibrary.FindSound(clipName);
         AudioSource source = soundSources[sfxAsset];
-        FillSource(source, sfxAsset);
         if (sfxAsset.overlaps)
         {
+            FillSource(source, sfxAsset);
             source.PlayOneShot(sfxAsset.clip, source.volume);
+            if(sfxAsset.fadeIn){ StartCoroutine(FadeIn(source, source.volume)); }
         }
         else
         {
             if (!source.isPlaying)
             {
+                FillSource(source, sfxAsset);
                 source.Play();
+                if(sfxAsset.fadeIn){ StartCoroutine(FadeIn(source, source.volume)); }
             }
         }
-        if(sfxAsset.fadeIn){ StartCoroutine(FadeIn(source, source.volume)); }
     }
 
     private void FillSource(AudioSource source, AudioAsset asset)
