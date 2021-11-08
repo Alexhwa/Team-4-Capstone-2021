@@ -9,10 +9,6 @@ public class AudioTestScript : MonoBehaviour
     public AudioLibrary library;
     void Start()
     {
-        if (library != null)
-        {
-            print("library is present");
-        }
         //ALL SOUNDS MUST BE PUT INTO THE AUDIO LIBRARY ASSET BEFORE THEY CAN BE PLAYED
         //ASSET IS AT Assets/Audio/Audio Library
 

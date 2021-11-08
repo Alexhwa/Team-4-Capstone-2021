@@ -47,4 +47,5 @@ public class AudioAsset
     public float volumeVariance;
     public float pitch = 1;
     public float pitchVariance;
+    public bool fadeIn;
 }
