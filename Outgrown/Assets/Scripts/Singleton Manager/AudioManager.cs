@@ -15,7 +15,7 @@ public class AudioManager : Singleton<AudioManager>
 
     public AudioLibrary audioLibrary;
 
-    private void Start()
+    private void Awake()
     {
         if (audioLibrary == null)
         {
