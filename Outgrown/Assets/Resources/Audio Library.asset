@@ -23,10 +23,10 @@ MonoBehaviour:
     pitchVariance: 0.66
     fadeIn: 0
   - clipName: Level 1 chase
-    clip: {fileID: 8300000, guid: 1f21a47001fe4024990f3fb89bcf7318, type: 3}
+    clip: {fileID: 8300000, guid: e9a30ef33a58b489fa9b2461514e0aeb, type: 3}
     overlaps: 0
     loop: 1
-    volume: 0.8
+    volume: 0.48
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -35,16 +35,16 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 69aa46c89fb1f4f16bb4a419b445e485, type: 3}
     overlaps: 0
     loop: 0
-    volume: 1
+    volume: 0.249
     volumeVariance: 0
-    pitch: 1
+    pitch: 0.64
     pitchVariance: 0
     fadeIn: 0
   - clipName: cymbal
     clip: {fileID: 8300000, guid: 7c64f9a14ff6e491f801592a835dfee1, type: 3}
     overlaps: 0
     loop: 0
-    volume: 5
+    volume: 1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 40ac1640090d0477ebf52777e43c95f8, type: 3}
     overlaps: 0
     loop: 0
-    volume: 1
+    volume: 0.489
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 167cb2901d2434bd6bef2d24e702cdb3, type: 3}
     overlaps: 0
     loop: 0
-    volume: 1
+    volume: 0.603
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -71,7 +71,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: bbe13f836912c4e85bd12cae6bf78ea7, type: 3}
     overlaps: 0
     loop: 0
-    volume: 1
+    volume: 0.94
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
     loop: 0
     volume: 1
     volumeVariance: 0
-    pitch: 1
+    pitch: 1.1
     pitchVariance: 0
     fadeIn: 0
   - clipName: ledge grab
@@ -98,7 +98,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 31b408b3f0359486d9cfe323c603a5e7, type: 3}
     overlaps: 0
     loop: 1
-    volume: 1
+    volume: 0.35
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 0d7a45623fe8d4bd997d246e7a6d812f, type: 3}
     overlaps: 0
     loop: 0
-    volume: 1.5
+    volume: 1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -116,16 +116,16 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b22e4202c26504effbc9beae385bc8ed, type: 3}
     overlaps: 0
     loop: 0
-    volume: 0.8
+    volume: 0.098
     volumeVariance: 0
-    pitch: 1
+    pitch: 0.87
     pitchVariance: 0
     fadeIn: 1
   - clipName: spider steps
     clip: {fileID: 8300000, guid: afbeb5820c9e54205a21bb5d7c946894, type: 3}
     overlaps: 0
     loop: 0
-    volume: 1.2
+    volume: 1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b2092c23fbb944c1ab1421e38af10f90, type: 3}
     overlaps: 0
     loop: 0
-    volume: 0.7
+    volume: 0.4
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -143,8 +143,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e85bd6e52e24b423ca6beff915a992e9, type: 3}
     overlaps: 0
     loop: 0
-    volume: 1
+    volume: 0.3
     volumeVariance: 0
-    pitch: 0.8
+    pitch: 0.75
     pitchVariance: 0
     fadeIn: 0
