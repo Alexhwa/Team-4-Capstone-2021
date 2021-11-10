@@ -8,8 +8,9 @@ public class PlayerDeath : MonoBehaviour
 {
     private Preloaded preloader;
     public Image blackScreen; 
-    float playerHealth = 1;
+    public float playerHealth = 1;
     private PlayerMovement player;
+    private Coroutine screenFadeOut;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,13 @@ public class PlayerDeath : MonoBehaviour
         if (damage >= playerHealth)
         {
             // preloader = GameObject.FindGameObjectWithTag("Preloader").GetComponent<Preloaded>();
-            StartCoroutine(ChangeScenes());
+            playerHealth = 0;
+            if (screenFadeOut == null)
+            {
+                AudioManager.Instance.PlaySfx("death chord");
+                AudioManager.Instance.PlaySfx("damage sound");
+                screenFadeOut = StartCoroutine(ChangeScenes());
+            }
         }
         else
         {
