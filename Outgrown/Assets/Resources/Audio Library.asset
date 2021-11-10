@@ -53,7 +53,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 40ac1640090d0477ebf52777e43c95f8, type: 3}
     overlaps: 0
     loop: 0
-    volume: 0.489
+    volume: 1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -62,11 +62,11 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 167cb2901d2434bd6bef2d24e702cdb3, type: 3}
     overlaps: 0
     loop: 0
-    volume: 0.603
+    volume: 1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
-    fadeIn: 1
+    fadeIn: 0
   - clipName: heavy drag
     clip: {fileID: 8300000, guid: bbe13f836912c4e85bd12cae6bf78ea7, type: 3}
     overlaps: 0
@@ -143,13 +143,22 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e85bd6e52e24b423ca6beff915a992e9, type: 3}
     overlaps: 0
     loop: 0
-    volume: 0.3
-    volumeVariance: 0
-    pitch: 0.75
-    pitchVariance: 0
+    volume: 0.1
+    volumeVariance: 0.03
+    pitch: 1.7
+    pitchVariance: 0.2
     fadeIn: 0
   - clipName: level 1 music
     clip: {fileID: 8300000, guid: 27b31d6fee20948d49425101066a62a5, type: 3}
+    overlaps: 1
+    loop: 1
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 1
+  - clipName: level 2 music
+    clip: {fileID: 8300000, guid: 05a66a7086dc74782a2dffd816567045, type: 3}
     overlaps: 1
     loop: 1
     volume: 1
@@ -161,7 +170,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: f887456a571b04651abf12518fbf1ece, type: 3}
     overlaps: 0
     loop: 1
-    volume: 1
+    volume: 0.2
     volumeVariance: 0
     pitch: 1.11
     pitchVariance: 0
