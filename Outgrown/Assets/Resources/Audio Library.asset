@@ -148,3 +148,12 @@ MonoBehaviour:
     pitch: 0.75
     pitchVariance: 0
     fadeIn: 0
+  - clipName: level 1 music
+    clip: {fileID: 8300000, guid: 27b31d6fee20948d49425101066a62a5, type: 3}
+    overlaps: 1
+    loop: 1
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 1
