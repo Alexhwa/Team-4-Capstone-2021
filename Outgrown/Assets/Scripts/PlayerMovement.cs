@@ -114,6 +114,10 @@ public class PlayerMovement : MonoBehaviour
 					break;
 				case PlayerState.Climb:
 					ClimbMovement();
+					if (!animStateInfo.IsName("PlayerClimb"))
+					{
+						anim.Play("PlayerClimb");
+					}
 					break;
 			}
 		}
@@ -139,23 +143,13 @@ public class PlayerMovement : MonoBehaviour
 	public void ClimbMovement()
 	{
 		var moveDir = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>();
-		if (Mathf.Abs(moveDir.y) > 0)
-		{
-			int dir = 0;
-			if (moveDir.y > 0)
-				dir = 1;
-			else
-				dir = -1;
-			var newVel = rb.velocity;
-			newVel.y = jumpForce * 1.4f * dir;
-			rb.velocity = newVel;
-			currentState = PlayerState.Idle;
-		}
+
+		 
+		rb.velocity = new Vector2(0, moveDir.y * jumpForce);
 		if (Mathf.Abs(moveDir.x) > 0)
         {
 			if (Mathf.Abs(rb.velocity.x) < maxWalkSpeed)
 			{
-				print("running");
 				climbGrab.SetActive(false);
 				StartCoroutine(ClimbCooldown());
 				Vector2 walkVector = new Vector2(walkSpeed * Time.deltaTime * moveDir.x, 0);
@@ -168,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
 
 	IEnumerator ClimbCooldown()
     {
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(0.2f);
 		climbGrab.SetActive(true);
 	}
 
