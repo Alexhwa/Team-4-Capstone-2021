@@ -123,12 +123,12 @@ MonoBehaviour:
     fadeIn: 1
   - clipName: spider steps
     clip: {fileID: 8300000, guid: afbeb5820c9e54205a21bb5d7c946894, type: 3}
-    overlaps: 0
+    overlaps: 1
     loop: 0
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
+    volume: 0.4
+    volumeVariance: 0.2
+    pitch: 1.2
+    pitchVariance: 0.2
     fadeIn: 0
   - clipName: spider damage
     clip: {fileID: 8300000, guid: b2092c23fbb944c1ab1421e38af10f90, type: 3}

@@ -36,7 +36,7 @@ public class AudioManager : Singleton<AudioManager>
         }
     }
     
-    public void PlayMusic(string clipName)
+    public AudioSource PlayMusic(string clipName)
     {
         AudioAsset sfxAsset = audioLibrary.FindSound(clipName);
         if (sfxAsset.overlaps || !musicSource.isPlaying)
@@ -49,8 +49,10 @@ public class AudioManager : Singleton<AudioManager>
                 StartCoroutine(FadeIn(musicSource, musicSource.volume));
             }
         }
+
+        return musicSource;
     }
-    public void PlayMusic(AudioClip clip)
+    public AudioSource PlayMusic(AudioClip clip)
     {
         AudioAsset sfxAsset = audioLibrary.FindSound(clip);
         if (sfxAsset.overlaps || !musicSource.isPlaying)
@@ -63,13 +65,14 @@ public class AudioManager : Singleton<AudioManager>
                 StartCoroutine(FadeIn(musicSource, musicSource.volume));
             }
         }
+        return musicSource;
     }
 
     /*
      * Call from outside AudioManager to play sound effects
      */
 
-    public void PlaySfx(AudioClip clip)
+    public AudioSource PlaySfx(AudioClip clip)
     {
         AudioAsset sfxAsset = audioLibrary.FindSound(clip);
         AudioSource source = soundSources[sfxAsset];
@@ -88,8 +91,9 @@ public class AudioManager : Singleton<AudioManager>
                 if(sfxAsset.fadeIn){ StartCoroutine(FadeIn(source, source.volume)); }
             }
         }
+        return source;
     }
-    public void PlaySfx(string clipName)
+    public AudioSource PlaySfx(string clipName)
     {
         AudioAsset sfxAsset = audioLibrary.FindSound(clipName);
         AudioSource source = soundSources[sfxAsset];
@@ -108,6 +112,7 @@ public class AudioManager : Singleton<AudioManager>
                 if(sfxAsset.fadeIn){ StartCoroutine(FadeIn(source, source.volume)); }
             }
         }
+        return source;
     }
 
     private void FillSource(AudioSource source, AudioAsset asset)
