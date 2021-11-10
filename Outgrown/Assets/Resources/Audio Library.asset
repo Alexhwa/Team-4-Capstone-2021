@@ -24,9 +24,9 @@ MonoBehaviour:
     fadeIn: 0
   - clipName: Level 1 chase
     clip: {fileID: 8300000, guid: e9a30ef33a58b489fa9b2461514e0aeb, type: 3}
-    overlaps: 1
+    overlaps: 0
     loop: 1
-    volume: 0.48
+    volume: 0.95
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0

@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private float jumpForce = 1;
 	private Rigidbody2D rb;
 	private Vector2 walkVectorDebug;
+	private bool jumpLastFrame;
 	
 	//Ledgegrab Check
 	[SerializeField] private GameObject ledgeGrab;
@@ -109,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
 				ClimbMovement();
 				break;
 	    }
+	    jumpLastFrame = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>().y > 0;
     }
 
     private void HangMovement()
@@ -210,7 +212,7 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 	    //jump
-	    if (moveDir.y > 0 && (grounded || hanging))
+	    if (moveDir.y > 0 && !jumpLastFrame && (grounded || hanging))
 	    {
 		    var newVel = rb.velocity;
 		    newVel.y = jumpForce;

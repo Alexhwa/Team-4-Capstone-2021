@@ -37,12 +37,15 @@ public class Chaser : MonoBehaviour
     
     public bool chasing;
 
+    public AudioClip musicOnSight;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (targetTagMask.Contains(other.tag))
         {
             target = other.transform;
             anim.Play("WakeUp");
+            AudioManager.Instance.PlayMusic(musicOnSight);
         }
     }
 
