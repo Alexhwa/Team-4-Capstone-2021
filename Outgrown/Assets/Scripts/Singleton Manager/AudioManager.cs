@@ -121,7 +121,7 @@ public class AudioManager : Singleton<AudioManager>
     private IEnumerator FadeIn(AudioSource source, float endVolume)
     {
         source.volume = 0;
-        while (source.volume >= endVolume)
+        while (source.volume < endVolume)
         {
             source.volume += Time.deltaTime * .1f;
             yield return null;
