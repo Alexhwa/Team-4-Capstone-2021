@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2574280398718867783}
   - component: {fileID: 1803335530964331371}
   - component: {fileID: 1561993148104467041}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plastic shovel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
