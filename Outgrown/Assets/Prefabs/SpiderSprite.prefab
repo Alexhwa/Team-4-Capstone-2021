@@ -52,6 +52,7 @@ MonoBehaviour:
   maxDistBeforeStep: 3
   targetHeightOnStep: 3
   stepSpeed: 0.789
+  chaser: {fileID: 5637177529364064977}
 --- !u!1 &2029312539123246522
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,6 +105,7 @@ MonoBehaviour:
   maxDistBeforeStep: 4
   targetHeightOnStep: 4
   stepSpeed: 0.789
+  chaser: {fileID: 5637177529364064977}
 --- !u!1 &4210368923665903796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,6 +1862,7 @@ MonoBehaviour:
   maxDistBeforeStep: 4
   targetHeightOnStep: 4
   stepSpeed: 0.789
+  chaser: {fileID: 5637177529364064977}
 --- !u!1 &5049649510193908865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,6 +1915,7 @@ MonoBehaviour:
   maxDistBeforeStep: 3
   targetHeightOnStep: 3
   stepSpeed: 0.789
+  chaser: {fileID: 5637177529364064977}
 --- !u!1 &5393788495351779336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,6 +2040,7 @@ MonoBehaviour:
   maxDistBeforeStep: 4
   targetHeightOnStep: 4
   stepSpeed: 0.789
+  chaser: {fileID: 5637177529364064977}
 --- !u!1 &7443561923290053714
 GameObject:
   m_ObjectHideFlags: 0
@@ -2088,6 +2093,7 @@ MonoBehaviour:
   maxDistBeforeStep: 3
   targetHeightOnStep: 3.5
   stepSpeed: 0.789
+  chaser: {fileID: 5637177529364064977}
 --- !u!1 &8075869611821089165
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,6 +2146,7 @@ MonoBehaviour:
   maxDistBeforeStep: 4
   targetHeightOnStep: 4
   stepSpeed: 0.789
+  chaser: {fileID: 5637177529364064977}
 --- !u!1 &8121303176442216666
 GameObject:
   m_ObjectHideFlags: 0
@@ -2489,3 +2496,4 @@ MonoBehaviour:
   maxDistBeforeStep: 3
   targetHeightOnStep: 3.5
   stepSpeed: 0.789
+  chaser: {fileID: 5637177529364064977}

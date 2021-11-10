@@ -14,6 +14,8 @@ public class SpiderLeg : MonoBehaviour
     public float stepSpeed;
     
     private Vector3 debugGroundPoint;
+
+    public Chaser chaser;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,7 @@ public class SpiderLeg : MonoBehaviour
         if (hit.collider != null)
         {
             // print(gameObject.name + Mathf.Abs(hit.point.x - targetTransform.position.x));
-            if (Mathf.Abs(hit.point.x - targetTransform.position.x) >= maxDistBeforeStep)
+            if (Mathf.Abs(hit.point.x - targetTransform.position.x) >= maxDistBeforeStep && chaser.chasing)
             {
                 targetPosition = hit.point + new Vector2(0, targetHeightOnStep);
                 AudioManager.Instance.PlaySfx("spider steps");
