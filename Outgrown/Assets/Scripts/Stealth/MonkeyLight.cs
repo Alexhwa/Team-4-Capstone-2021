@@ -25,6 +25,7 @@ public class MonkeyLight : MonoBehaviour
             if (!collider.GetComponent<PlayerCover>().InCover())
             {
                 AudioManager.Instance.PlaySfx(monkey_scream);
+                AudioManager.Instance.PlaySfx("cymbal");
                 MonkeyAI monkey = transform.parent.parent.GetComponent<MonkeyAI>();
                 monkey.lookAtObject(collider.transform.position);
                 transform.GetChild(0).GetComponent<Light2D>().color = Color.red;

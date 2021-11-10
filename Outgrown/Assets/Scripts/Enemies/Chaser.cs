@@ -38,6 +38,7 @@ public class Chaser : MonoBehaviour
     public bool chasing;
 
     public AudioClip musicOnSight;
+    public Collider2D sightCollider;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -46,6 +47,8 @@ public class Chaser : MonoBehaviour
             target = other.transform;
             anim.Play("WakeUp");
             AudioManager.Instance.PlayMusic(musicOnSight);
+            AudioManager.Instance.PlaySfx("spider scream");
+            sightCollider.enabled = false;
         }
     }
 
