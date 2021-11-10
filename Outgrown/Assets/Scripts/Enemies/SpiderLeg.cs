@@ -30,6 +30,7 @@ public class SpiderLeg : MonoBehaviour
             if (Mathf.Abs(hit.point.x - targetTransform.position.x) >= maxDistBeforeStep)
             {
                 targetPosition = hit.point + new Vector2(0, targetHeightOnStep);
+                AudioManager.Instance.PlaySfx("spider steps");
             }
 
             debugGroundPoint = hit.point;

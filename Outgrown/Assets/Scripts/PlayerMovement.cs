@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private float jumpForce = 1;
 	private Rigidbody2D rb;
 	private Vector2 walkVectorDebug;
+	private bool jumpLastFrame;
 	
 	//Ledgegrab Check
 	[SerializeField] private GameObject ledgeGrab;
@@ -70,45 +71,54 @@ public class PlayerMovement : MonoBehaviour
 		    Application.Quit();
 	    }
 		grounded = GroundCheck();
-	    AnimatorStateInfo animStateInfo = anim.GetCurrentAnimatorStateInfo(0);
-	    switch (currentState)
-	    { 
-		    case PlayerState.Run:
-			    if (!animStateInfo.IsName("PlayerRun"))
-			    {
-				    anim.Play("PlayerRun");
-			    }
-			    DoMovement();
-			    break;
-		    case PlayerState.Idle:
-			    if (!animStateInfo.IsName("PlayerIdlev2"))
-			    {
-				    anim.Play("PlayerIdlev2");
-			    }
-			    DoMovement();
-			    break;
-		    case PlayerState.Crouch:
-			    break;
-		    case PlayerState.Hang:
-			    if (!animStateInfo.IsName("PlayerLedgeGrab"))
-			    {
-				    anim.Play("PlayerLedgeGrab");
-			    }
-			    HangMovement();
-			    break;
-		    case PlayerState.Fall:
-			    if (!animStateInfo.IsName("PlayerJump") && !animStateInfo.IsName("PlayerJumpFall"))
-			    {
-				    anim.Play("PlayerJump");
-			    }
-			    DoMovement();
-			    
-			    anim.SetFloat("vSpeed", rb.velocity.y);
-			    break;
-			case PlayerState.Climb:
-				ClimbMovement();
-				break;
-	    }
+		if (deathScript.playerHealth > 0)
+		{
+			AnimatorStateInfo animStateInfo = anim.GetCurrentAnimatorStateInfo(0);
+			switch (currentState)
+			{
+				case PlayerState.Run:
+					if (!animStateInfo.IsName("PlayerRun"))
+					{
+						anim.Play("PlayerRun");
+					}
+
+					DoMovement();
+					break;
+				case PlayerState.Idle:
+					if (!animStateInfo.IsName("PlayerIdlev2"))
+					{
+						anim.Play("PlayerIdlev2");
+					}
+
+					DoMovement();
+					break;
+				case PlayerState.Crouch:
+					break;
+				case PlayerState.Hang:
+					if (!animStateInfo.IsName("PlayerLedgeGrab"))
+					{
+						anim.Play("PlayerLedgeGrab");
+					}
+
+					HangMovement();
+					break;
+				case PlayerState.Fall:
+					if (!animStateInfo.IsName("PlayerJump") && !animStateInfo.IsName("PlayerJumpFall"))
+					{
+						anim.Play("PlayerJump");
+					}
+
+					DoMovement();
+
+					anim.SetFloat("vSpeed", rb.velocity.y);
+					break;
+				case PlayerState.Climb:
+					ClimbMovement();
+					break;
+			}
+		}
+
+		jumpLastFrame = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>().y > 0;
     }
 
     private void HangMovement()
@@ -210,7 +220,7 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 	    //jump
-	    if (moveDir.y > 0 && (grounded || hanging))
+	    if (moveDir.y > 0 && !jumpLastFrame && (grounded || hanging))
 	    {
 		    var newVel = rb.velocity;
 		    newVel.y = jumpForce;

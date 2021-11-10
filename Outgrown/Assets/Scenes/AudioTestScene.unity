@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 896aed3a6edcbb941bd7b8ded11a3d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testSound: {fileID: 8300000, guid: 1f21a47001fe4024990f3fb89bcf7318, type: 3}
+  testSound: {fileID: 8300000, guid: e9a30ef33a58b489fa9b2461514e0aeb, type: 3}
   library: {fileID: 11400000, guid: 48e72771cf00909439ab34be877195ec, type: 2}
 --- !u!4 &73995143
 Transform:
@@ -351,10 +351,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e85bd6e52e24b423ca6beff915a992e9, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: e9a30ef33a58b489fa9b2461514e0aeb, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 0.3
-  m_Pitch: 0.75
+  m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
