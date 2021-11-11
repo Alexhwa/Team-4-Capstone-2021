@@ -225,7 +225,7 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 	    //jump
-	    if (moveDir.y > 0 && !jumpLastFrame && (grounded || hanging))
+	    if (moveDir.y > 0 && !jumpLastFrame && grounded)
 	    {
 		    var newVel = rb.velocity;
 		    newVel.y = jumpForce;

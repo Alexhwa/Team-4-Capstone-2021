@@ -14,6 +14,7 @@ public class CheckpointManager : Singleton<CheckpointManager>
     // Start is called before the first frame update
     void Start()
     {
+        print("Checkpoint manager start");
         checkpoints = new List<Vector3>();
         if (SceneManager.GetActiveScene().name != "Title")
         {

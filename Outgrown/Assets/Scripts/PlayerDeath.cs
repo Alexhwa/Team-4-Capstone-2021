@@ -19,6 +19,7 @@ public class PlayerDeath : MonoBehaviour
         if (Preloaded.Instance.sceneChange)
         {
             transform.position = CheckpointManager.Instance.lastCheckpointPos;
+            Preloaded.Instance.sceneChange = false;
         }
 
         player = GetComponent<PlayerMovement>();

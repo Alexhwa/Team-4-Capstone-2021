@@ -175,3 +175,12 @@ MonoBehaviour:
     pitch: 1.11
     pitchVariance: 0
     fadeIn: 0
+  - clipName: landing
+    clip: {fileID: 8300000, guid: c523a011fa3304e6bb219368b4a378fb, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 0.4
+    volumeVariance: 0
+    pitch: 1.3
+    pitchVariance: 0
+    fadeIn: 0
