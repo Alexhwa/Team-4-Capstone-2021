@@ -41,10 +41,10 @@ MonoBehaviour:
     pitchVariance: 0
     fadeIn: 0
   - clipName: cymbal
-    clip: {fileID: 8300000, guid: 7c64f9a14ff6e491f801592a835dfee1, type: 3}
+    clip: {fileID: 8300000, guid: def89b3584645402fa1c3f92bf3306cc, type: 3}
     overlaps: 0
     loop: 1
-    volume: 1.07
+    volume: 0.9
     volumeVariance: 0
     pitch: 1.33
     pitchVariance: 0
