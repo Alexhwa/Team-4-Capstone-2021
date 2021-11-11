@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -1499835950475026121
     second: DollSprite_0
+  - first:
+      213: 7854555383724072012
+    second: DollSprite_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,10 +108,10 @@ TextureImporter:
       name: DollSprite_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 1626
-        height: 1978
+        width: 1629
+        height: 1999
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1344,6 +1347,27 @@ TextureImporter:
         boneIndex[1]: 0
         boneIndex[2]: 0
         boneIndex[3]: 0
+    - serializedVersion: 2
+      name: DollSprite_1
+      rect:
+        serializedVersion: 2
+        x: 1057
+        y: 1092
+        width: 439
+        height: 412
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4c518b918cf00d60800000000000000
+      internalID: 7854555383724072012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
