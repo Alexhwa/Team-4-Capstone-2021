@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
 	//Audio
 	[SerializeField] private AudioClip footstepAClip;
+	private bool landed;
 	
 	//Animation
 	public Animator anim;
@@ -69,6 +70,11 @@ public class PlayerMovement : MonoBehaviour
 	    if (Keyboard.current.escapeKey.isPressed)
 	    {
 		    Application.Quit();
+	    }
+
+	    if (!grounded && GroundCheck())
+	    {
+		    AudioManager.Instance.PlaySfx("landing");
 	    }
 		grounded = GroundCheck();
 		if (deathScript.playerHealth > 0)
