@@ -20,7 +20,6 @@ public class InputController : MonoBehaviour, InputMaster.IPlayerActions
     public UnityEvent onInteract;
     public Vec2Event onLook;
     public Vec2Event onMove;
-    public Vec1Event onSelect;
 
     private void Awake()
     {
@@ -45,7 +44,6 @@ public class InputController : MonoBehaviour, InputMaster.IPlayerActions
         onInteract = new UnityEvent();
         onLook = new Vec2Event();
         onMove = new Vec2Event();
-        onSelect = new Vec1Event();
     }
 
     public void OnDisable()
@@ -55,8 +53,11 @@ public class InputController : MonoBehaviour, InputMaster.IPlayerActions
     }
     public void OnEnable()
     {
-        inputMaster.Player.Enable();
-        inputMaster.UI.Disable();
+        if (inputMaster != null)
+        {
+            inputMaster.Player.Enable();
+            inputMaster.UI.Disable();
+        }
 
     }
     void InputMaster.IPlayerActions.OnFire(InputAction.CallbackContext context)
@@ -77,10 +78,5 @@ public class InputController : MonoBehaviour, InputMaster.IPlayerActions
     void InputMaster.IPlayerActions.OnMove(InputAction.CallbackContext context)
     {
         onMove.Invoke(context.ReadValue<Vector2>());
-    }
-
-    void InputMaster.IPlayerActions.OnSelection(InputAction.CallbackContext context)
-    {
-        onSelect.Invoke(context.ReadValue<float>());
     }
 }

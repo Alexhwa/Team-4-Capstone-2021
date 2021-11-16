@@ -42,7 +42,7 @@ public class DialogueEvent : MonoBehaviour
                 if (dialogueUI.waitingForOptionSelection)
                     dialogueUI.SelectOption(buttonIndex);
             }
-            if (InputController.Inst.inputMaster.Player.Selection.triggered)
+            /*if (InputController.Inst.inputMaster.Player.Selection.triggered)
             {
                 if (InputController.Inst.inputMaster.Player.Selection.ReadValue<float>() < 0)
                 {
@@ -59,7 +59,7 @@ public class DialogueEvent : MonoBehaviour
                     buttonIndex = ++buttonIndex % dialogueUI.optionButtons.Count;
                     dialogueUI.optionButtons[buttonIndex].Select();
                 }
-            }
+            }*/
         }
     }
 
