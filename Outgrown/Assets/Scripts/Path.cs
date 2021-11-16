@@ -18,7 +18,7 @@ public class Path : MonoBehaviour {
 		foreach(Transform p in positions) {
 			if(p.position != transform.position) {
 				points[iter] = p.position;
-				print(name + " added point " + iter + ": " + points[iter]);
+				// print(name + " added point " + iter + ": " + points[iter]);
 				iter++;
 			}
 		}

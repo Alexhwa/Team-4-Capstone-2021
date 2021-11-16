@@ -67,7 +67,7 @@ public class RepeatedPathMovement : MonoBehaviour
 		nextLocation = path.GetComponent<Path>().getPoint(iter);
 		currentGravity = path.GetComponent<Path>().getGravity(iter);
 		initialV = nextLocation.y - prevLocation.y - (currentGravity/2);
-		print(name + " moving from point " + (iter - 1) + " " + prevLocation + " to point " + iter + " " + nextLocation);
+		// print(name + " moving from point " + (iter - 1) + " " + prevLocation + " to point " + iter + " " + nextLocation);
 	}
 	
 	void OnTriggerEnter2D(Collider2D collider) {
