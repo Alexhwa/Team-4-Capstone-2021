@@ -33,16 +33,32 @@ public class DialogueEvent : MonoBehaviour
         Vector3 worldPos = mainCam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         print(worldPos);*/
         if (dialogueRunner.IsDialogueRunning == true)
-        {   
-            if (InputController.Inst.inputMaster.Player.Interact.triggered)
+        {
+            if (InputController.Inst.inputMaster.UI.Interact.triggered)
             {
                 dialogueUI.MarkLineComplete();
-                dialogueUI.optionButtons[0].Select();
+                //dialogueUI.optionButtons[0].Select();
+                // dialogueUI.optionButtons[buttonIndex];
+                if (dialogueUI.waitingForOptionSelection)
+                    dialogueUI.SelectOption(buttonIndex);
             }
-            if (InputController.Inst.inputMaster.Player.Move.triggered)
+            if (InputController.Inst.inputMaster.Player.Selection.triggered)
             {
-                buttonIndex = dialogueUI.optionButtons.Count % ++buttonIndex;
-                dialogueUI.optionButtons[buttonIndex].Select();
+                if (InputController.Inst.inputMaster.Player.Selection.ReadValue<float>() < 0)
+                {
+                    print("pressed W");
+                    if (buttonIndex - 1 < 0)
+                        buttonIndex = dialogueUI.optionButtons.Count - 1;
+                    else
+                        buttonIndex = --buttonIndex % dialogueUI.optionButtons.Count;
+                    dialogueUI.optionButtons[buttonIndex].Select();
+                }
+                else if (InputController.Inst.inputMaster.Player.Selection.ReadValue<float>() > 0)
+                {
+                    print("pressed S");
+                    buttonIndex = ++buttonIndex % dialogueUI.optionButtons.Count;
+                    dialogueUI.optionButtons[buttonIndex].Select();
+                }
             }
         }
     }

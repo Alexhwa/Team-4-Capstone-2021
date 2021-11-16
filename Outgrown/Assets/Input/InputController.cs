@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 //Defining a unity event class that takes in a Vector2
 [System.Serializable] public class Vec2Event : UnityEvent<Vector2> { }
+[System.Serializable] public class Vec1Event : UnityEvent<float> { }
+
 
 public class InputController : MonoBehaviour, InputMaster.IPlayerActions
 {
@@ -18,6 +20,7 @@ public class InputController : MonoBehaviour, InputMaster.IPlayerActions
     public UnityEvent onInteract;
     public Vec2Event onLook;
     public Vec2Event onMove;
+    public Vec1Event onSelect;
 
     private void Awake()
     {
@@ -42,11 +45,19 @@ public class InputController : MonoBehaviour, InputMaster.IPlayerActions
         onInteract = new UnityEvent();
         onLook = new Vec2Event();
         onMove = new Vec2Event();
+        onSelect = new Vec1Event();
     }
 
     public void OnDisable()
     {
         inputMaster.Player.Disable();
+        inputMaster.UI.Enable();
+    }
+    public void OnEnable()
+    {
+        inputMaster.Player.Enable();
+        inputMaster.UI.Disable();
+
     }
     void InputMaster.IPlayerActions.OnFire(InputAction.CallbackContext context)
     { 
@@ -66,5 +77,10 @@ public class InputController : MonoBehaviour, InputMaster.IPlayerActions
     void InputMaster.IPlayerActions.OnMove(InputAction.CallbackContext context)
     {
         onMove.Invoke(context.ReadValue<Vector2>());
+    }
+
+    void InputMaster.IPlayerActions.OnSelection(InputAction.CallbackContext context)
+    {
+        onSelect.Invoke(context.ReadValue<float>());
     }
 }
