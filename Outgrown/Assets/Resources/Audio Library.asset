@@ -140,7 +140,7 @@ MonoBehaviour:
     pitchVariance: 0
     fadeIn: 0
   - clipName: footsteps
-    clip: {fileID: 8300000, guid: e85bd6e52e24b423ca6beff915a992e9, type: 3}
+    clip: {fileID: 8300000, guid: 6b3e5ecf55abe4741900f3102a6e272b, type: 3}
     overlaps: 0
     loop: 0
     volume: 0.3
@@ -167,7 +167,7 @@ MonoBehaviour:
     pitchVariance: 0
     fadeIn: 1
   - clipName: monkey scream
-    clip: {fileID: 8300000, guid: f887456a571b04651abf12518fbf1ece, type: 3}
+    clip: {fileID: 8300000, guid: bd7bd6e0c2a444e188ef140033246155, type: 3}
     overlaps: 0
     loop: 1
     volume: 0.2
