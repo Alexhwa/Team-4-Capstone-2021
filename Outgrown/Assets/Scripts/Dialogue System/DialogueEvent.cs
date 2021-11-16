@@ -18,6 +18,7 @@ public class DialogueEvent : MonoBehaviour
 
     Speaker speaker = Speaker.PLAYER;
     private int buttonIndex = 0;
+    bool waitingForOptionSelection = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,7 @@ public class DialogueEvent : MonoBehaviour
                 dialogueUI.MarkLineComplete();
                 //dialogueUI.optionButtons[0].Select();
                 // dialogueUI.optionButtons[buttonIndex];
-                if (dialogueUI.waitingForOptionSelection)
+                if (waitingForOptionSelection)
                     dialogueUI.SelectOption(buttonIndex);
             }
             /*if (InputController.Inst.inputMaster.Player.Selection.triggered)
@@ -149,5 +150,10 @@ public class DialogueEvent : MonoBehaviour
         buttonIndex = 0;
         dialogueUI.optionButtons[0].Select();
         
+    }
+
+    public void SetWaitingForOptionSelection(bool state)
+    {
+        waitingForOptionSelection = state;
     }
 }
