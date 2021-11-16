@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 //Defining a unity event class that takes in a Vector2
 [System.Serializable] public class Vec2Event : UnityEvent<Vector2> { }
+[System.Serializable] public class Vec1Event : UnityEvent<float> { }
+
 
 public class InputController : MonoBehaviour, InputMaster.IPlayerActions
 {
@@ -47,6 +49,16 @@ public class InputController : MonoBehaviour, InputMaster.IPlayerActions
     public void OnDisable()
     {
         inputMaster.Player.Disable();
+        inputMaster.UI.Enable();
+    }
+    public void OnEnable()
+    {
+        if (inputMaster != null)
+        {
+            inputMaster.Player.Enable();
+            inputMaster.UI.Disable();
+        }
+
     }
     void InputMaster.IPlayerActions.OnFire(InputAction.CallbackContext context)
     { 
