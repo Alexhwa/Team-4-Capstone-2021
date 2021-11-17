@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 	private Rigidbody2D rb;
 	private Vector2 walkVectorDebug;
 	private bool jumpLastFrame;
+	public float walkDampenFactor;
 	
 	//Ledgegrab Check
 	[SerializeField] private GameObject ledgeGrab;
@@ -177,6 +178,12 @@ public class PlayerMovement : MonoBehaviour
 	    var moveDir = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>();
 	    Vector2 walkVector = new Vector2(walkSpeed * Time.deltaTime * moveDir.x, 0);
 
+	    if (Mathf.Abs(walkVector.x) < .2f)
+	    {
+		    var newVel = rb.velocity;
+		    newVel.x /= walkDampenFactor;
+		    rb.velocity = newVel;
+	    }
 	    if (!grounded)
 	    {
 		    var newVel = rb.velocity;
