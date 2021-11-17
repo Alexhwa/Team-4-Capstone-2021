@@ -23,8 +23,8 @@ MonoBehaviour:
     pitchVariance: 0.66
     fadeIn: 0
   - clipName: Level 1 chase
-    clip: {fileID: 8300000, guid: e9a30ef33a58b489fa9b2461514e0aeb, type: 3}
-    overlaps: 1
+    clip: {fileID: 8300000, guid: 86b10a32b4e48497f89201c3bff38dde, type: 3}
+    overlaps: 0
     loop: 1
     volume: 0.95
     volumeVariance: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
     pitchVariance: 0
     fadeIn: 0
   - clipName: damage sound
-    clip: {fileID: 8300000, guid: 40ac1640090d0477ebf52777e43c95f8, type: 3}
+    clip: {fileID: 8300000, guid: ea26cb6c200884ee89d3bc2f0923f84c, type: 3}
     overlaps: 0
     loop: 0
     volume: 1
@@ -59,7 +59,7 @@ MonoBehaviour:
     pitchVariance: 0
     fadeIn: 0
   - clipName: death chord
-    clip: {fileID: 8300000, guid: 167cb2901d2434bd6bef2d24e702cdb3, type: 3}
+    clip: {fileID: 8300000, guid: 9d4ee30b7906444569591fb7b153b3c1, type: 3}
     overlaps: 0
     loop: 0
     volume: 1
@@ -76,7 +76,7 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     fadeIn: 0
-  - clipName: initial landing
+  - clipName: landing 2
     clip: {fileID: 8300000, guid: c523a011fa3304e6bb219368b4a378fb, type: 3}
     overlaps: 0
     loop: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     fadeIn: 0
-  - clipName: regular landing
+  - clipName: landing
     clip: {fileID: 8300000, guid: 0d7a45623fe8d4bd997d246e7a6d812f, type: 3}
     overlaps: 0
     loop: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
     pitchVariance: 0
     fadeIn: 0
   - clipName: spider scream
-    clip: {fileID: 8300000, guid: b22e4202c26504effbc9beae385bc8ed, type: 3}
+    clip: {fileID: 8300000, guid: 2564c323a580744df9bb7870382d6e65, type: 3}
     overlaps: 0
     loop: 0
     volume: 0.2
@@ -140,7 +140,7 @@ MonoBehaviour:
     pitchVariance: 0
     fadeIn: 0
   - clipName: footsteps
-    clip: {fileID: 8300000, guid: e85bd6e52e24b423ca6beff915a992e9, type: 3}
+    clip: {fileID: 8300000, guid: 6b3e5ecf55abe4741900f3102a6e272b, type: 3}
     overlaps: 0
     loop: 0
     volume: 0.3
@@ -149,8 +149,8 @@ MonoBehaviour:
     pitchVariance: 0.2
     fadeIn: 0
   - clipName: level 1 music
-    clip: {fileID: 8300000, guid: 27b31d6fee20948d49425101066a62a5, type: 3}
-    overlaps: 1
+    clip: {fileID: 8300000, guid: 57f565ebf3297435db828eed5d445cab, type: 3}
+    overlaps: 0
     loop: 1
     volume: 0.75
     volumeVariance: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
     fadeIn: 1
   - clipName: level 2 music
     clip: {fileID: 8300000, guid: 05a66a7086dc74782a2dffd816567045, type: 3}
-    overlaps: 1
+    overlaps: 0
     loop: 1
     volume: 1
     volumeVariance: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
     pitchVariance: 0
     fadeIn: 1
   - clipName: monkey scream
-    clip: {fileID: 8300000, guid: f887456a571b04651abf12518fbf1ece, type: 3}
+    clip: {fileID: 8300000, guid: bd7bd6e0c2a444e188ef140033246155, type: 3}
     overlaps: 0
     loop: 1
     volume: 0.2
@@ -175,12 +175,30 @@ MonoBehaviour:
     pitch: 1.11
     pitchVariance: 0
     fadeIn: 0
-  - clipName: landing
-    clip: {fileID: 8300000, guid: c523a011fa3304e6bb219368b4a378fb, type: 3}
+  - clipName: clicking
+    clip: {fileID: 8300000, guid: b30c3a10dd2c640db90fe570e9c6c7db, type: 3}
     overlaps: 0
     loop: 0
-    volume: 0.7
+    volume: 1
     volumeVariance: 0
-    pitch: 1.52
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: stove
+    clip: {fileID: 8300000, guid: 77ab4bfc3b888427ba8f94a132a98060, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: level 2 chase
+    clip: {fileID: 8300000, guid: f4880c11de05c472bad909e5c92c632b, type: 3}
+    overlaps: 0
+    loop: 1
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
     pitchVariance: 0
     fadeIn: 0
