@@ -11,13 +11,25 @@ public class SoldierBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(StartSweep());
+        Patrol();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void lookAtObject(Transform trans)
+    {
+        StopCoroutine(StartSweep());
+        StopAllCoroutines();
+        StartCoroutine(OnAlert(trans));
+    }
+
+    public void Patrol()
+    {
+        StartCoroutine(StartSweep());
     }
 
     private IEnumerator StartSweep()
@@ -42,15 +54,28 @@ public class SoldierBehavior : MonoBehaviour
                 counter += Time.unscaledDeltaTime;
             else
                 counter += Time.deltaTime;
-            /* if (Random.Range(0, 1) < .5f)
-            {
-                //pos = lookPath[pathIndex];
-                pos.x = lookPath[pathIndex].x + Mathf.Sin(counter) * 1f;
-                pos.y = lookPath[pathIndex].y + Mathf.Sin(counter) * 1f;
-            } */
-            // DetectionLight.transform.rotation = Mathf.Lerp(DetectionLight.transform.rotation.z, rotateAngle, Time.deltaTime);
             Quaternion s = Quaternion.Euler(0,0,rotateAngle);
             DetectionLight.transform.rotation = Quaternion.Slerp(DetectionLight.transform.rotation, s, Time.deltaTime);
+            yield return null;
+        }
+    }
+
+    private IEnumerator OnAlert(Transform trans)
+    {
+        float time = 0;
+        float duration = 2;
+
+        while (time < duration)
+        {
+            if (Time.timeScale == 0)
+                time += Time.unscaledDeltaTime;
+            else
+                time += Time.deltaTime;
+
+            Vector3 direction;
+            direction = DetectionLight.transform.position - trans.position;
+            direction *= -1;
+            DetectionLight.transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
             yield return null;
         }
     }
