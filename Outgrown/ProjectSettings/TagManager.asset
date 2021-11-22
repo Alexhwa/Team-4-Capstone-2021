@@ -8,6 +8,7 @@ TagManager:
   - Preloader
   - Obstacle
   - KillZone
+  - Bunny
   layers:
   - Default
   - TransparentFX
