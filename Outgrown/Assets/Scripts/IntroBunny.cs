@@ -16,7 +16,8 @@ public class IntroBunny : MonoBehaviour
 	[SerializeField] private GameObject path1, path2, path3, path4, path5;
 	
 	//	current path bunny is moving on
-	private int currentPath = -1;
+	//	starts as 0 initially
+	static int currentPath;
 	
 	//	if true, stop and wait for player to get close
 	//	if false, move around path to next stop location
@@ -34,6 +35,14 @@ public class IntroBunny : MonoBehaviour
 		paths.Add(path3);
 		paths.Add(path4);
 		paths.Add(path5);
+		
+		//	set starting position based on currentPath
+		if(currentPath != 0) {
+			int lastPoint = paths[currentPath - 1].GetComponent<Path>().getGravs().Length - 1;
+			transform.position = paths[currentPath - 1].GetComponent<Path>().getPoint(lastPoint);
+		}
+		
+		print("BUNNY INITIALIZED WITH PATH " + currentPath);
 		nextLocation = transform.position;
 	}
     
@@ -59,11 +68,12 @@ public class IntroBunny : MonoBehaviour
 				if(paths[currentPath].GetComponent<Path>().getPoints().Length <= iter) {
 					print("Bunny out of locations, waiting for player");
 					waitForPlayer = true;
+					currentPath++;
 				}
 				//	else select next point to move towards
 				else {
 					setVarsForNewPoint(iter);
-				}	
+				}
 			}
 		}
 	}
@@ -73,7 +83,6 @@ public class IntroBunny : MonoBehaviour
 		print("Player triggered bunny");
 		if(waitForPlayer) {
 			//	move to next path
-			currentPath++;
 			
 			//	if all out of paths, do nothing
 			if(paths[currentPath] == null) {return;}
