@@ -20,8 +20,9 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private float edgeJumpForce = 11.25f;
 	private int ledgeLayer = 2;
 	private float gravity = 2.3f;
+	private float ledgeTimer = 0.4f;
 
-	//Ledgegrab Check
+	//Climbgrab Check
 	[SerializeField] private GameObject climbGrab;
 	private int climbLayer = 512;
 
@@ -128,7 +129,11 @@ public class PlayerMovement : MonoBehaviour
 					break;
 			}
 		}
-
+		
+		//	just a quick fix so the player jumps/drops from ledges corectly
+		if(currentState != PlayerState.Hang && ledgeTimer > 0)
+			ledgeTimer -= Time.deltaTime;
+		
 		jumpLastFrame = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>().y > 0;
     }
 
@@ -140,9 +145,9 @@ public class PlayerMovement : MonoBehaviour
 	    {
 		    var newVel = rb.velocity;
 			if(moveDir.y > 0)
-				newVel.y = jumpForce * 1.4f;
+				newVel.y = jumpForce * 1.3f;
 			else
-				newVel.y = jumpForce * -0.8f;
+				newVel.y = jumpForce * -0.2f;
 		    rb.velocity = newVel;
 		    currentState = PlayerState.Idle;
 		    rb.gravityScale = gravity;
@@ -221,7 +226,8 @@ public class PlayerMovement : MonoBehaviour
 	    bool hanging = false;
 	    if(CanHangFromLedge())
 	    {
-		    print("we're on a ledge");
+			ledgeTimer = 0.4f;
+		    print("we're on a ledge: " + ledgeTimer);
 		    currentState = PlayerState.Hang;
 		    rb.velocity *= 0;
 		    rb.gravityScale = 0;
@@ -267,7 +273,7 @@ public class PlayerMovement : MonoBehaviour
     //	check if our ledgeGrab collider found a ledge
     private bool CanHangFromLedge()
     {
-	    return (Physics2D.IsTouchingLayers(ledgeGrab.GetComponent<Collider2D>(), ledgeLayer));
+	    return (Physics2D.IsTouchingLayers(ledgeGrab.GetComponent<Collider2D>(), ledgeLayer) && ledgeTimer <= 0);
     }
 
 	private bool CanClimb()
