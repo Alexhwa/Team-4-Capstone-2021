@@ -135,16 +135,18 @@ public class PlayerMovement : MonoBehaviour
     private void HangMovement()
     {
 		var moveDir = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>();
-	    if (moveDir.y > 0 && !jumpLastFrame)
+	    //	player has two options: jump from ledge, or drop from ledge;
+		if (moveDir.y != 0 && !jumpLastFrame)
 	    {
 		    var newVel = rb.velocity;
-		    newVel.y = jumpForce * 1.4f;
+			if(moveDir.y > 0)
+				newVel.y = jumpForce * 1.4f;
+			else
+				newVel.y = jumpForce * -0.8f;
 		    rb.velocity = newVel;
 		    currentState = PlayerState.Idle;
 		    rb.gravityScale = gravity;
 	    }
-
-	    
     }
 
 	public void ClimbMovement()
