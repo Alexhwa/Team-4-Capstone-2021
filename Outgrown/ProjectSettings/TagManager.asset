@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - KillZone
   - Bunny
+  - Ledge
   layers:
   - Default
   - TransparentFX

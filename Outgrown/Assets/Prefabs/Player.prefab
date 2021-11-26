@@ -467,8 +467,10 @@ MonoBehaviour:
   maxWalkSpeed: 9.3
   jumpForce: 10.8
   walkDampenFactor: 1.3
+  wolfJumpDuration: 0.1
   ledgeGrab: {fileID: 4146105328957767228}
   edgeJumpForce: 11.25
+  yOffset: 2
   climbGrab: {fileID: 583989721106634273}
   minDistFromGround: 0.4
   groundCheck: {fileID: 4589858784364574973}

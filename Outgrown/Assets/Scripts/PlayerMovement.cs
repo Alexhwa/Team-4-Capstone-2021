@@ -14,10 +14,11 @@ public class PlayerMovement : MonoBehaviour
 	private Vector2 walkVectorDebug;
 	private bool jumpLastFrame;
 	public float walkDampenFactor;
-	
+
 	//Ledgegrab Check
 	[SerializeField] private GameObject ledgeGrab;
 	[SerializeField] private float edgeJumpForce = 11.25f;
+	[SerializeField] private float yOffset;
 	private int ledgeLayer = 2;
 	private float gravity = 2.3f;
 	private float ledgeTimer = 0.4f;
@@ -60,25 +61,44 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+	    //Falling out of world check
 	    if (other.tag.Equals("KillZone"))
 	    {
 		    deathScript.damagePlayer(1);
+	    }
+
+	    if (other.tag.Equals("Ledge") && CanHangFromLedge())
+	    {
+		    switch (currentState)
+		    {
+			    case PlayerState.Run:
+			    case PlayerState.Idle:
+			    case PlayerState.Fall:
+				    TryLedgeHang(other.transform, other.GetComponent<Ledge>().faceLeft);
+				    break;
+		    }
 	    }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+	    //Force quit
 	    if (Keyboard.current.escapeKey.isPressed)
 	    {
 		    Application.Quit();
 	    }
 
+	    //Land sfx
 	    if (!grounded && GroundCheck())
 	    {
 		    AudioManager.Instance.PlaySfx("landing");
 	    }
+	    
+	    //Ground check
 		grounded = GroundCheck();
+		
+		//Main movement state machine
 		if (deathScript.playerHealth > 0)
 		{
 			AnimatorStateInfo animStateInfo = anim.GetCurrentAnimatorStateInfo(0);
@@ -117,7 +137,6 @@ public class PlayerMovement : MonoBehaviour
 					}
 
 					DoMovement();
-
 					anim.SetFloat("vSpeed", rb.velocity.y);
 					break;
 				case PlayerState.Climb:
@@ -143,6 +162,8 @@ public class PlayerMovement : MonoBehaviour
 	    //	player has two options: jump from ledge, or drop from ledge;
 		if (moveDir.y != 0 && !jumpLastFrame)
 	    {
+		    rb.bodyType = RigidbodyType2D.Dynamic;
+
 		    var newVel = rb.velocity;
 			if(moveDir.y > 0)
 				newVel.y = jumpForce * 1.3f;
@@ -182,10 +203,12 @@ public class PlayerMovement : MonoBehaviour
 
 	public void DoMovement()
     {
+	    //Get input and convert into vector2
 	    var moveDir = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>();
 	    Vector2 walkVector = new Vector2(walkSpeed * Time.deltaTime * moveDir.x, 0);
 
-	    if (Mathf.Abs(walkVector.x) < .2f)
+	    //
+	    if (Mathf.Abs(moveDir.x) < .2f)
 	    {
 		    var newVel = rb.velocity;
 		    newVel.x /= walkDampenFactor;
@@ -200,7 +223,7 @@ public class PlayerMovement : MonoBehaviour
 	    //Side to side
 	    if (Mathf.Abs(rb.velocity.x) < maxWalkSpeed)
 	    {
-		    
+
 		    walkVector = AccountForSlope(walkVector);
 		    rb.velocity += walkVector;
 
@@ -209,7 +232,7 @@ public class PlayerMovement : MonoBehaviour
 			    TryFipSprite(walkVector.x > 0);
 		    }
 
-		    if(Mathf.Abs(walkVector.x) > 0)
+		    if (Mathf.Abs(walkVector.x) > 0)
 		    {
 			    currentState = PlayerState.Run;
 			    if (grounded)
@@ -222,28 +245,6 @@ public class PlayerMovement : MonoBehaviour
 			    currentState = PlayerState.Idle;
 		    }
 	    }
-	    //	ledge hang check
-	    bool hanging = false;
-	    if(CanHangFromLedge())
-	    {
-			ledgeTimer = 0.4f;
-		    print("we're on a ledge: " + ledgeTimer);
-		    currentState = PlayerState.Hang;
-		    rb.velocity *= 0;
-		    rb.gravityScale = 0;
-		    return;
-	    }
-	    else
-		    rb.gravityScale = gravity;
-
-        if (CanClimb())
-        {
-			print("we're on a rope");
-			currentState = PlayerState.Climb;
-			rb.velocity *= 0;
-			rb.gravityScale = 0;
-			return;
-		}
 
 	    //jump
 	    if (moveDir.y > 0 && !jumpLastFrame && grounded)
@@ -259,7 +260,7 @@ public class PlayerMovement : MonoBehaviour
 	    }
     }
 
-    private bool GroundCheck()
+	private bool GroundCheck()
     {
 	    RaycastHit2D hit = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, minDistFromGround, groundMask);
 	    if (hit.collider != null)
@@ -268,6 +269,30 @@ public class PlayerMovement : MonoBehaviour
 		    return true;
 	    }
 	    return false;
+    }
+
+    private void TryLedgeHang(Transform ledgeTransform, bool facingLeft)
+    {
+	    if(CanHangFromLedge())
+	    {
+		    ledgeTimer = 0.4f;
+		    currentState = PlayerState.Hang;
+		    rb.velocity *= 0;
+		    rb.gravityScale = 0;
+		    rb.bodyType = RigidbodyType2D.Kinematic;
+		    transform.position = ledgeTransform.position + Vector3.down * yOffset;
+		    TryFipSprite(!facingLeft);
+	    }
+    }
+
+    private void TryRopeClimb()
+    {
+	    if (CanClimb())
+	    {
+		    currentState = PlayerState.Climb;
+		    rb.velocity *= 0;
+		    rb.gravityScale = 0;
+	    }
     }
     
     //	check if our ledgeGrab collider found a ledge
