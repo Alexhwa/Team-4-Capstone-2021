@@ -66,17 +66,34 @@ public class PlayerMovement : MonoBehaviour
 	    {
 		    deathScript.damagePlayer(1);
 	    }
-
-	    if (other.tag.Equals("Ledge") && CanHangFromLedge())
+	    
+	    switch (currentState)
 	    {
-		    switch (currentState)
-		    {
-			    case PlayerState.Run:
-			    case PlayerState.Idle:
-			    case PlayerState.Fall:
+		    case PlayerState.Run:
+		    case PlayerState.Idle:
+		    case PlayerState.Fall:
+			    if (other.tag.Equals("Ledge") && CanHangFromLedge())
+			    {
 				    TryLedgeHang(other.transform, other.GetComponent<Ledge>().faceLeft);
-				    break;
-		    }
+			    }
+			    if (other.tag.Equals("Rope") && CanClimb())
+			    {
+				    TryRopeClimb();
+			    }
+			    break;
+	    }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+	    switch (currentState)
+	    {
+		    case PlayerState.Climb:
+			    if (other.tag.Equals("Rope"))
+			    {
+				    ExitClimb();
+			    }
+			    break;
 	    }
     }
 
@@ -185,16 +202,19 @@ public class PlayerMovement : MonoBehaviour
         {
 			if (Mathf.Abs(rb.velocity.x) < maxWalkSpeed)
 			{
-				climbGrab.SetActive(false);
-				StartCoroutine(ClimbCooldown());
-				Vector2 walkVector = new Vector2(walkSpeed * Time.deltaTime * moveDir.x, 0);
-				walkVector = AccountForSlope(walkVector);
-				rb.velocity += walkVector;
-				currentState = PlayerState.Fall;
+				ExitClimb();
 			}
         }
 	}
 
+	private void ExitClimb()
+	{
+		climbGrab.SetActive(false);
+		StartCoroutine(ClimbCooldown());
+		rb.bodyType = RigidbodyType2D.Dynamic;
+		rb.gravityScale = gravity;
+		currentState = PlayerState.Fall;
+	}
 	IEnumerator ClimbCooldown()
     {
 		yield return new WaitForSeconds(0.2f);
@@ -280,7 +300,9 @@ public class PlayerMovement : MonoBehaviour
 		    rb.velocity *= 0;
 		    rb.gravityScale = 0;
 		    rb.bodyType = RigidbodyType2D.Kinematic;
-		    transform.position = ledgeTransform.position + Vector3.down * yOffset;
+		    Vector3 ledgePos = ledgeTransform.position;
+		    ledgePos.z = transform.position.z;
+		    transform.position = ledgePos + Vector3.down * yOffset;
 		    TryFipSprite(!facingLeft);
 	    }
     }
@@ -289,9 +311,11 @@ public class PlayerMovement : MonoBehaviour
     {
 	    if (CanClimb())
 	    {
+		    print("Grabbed rope");
 		    currentState = PlayerState.Climb;
 		    rb.velocity *= 0;
 		    rb.gravityScale = 0;
+		    rb.bodyType = RigidbodyType2D.Kinematic;
 	    }
     }
     
