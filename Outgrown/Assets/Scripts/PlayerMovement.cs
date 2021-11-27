@@ -75,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
 			    if (other.tag.Equals("Ledge") && CanHangFromLedge())
 			    {
 				    TryLedgeHang(other.transform, other.GetComponent<Ledge>().faceLeft);
+				    transform.SetParent(other.transform);
 			    }
 			    if (other.tag.Equals("Rope") && CanClimb())
 			    {
@@ -85,10 +86,32 @@ public class PlayerMovement : MonoBehaviour
 	    }
     }
 
+    private void OnTriggerStay2D(Collider2D other)
+    {
+	    switch (currentState)
+	    {
+		    case PlayerState.Hang:
+			    if (other.tag.Equals("Ledge"))
+			    {
+				    if (transform.parent == null)
+				    {
+					    transform.SetParent(other.transform);
+				    }
+			    }
+			    break;
+	    }
+    }
+
     private void OnTriggerExit2D(Collider2D other)
     {
 	    switch (currentState)
 	    {
+		    case PlayerState.Hang:
+			    if (other.tag.Equals("Ledge"))
+			    {
+				    transform.SetParent(null);
+			    }
+			    break;
 		    case PlayerState.Climb:
 			    if (other.tag.Equals("Rope"))
 			    {
@@ -176,6 +199,7 @@ public class PlayerMovement : MonoBehaviour
 	    //	player has two options: jump from ledge, or drop from ledge;
 		if (moveDir.y != 0 && !jumpLastFrame)
 	    {
+		    transform.SetParent(null);
 		    rb.bodyType = RigidbodyType2D.Dynamic;
 
 		    var newVel = rb.velocity;
@@ -372,6 +396,23 @@ public class PlayerMovement : MonoBehaviour
 	    else if(!isMovingRight && !sprtRnd.flipX)
 	    {
 		    sprtRnd.flipX = true;
+	    }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+	    if (other.gameObject.tag.Equals("MovingPlatform"))
+	    {
+		    transform.SetParent(other.transform);
+	    }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+	    if (other.gameObject.tag.Equals("MovingPlatform"))
+	    {
+		    transform.SetParent(null);
 	    }
     }
 }

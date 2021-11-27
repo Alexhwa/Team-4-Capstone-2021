@@ -11,6 +11,7 @@ TagManager:
   - Bunny
   - Ledge
   - Rope
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX

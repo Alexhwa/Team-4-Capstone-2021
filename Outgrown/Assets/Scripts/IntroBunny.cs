@@ -9,7 +9,7 @@ public class IntroBunny : MonoBehaviour
 	int iter = 0;
 	float initialV = 0f;
 	[SerializeField] float elapsedTime = 0f;
-	[SerializeField] float timeBetweenPaths = 1f;
+	[SerializeField] float timeBetweenPaths = .5f;
 	float currentGravity = 0f;
 	
 	//	NOTE: update this if more/less movement paths used
@@ -26,6 +26,9 @@ public class IntroBunny : MonoBehaviour
 	//	vars for storing current locations/speeds
 	private Vector3 prevLocation;
 	private Vector3 nextLocation;
+
+	public Animator anim;
+	private SpriteRenderer sprtRnd;
 	
     void Start(){
 		//	init paths
@@ -44,7 +47,8 @@ public class IntroBunny : MonoBehaviour
 		
 		print("BUNNY INITIALIZED WITH PATH " + currentPath);
 		nextLocation = transform.position;
-	}
+		sprtRnd = GetComponent<SpriteRenderer>();
+    }
     
 	//	Somebody move this to some method that only runs when !waitForPlayer
 	void Update() {
@@ -52,8 +56,9 @@ public class IntroBunny : MonoBehaviour
 			// move to nextLocation if not there yet
 			if(elapsedTime < timeBetweenPaths)
 			{
-				float newX = prevLocation.x + (elapsedTime * (nextLocation.x - prevLocation.x));
-				float newY = prevLocation.y + (initialV * elapsedTime) + (currentGravity * elapsedTime * elapsedTime/2);
+				float convertedTime = (1 / timeBetweenPaths) * elapsedTime;
+				float newX = prevLocation.x + (convertedTime * (nextLocation.x - prevLocation.x));
+				float newY = prevLocation.y + (initialV * convertedTime) + (currentGravity * convertedTime * convertedTime/2);
 				transform.position = new Vector3(newX, newY, 0);
 				
 				elapsedTime += Time.deltaTime;
@@ -62,7 +67,7 @@ public class IntroBunny : MonoBehaviour
 			//	if we ARE there, then reset vars and choose new nextLocation
 			else {
 				iter++;
-				
+				anim.Play("IdleGetUp");
 				//	if we're all out of checkpoints for this path, stop
 				// if(paths[currentPath].GetComponent<Path>().getPoints().Capacity >= iter) {
 				if(paths[currentPath].GetComponent<Path>().getPoints().Length <= iter) {
@@ -83,7 +88,7 @@ public class IntroBunny : MonoBehaviour
 		print("Player triggered bunny");
 		if(waitForPlayer) {
 			//	move to next path
-			
+			anim.Play("Jump");
 			//	if all out of paths, do nothing
 			if(paths[currentPath] == null) {return;}
 			
@@ -100,10 +105,21 @@ public class IntroBunny : MonoBehaviour
 		elapsedTime = 0f;
 		prevLocation = nextLocation;
 		nextLocation = paths[currentPath].GetComponent<Path>().getPoint(iter);
+		TryFipSprite(nextLocation.x - transform.position.x > 0);
 		currentGravity = paths[currentPath].GetComponent<Path>().getGravity(iter);
 		initialV = nextLocation.y - prevLocation.y - (currentGravity/2);
 		print("Bunny moving from point " + (iter - 1) + " " + prevLocation + " to point " + iter + " " + nextLocation);
 	}
 	
-	//	Insert method to remove bunny from level here
+	private void TryFipSprite(bool isMovingRight)
+	{
+		if (isMovingRight && sprtRnd.flipX)
+		{
+			sprtRnd.flipX = false;
+		}
+		else if(!isMovingRight && !sprtRnd.flipX)
+		{
+			sprtRnd.flipX = true;
+		}
+	}
 }
