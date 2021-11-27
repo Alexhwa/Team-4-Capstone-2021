@@ -79,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
 			    if (other.tag.Equals("Rope") && CanClimb())
 			    {
 				    TryRopeClimb();
+				    anim.Play("PlayerClimbStop");
 			    }
 			    break;
 	    }
@@ -158,10 +159,6 @@ public class PlayerMovement : MonoBehaviour
 					break;
 				case PlayerState.Climb:
 					ClimbMovement();
-					if (!animStateInfo.IsName("PlayerClimb"))
-					{
-						anim.Play("PlayerClimb");
-					}
 					break;
 			}
 		}
@@ -198,6 +195,14 @@ public class PlayerMovement : MonoBehaviour
 
 		 
 		rb.velocity = new Vector2(0, moveDir.y * jumpForce);
+		AnimatorStateInfo animStateInfo = anim.GetCurrentAnimatorStateInfo(0);
+		if (Mathf.Abs(moveDir.y) > 0)
+		{
+			if (!animStateInfo.IsName("PlayerClimb"))
+			{
+				anim.Play("PlayerClimb");
+			}
+		}
 		if (Mathf.Abs(moveDir.x) > 0)
         {
 			if (Mathf.Abs(rb.velocity.x) < maxWalkSpeed)
