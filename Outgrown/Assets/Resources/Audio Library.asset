@@ -149,7 +149,7 @@ MonoBehaviour:
     pitchVariance: 0
     fadeIn: 0
   - clipName: level 1 music
-    clip: {fileID: 8300000, guid: 57f565ebf3297435db828eed5d445cab, type: 3}
+    clip: {fileID: 8300000, guid: 40c4bdf371059584584bb873f2a45fed, type: 3}
     overlaps: 0
     loop: 1
     volume: 0.75
@@ -194,7 +194,7 @@ MonoBehaviour:
     pitchVariance: 0
     fadeIn: 0
   - clipName: level 2 chase
-    clip: {fileID: 8300000, guid: f4880c11de05c472bad909e5c92c632b, type: 3}
+    clip: {fileID: 8300000, guid: b9dfd998f4a0e274e9d18b5b9e237853, type: 3}
     overlaps: 0
     loop: 1
     volume: 1
