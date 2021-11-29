@@ -39,6 +39,10 @@ public class Path : MonoBehaviour {
 	public Vector3 getPoint(int num) {
 		return points[num];
 	}
+	//	because at init getPoint doesn't work for some stupid reason
+	public Vector3 getPointFromChildren(int num) {
+		return GetComponentsInChildren<Transform>()[num].position;
+	}
 	public float getGravity(int num) {
 		return gravArr[num];
 	}

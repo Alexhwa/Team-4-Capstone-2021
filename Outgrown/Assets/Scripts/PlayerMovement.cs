@@ -13,14 +13,17 @@ public class PlayerMovement : MonoBehaviour
 	private Rigidbody2D rb;
 	private Vector2 walkVectorDebug;
 	private bool jumpLastFrame;
-	
+	public float walkDampenFactor;
+
 	//Ledgegrab Check
 	[SerializeField] private GameObject ledgeGrab;
 	[SerializeField] private float edgeJumpForce = 11.25f;
+	[SerializeField] private float yOffset;
 	private int ledgeLayer = 2;
 	private float gravity = 2.3f;
+	private float ledgeTimer = 0.4f;
 
-	//Ledgegrab Check
+	//Climbgrab Check
 	[SerializeField] private GameObject climbGrab;
 	private int climbLayer = 512;
 
@@ -58,25 +61,85 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+	    //Falling out of world check
 	    if (other.tag.Equals("KillZone"))
 	    {
 		    deathScript.damagePlayer(1);
+	    }
+	    
+	    switch (currentState)
+	    {
+		    case PlayerState.Run:
+		    case PlayerState.Idle:
+		    case PlayerState.Fall:
+			    if (other.tag.Equals("Ledge") && CanHangFromLedge())
+			    {
+				    TryLedgeHang(other.transform, other.GetComponent<Ledge>().faceLeft);
+				    transform.SetParent(other.transform);
+			    }
+			    if (other.tag.Equals("Rope") && CanClimb())
+			    {
+				    TryRopeClimb();
+				    anim.Play("PlayerClimbStop");
+			    }
+			    break;
+	    }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+	    switch (currentState)
+	    {
+		    case PlayerState.Hang:
+			    if (other.tag.Equals("Ledge"))
+			    {
+				    if (transform.parent == null)
+				    {
+					    transform.SetParent(other.transform);
+				    }
+			    }
+			    break;
+	    }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+	    switch (currentState)
+	    {
+		    case PlayerState.Hang:
+			    if (other.tag.Equals("Ledge"))
+			    {
+				    transform.SetParent(null);
+			    }
+			    break;
+		    case PlayerState.Climb:
+			    if (other.tag.Equals("Rope"))
+			    {
+				    ExitClimb();
+			    }
+			    break;
 	    }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+	    //Force quit
 	    if (Keyboard.current.escapeKey.isPressed)
 	    {
 		    Application.Quit();
 	    }
 
+	    //Land sfx
 	    if (!grounded && GroundCheck())
 	    {
 		    AudioManager.Instance.PlaySfx("landing");
 	    }
+	    
+	    //Ground check
 		grounded = GroundCheck();
+		
+		//Main movement state machine
 		if (deathScript.playerHealth > 0)
 		{
 			AnimatorStateInfo animStateInfo = anim.GetCurrentAnimatorStateInfo(0);
@@ -115,35 +178,39 @@ public class PlayerMovement : MonoBehaviour
 					}
 
 					DoMovement();
-
 					anim.SetFloat("vSpeed", rb.velocity.y);
 					break;
 				case PlayerState.Climb:
 					ClimbMovement();
-					if (!animStateInfo.IsName("PlayerClimb"))
-					{
-						anim.Play("PlayerClimb");
-					}
 					break;
 			}
 		}
-
+		
+		//	just a quick fix so the player jumps/drops from ledges corectly
+		if(currentState != PlayerState.Hang && ledgeTimer > 0)
+			ledgeTimer -= Time.deltaTime;
+		
 		jumpLastFrame = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>().y > 0;
     }
 
     private void HangMovement()
     {
 		var moveDir = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>();
-	    if (moveDir.y > 0 && !jumpLastFrame)
+	    //	player has two options: jump from ledge, or drop from ledge;
+		if (moveDir.y != 0 && !jumpLastFrame)
 	    {
+		    transform.SetParent(null);
+		    rb.bodyType = RigidbodyType2D.Dynamic;
+
 		    var newVel = rb.velocity;
-		    newVel.y = jumpForce * 1.4f;
+			if(moveDir.y > 0)
+				newVel.y = jumpForce * 1.3f;
+			else
+				newVel.y = jumpForce * -0.2f;
 		    rb.velocity = newVel;
 		    currentState = PlayerState.Idle;
 		    rb.gravityScale = gravity;
 	    }
-
-	    
     }
 
 	public void ClimbMovement()
@@ -152,20 +219,31 @@ public class PlayerMovement : MonoBehaviour
 
 		 
 		rb.velocity = new Vector2(0, moveDir.y * jumpForce);
+		AnimatorStateInfo animStateInfo = anim.GetCurrentAnimatorStateInfo(0);
+		if (Mathf.Abs(moveDir.y) > 0)
+		{
+			if (!animStateInfo.IsName("PlayerClimb"))
+			{
+				anim.Play("PlayerClimb");
+			}
+		}
 		if (Mathf.Abs(moveDir.x) > 0)
         {
 			if (Mathf.Abs(rb.velocity.x) < maxWalkSpeed)
 			{
-				climbGrab.SetActive(false);
-				StartCoroutine(ClimbCooldown());
-				Vector2 walkVector = new Vector2(walkSpeed * Time.deltaTime * moveDir.x, 0);
-				walkVector = AccountForSlope(walkVector);
-				rb.velocity += walkVector;
-				currentState = PlayerState.Fall;
+				ExitClimb();
 			}
         }
 	}
 
+	private void ExitClimb()
+	{
+		climbGrab.SetActive(false);
+		StartCoroutine(ClimbCooldown());
+		rb.bodyType = RigidbodyType2D.Dynamic;
+		rb.gravityScale = gravity;
+		currentState = PlayerState.Fall;
+	}
 	IEnumerator ClimbCooldown()
     {
 		yield return new WaitForSeconds(0.2f);
@@ -174,9 +252,17 @@ public class PlayerMovement : MonoBehaviour
 
 	public void DoMovement()
     {
+	    //Get input and convert into vector2
 	    var moveDir = InputController.Inst.inputMaster.Player.Move.ReadValue<Vector2>();
 	    Vector2 walkVector = new Vector2(walkSpeed * Time.deltaTime * moveDir.x, 0);
 
+	    //
+	    if (Mathf.Abs(moveDir.x) < .2f)
+	    {
+		    var newVel = rb.velocity;
+		    newVel.x /= walkDampenFactor;
+		    rb.velocity = newVel;
+	    }
 	    if (!grounded)
 	    {
 		    var newVel = rb.velocity;
@@ -186,7 +272,7 @@ public class PlayerMovement : MonoBehaviour
 	    //Side to side
 	    if (Mathf.Abs(rb.velocity.x) < maxWalkSpeed)
 	    {
-		    
+
 		    walkVector = AccountForSlope(walkVector);
 		    rb.velocity += walkVector;
 
@@ -195,7 +281,7 @@ public class PlayerMovement : MonoBehaviour
 			    TryFipSprite(walkVector.x > 0);
 		    }
 
-		    if(Mathf.Abs(walkVector.x) > 0)
+		    if (Mathf.Abs(walkVector.x) > 0)
 		    {
 			    currentState = PlayerState.Run;
 			    if (grounded)
@@ -208,27 +294,6 @@ public class PlayerMovement : MonoBehaviour
 			    currentState = PlayerState.Idle;
 		    }
 	    }
-	    //	ledge hang check
-	    bool hanging = false;
-	    if(CanHangFromLedge())
-	    {
-		    print("we're on a ledge");
-		    currentState = PlayerState.Hang;
-		    rb.velocity *= 0;
-		    rb.gravityScale = 0;
-		    return;
-	    }
-	    else
-		    rb.gravityScale = gravity;
-
-        if (CanClimb())
-        {
-			print("we're on a rope");
-			currentState = PlayerState.Climb;
-			rb.velocity *= 0;
-			rb.gravityScale = 0;
-			return;
-		}
 
 	    //jump
 	    if (moveDir.y > 0 && !jumpLastFrame && grounded)
@@ -244,7 +309,7 @@ public class PlayerMovement : MonoBehaviour
 	    }
     }
 
-    private bool GroundCheck()
+	private bool GroundCheck()
     {
 	    RaycastHit2D hit = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, minDistFromGround, groundMask);
 	    if (hit.collider != null)
@@ -254,11 +319,39 @@ public class PlayerMovement : MonoBehaviour
 	    }
 	    return false;
     }
+
+    private void TryLedgeHang(Transform ledgeTransform, bool facingLeft)
+    {
+	    if(CanHangFromLedge())
+	    {
+		    ledgeTimer = 0.4f;
+		    currentState = PlayerState.Hang;
+		    rb.velocity *= 0;
+		    rb.gravityScale = 0;
+		    rb.bodyType = RigidbodyType2D.Kinematic;
+		    Vector3 ledgePos = ledgeTransform.position;
+		    ledgePos.z = transform.position.z;
+		    transform.position = ledgePos + Vector3.down * yOffset;
+		    TryFipSprite(!facingLeft);
+	    }
+    }
+
+    private void TryRopeClimb()
+    {
+	    if (CanClimb())
+	    {
+		    print("Grabbed rope");
+		    currentState = PlayerState.Climb;
+		    rb.velocity *= 0;
+		    rb.gravityScale = 0;
+		    rb.bodyType = RigidbodyType2D.Kinematic;
+	    }
+    }
     
     //	check if our ledgeGrab collider found a ledge
     private bool CanHangFromLedge()
     {
-	    return (Physics2D.IsTouchingLayers(ledgeGrab.GetComponent<Collider2D>(), ledgeLayer));
+	    return (Physics2D.IsTouchingLayers(ledgeGrab.GetComponent<Collider2D>(), ledgeLayer) && ledgeTimer <= 0);
     }
 
 	private bool CanClimb()
@@ -303,6 +396,23 @@ public class PlayerMovement : MonoBehaviour
 	    else if(!isMovingRight && !sprtRnd.flipX)
 	    {
 		    sprtRnd.flipX = true;
+	    }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+	    if (other.gameObject.tag.Equals("MovingPlatform"))
+	    {
+		    transform.SetParent(other.transform);
+	    }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+	    if (other.gameObject.tag.Equals("MovingPlatform"))
+	    {
+		    transform.SetParent(null);
 	    }
     }
 }
