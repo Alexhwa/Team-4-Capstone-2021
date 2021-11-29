@@ -7,3 +7,19 @@ position: 0,0
 my sister lost my arm #line:000001
 can you find it for me? #line:000002
 ===
+title: DollAfterBringArm
+tags:
+colorID: 0
+position: 0,0
+---
+<<SetSpeaker DialogueEvent npcBubble>>
+thank you for finding my arm #line:000011
+you should not be here #line:000012
+you are in the quondam #line:000013
+where forgotten toys go #line:000014
+some toys go mad in here #line:000015
+others rot away #line:000016
+you must escape #line:000017
+look out for my sister #line:000018
+good luck #line:000019
+===

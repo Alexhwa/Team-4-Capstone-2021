@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity.Example;
 
 public class DollArm : MonoBehaviour
 {
@@ -25,15 +26,12 @@ public class DollArm : MonoBehaviour
             transform.localPosition = new Vector3(0, 0, 0);
             transform.rotation.eulerAngles.Set(0, 0, -45);
 
-	    GameObject bcp = GameObject.Find("BlockCarPlatform");
-		print("ARSGAF");
-	    bcp.GetComponent<RepeatedPathMovement>().startOverride(null);
-		print("ERUGTIEUHO");
-
-        }
-        else if (collision.name == "DollSprite_0")
-        {
 	    //	change doll speech
+	    GameObject.Find("BlockCarPlatform").GetComponent<RepeatedPathMovement>().startOverride(null);
+	    GameObject.Find("DollSprite_0").GetComponent<NPC>().talkToNode = "DollAfterBringArm";
         }
+//        if (collision.name == "DollSprite_0")
+//        {
+//        }
     }
 }
