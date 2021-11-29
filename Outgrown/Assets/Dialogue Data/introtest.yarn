@@ -14,12 +14,12 @@ position: 0,0
 ---
 <<SetSpeaker DialogueEvent npcBubble>>
 thank you for finding my arm #line:000011
-you should not be here #line:000012
-you are in the quondam #line:000013
-where forgotten toys go #line:000014
-some toys go mad in here #line:000015
-others rot away #line:000016
-you must escape #line:000017
+but you should not be here #line:000012
+you are in a land of forgotten toys #line:000013
+long ago a child played with us #line:000014
+but one day the child left and never returned #line:000015
+some toys go mad in here while others rot away #line:000016
+you must escape from this place #line:000017
 look out for my sister #line:000018
-good luck #line:000019
+i wish you luck #line:000019
 ===
