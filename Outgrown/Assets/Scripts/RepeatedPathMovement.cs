@@ -71,7 +71,11 @@ public class RepeatedPathMovement : MonoBehaviour
 	}
 	
 	void OnTriggerEnter2D(Collider2D collider) {
-		print("Player triggered " + name);
+		startOverride(collider.name);
+	}
+	
+	public void startOverride(String n) {
+		print(n + " triggered " + name);
 		if(stopped) {
 			stopped = false;
 			setVarsForNewPoint(0);

@@ -1,64 +1,9 @@
-title: Start
-tags: 
-colorID: 1
-position: 982,335
----
-James: tweedle dee tweedle dum
-Me: dum du du
-Me: scapper
-[[Well what is it |someone]]
-[[Try it at night |something]]
-===
-title: someone
+title: Doll
 tags: 
 colorID: 0
-position: 782,678
----
-Empty Text
-===
-title: something
-tags: 
-colorID: 0
-position: 1206,679
----
-Empty Text
-===
-title: Start.setspeaker
-tags: 
-colorID: 0
-position: 1971,-178
----
-<<SetSpeaker DialogueEvent playerBubble>>
-Player: what can I say
-Player: I'm naturally gifted
-<<SetSpeaker DialogueEvent npcBubble>>
-NPC: Ha!
-NPC: Good one!
-[[response one |res1]]
-[[response two |res2]]
-[[response three |res3]]
-===
-title: res1
-tags: 
-colorID: 0
-position: 1748,99
+position: 0,0
 ---
 <<SetSpeaker DialogueEvent npcBubble>>
-NPC: waaaah
-===
-title: res2
-tags: 
-colorID: 0
-position: 1968,99
----
-<<SetSpeaker DialogueEvent npcBubble>>
-NPC: blah i hate you
-===
-title: res3
-tags: 
-colorID: 0
-position: 2224,97
----
-<<SetSpeaker DialogueEvent npcBubble>>
-NPC: well that wasn't very nice
+my sister lost my arm #line:000001
+can you find it for me? #line:000002
 ===

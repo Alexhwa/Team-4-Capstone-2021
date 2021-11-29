@@ -42,7 +42,7 @@ public class IntroBunny : MonoBehaviour
 		//	set starting position based on currentPath
 		if(currentPath != 0) {
 			int lastPoint = paths[currentPath - 1].GetComponent<Path>().getGravs().Length - 1;
-			transform.position = paths[currentPath - 1].GetComponent<Path>().getPoint(lastPoint);
+			transform.position = paths[currentPath - 1].GetComponent<Path>().getPointFromChildren(lastPoint);
 		}
 		
 		print("BUNNY INITIALIZED WITH PATH " + currentPath);
@@ -69,7 +69,6 @@ public class IntroBunny : MonoBehaviour
 				iter++;
 				anim.Play("IdleGetUp");
 				//	if we're all out of checkpoints for this path, stop
-				// if(paths[currentPath].GetComponent<Path>().getPoints().Capacity >= iter) {
 				if(paths[currentPath].GetComponent<Path>().getPoints().Length <= iter) {
 					print("Bunny out of locations, waiting for player");
 					waitForPlayer = true;
@@ -83,20 +82,23 @@ public class IntroBunny : MonoBehaviour
 		}
 	}
 	
-	//	Ideally should only trigger if player enters area while out of checkpoints
+	//	Only works if player enters area while out of checkpoints
 	void OnTriggerEnter2D(Collider2D collider) {
-		print("Player triggered bunny");
-		if(waitForPlayer) {
-			//	move to next path
-			anim.Play("Jump");
-			//	if all out of paths, do nothing
-			if(paths[currentPath] == null) {return;}
-			
-			setVarsForNewPoint(0);
-			
-			//	ideally there will always be a nextLocation, add troubleshooting case here if needed
-			waitForPlayer = false;
-			iter = 0;
+		if(collider.name == "Player")
+		{
+			print(collider.name + " triggered bunny");
+			if(waitForPlayer) {
+				//	move to next path
+				anim.Play("Jump");
+				//	if all out of paths, do nothing
+				if(paths[currentPath] == null) {return;}
+				
+				setVarsForNewPoint(0);
+				
+				//	ideally there will always be a nextLocation, add troubleshooting case here if needed
+				waitForPlayer = false;
+				iter = 0;
+			}
 		}
 	}
 	

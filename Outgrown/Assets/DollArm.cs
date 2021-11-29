@@ -24,10 +24,16 @@ public class DollArm : MonoBehaviour
             transform.SetParent(torso);
             transform.localPosition = new Vector3(0, 0, 0);
             transform.rotation.eulerAngles.Set(0, 0, -45);
-        }
-        if (collision.name == "DollSprite_0")
-        {
 
+	    GameObject bcp = GameObject.Find("BlockCarPlatform");
+		print("ARSGAF");
+	    bcp.GetComponent<RepeatedPathMovement>().startOverride(null);
+		print("ERUGTIEUHO");
+
+        }
+        else if (collision.name == "DollSprite_0")
+        {
+	    //	change doll speech
         }
     }
 }
