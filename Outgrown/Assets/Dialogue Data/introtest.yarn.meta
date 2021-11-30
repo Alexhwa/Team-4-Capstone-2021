@@ -8,28 +8,12 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
-  baseLanguageID: 
-  stringIDs:
-  - introtest-Start-0
-  - introtest-Start-1
-  - introtest-Start-2
-  - introtest-Start-3
-  - introtest-Start-4
-  - introtest-someone-5
-  - introtest-something-6
-  - introtest-Start.setspeaker-7
-  - introtest-Start.setspeaker-8
-  - introtest-Start.setspeaker-9
-  - introtest-Start.setspeaker-10
-  - introtest-Start.setspeaker-11
-  - introtest-Start.setspeaker-12
-  - introtest-Start.setspeaker-13
-  - introtest-res1-14
-  - introtest-res2-15
-  - introtest-res3-16
+  baseLanguageID: en-US
+  stringIDs: []
   compilationStatus: 1
-  isSuccesfullyCompiled: 1
-  compilationErrorMessage: 
-  baseLanguage: {fileID: 7128917941130120860, guid: 4d8615fe7019e874ba7a86e9ea86401c,
-    type: 3}
+  isSuccesfullyCompiled: 0
+  compilationErrorMessage: "Error on line 32 at position 5:\nmismatched input 'S'
+    expecting COMMAND_IF\r\n>><<SetSpeaker RabbitDialogueEvent npcBubble>>\r\n   
+    ^"
+  baseLanguage: {instanceID: 0}
   localizations: []

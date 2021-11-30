@@ -1,16 +1,16 @@
 title: Doll
 tags: 
 colorID: 0
-position: 0,0
+position: -45,-49
 ---
 <<SetSpeaker DialogueEvent npcBubble>>
 my sister lost my arm #line:000001
 can you find it for me? #line:000002
 ===
 title: DollAfterBringArm
-tags:
+tags: 
 colorID: 0
-position: 0,0
+position: 177,-49
 ---
 <<SetSpeaker DialogueEvent npcBubble>>
 thank you for finding my arm #line:000011
@@ -21,5 +21,14 @@ but one day the child left and never returned #line:000015
 some toys go mad in here while others rot away #line:000016
 you must escape from this place #line:000017
 look out for my sister #line:000018
-i wish you luck #line:000019
+I wish you luck #line:000019
+<<ShowRope DollEvent>>
+===
+title: Rabbit
+tags: 
+colorID: 0
+position: -34,184
+---
+<<SetSpeaker RabbitDialogueEvent npcBubble>>
+follow me!
 ===
