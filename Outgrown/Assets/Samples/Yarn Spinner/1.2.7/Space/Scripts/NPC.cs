@@ -45,6 +45,12 @@ namespace Yarn.Unity.Example {
                 dialogueRunner.Add(scriptToLoad);
             }
         }
+
+        [YarnCommand("SetTalkNode")]
+        public void SetTalkNode(string node)
+        {
+            talkToNode = node;
+        }
     }
 
 }
