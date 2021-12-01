@@ -14,6 +14,7 @@ public class AudioLibrary : ScriptableObject
     {
         foreach (AudioAsset e in library)
         {
+            Debug.Log(e.clipName);
             if (e.clipName.Equals(clipName) || e.clip.name.Equals(clipName))
             {
                 return e;

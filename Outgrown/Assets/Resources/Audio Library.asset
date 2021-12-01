@@ -23,7 +23,7 @@ MonoBehaviour:
     pitchVariance: 0.66
     fadeIn: 0
   - clipName: Level 1 chase
-    clip: {fileID: 8300000, guid: 86b10a32b4e48497f89201c3bff38dde, type: 3}
+    clip: {fileID: 8300000, guid: e9a30ef33a58b489fa9b2461514e0aeb, type: 3}
     overlaps: 0
     loop: 1
     volume: 0.95
@@ -104,10 +104,10 @@ MonoBehaviour:
     pitchVariance: 0
     fadeIn: 0
   - clipName: landing
-    clip: {fileID: 8300000, guid: 532ef829debe3410f9bd094e0c4dff84, type: 3}
+    clip: {fileID: 8300000, guid: 0d7a45623fe8d4bd997d246e7a6d812f, type: 3}
     overlaps: 0
     loop: 0
-    volume: 0.8
+    volume: 1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
     pitchVariance: 0
     fadeIn: 0
   - clipName: level 1 music
-    clip: {fileID: 8300000, guid: 57f565ebf3297435db828eed5d445cab, type: 3}
+    clip: {fileID: 8300000, guid: 40c4bdf371059584584bb873f2a45fed, type: 3}
     overlaps: 0
     loop: 1
     volume: 0.75
@@ -194,7 +194,7 @@ MonoBehaviour:
     pitchVariance: 0
     fadeIn: 0
   - clipName: level 2 chase
-    clip: {fileID: 8300000, guid: f4880c11de05c472bad909e5c92c632b, type: 3}
+    clip: {fileID: 8300000, guid: b9dfd998f4a0e274e9d18b5b9e237853, type: 3}
     overlaps: 0
     loop: 1
     volume: 1

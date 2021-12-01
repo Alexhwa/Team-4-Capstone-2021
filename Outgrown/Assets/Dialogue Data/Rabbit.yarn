@@ -1,0 +1,49 @@
+title: Rabbit.start
+tags: 
+colorID: 0
+position: 49,-104
+---
+<<SetSpeaker RabbitDialogueEvent npcBubble>>
+Follow me!
+<<ContinuePath IntroBunny>>
+<<SetTalkNode IntroBunny Rabbit.beforejump>>
+===
+title: Rabbit.beforejump
+tags: 
+colorID: 0
+position: 50,164
+---
+<<SetSpeaker RabbitDialogueEvent npcBubble>>
+Push the box and jump across the pit
+<<ContinuePath IntroBunny>>
+<<SetTalkNode IntroBunny Rabbit.afterjump>>
+===
+title: Rabbit.afterjump
+tags: 
+colorID: 0
+position: 51,437
+---
+<<SetSpeaker RabbitDialogueEvent npcBubble>>
+This place is creepy
+<<ContinuePath IntroBunny>>
+<<SetTalkNode IntroBunny Rabbit.top>>
+===
+title: Rabbit.top
+tags: 
+colorID: 0
+position: 50,706
+---
+<<SetSpeaker RabbitDialogueEvent npcBubble>>
+Not the monkey
+<<ContinuePath IntroBunny>>
+<<SetTalkNode IntroBunny Rabbit.monkey>>
+===
+title: Rabbit.monkey
+tags: 
+colorID: 0
+position: 24,956
+---
+<<SetSpeaker RabbitDialogueEvent npcBubble>>
+Ahhh help me!
+<<ContinuePath IntroBunny>>
+===

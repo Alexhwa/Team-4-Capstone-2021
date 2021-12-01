@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Yarn.Unity;
 using UnityEngine;
 
 public class DollEvent : MonoBehaviour
@@ -26,7 +27,6 @@ public class DollEvent : MonoBehaviour
         {
             DollMissingArm.SetActive(true);
             Destroy(collision.gameObject);
-            StartCoroutine(MoveFunction());
         }
     }
 
@@ -35,6 +35,12 @@ public class DollEvent : MonoBehaviour
         // Doll.GetComponent<SpriteRenderer>().sprite = repairedDoll;
         DollMissingArm.SetActive(true);
         MoveFunction();
+    }
+
+    [YarnCommand("ShowRope")]
+    public void ShowRope()
+    {
+        StartCoroutine(MoveFunction());
     }
 
     IEnumerator MoveFunction()
