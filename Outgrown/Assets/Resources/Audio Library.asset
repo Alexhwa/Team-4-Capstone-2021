@@ -107,10 +107,19 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 0d7a45623fe8d4bd997d246e7a6d812f, type: 3}
     overlaps: 0
     loop: 0
-    volume: 1
+    volume: 0.14
     volumeVariance: 0
     pitch: 1
-    pitchVariance: 0
+    pitchVariance: 0.21
+    fadeIn: 0
+  - clipName: ledge grab
+    clip: {fileID: 8300000, guid: 0d7a45623fe8d4bd997d246e7a6d812f, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 0.14
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.24
     fadeIn: 0
   - clipName: spider scream
     clip: {fileID: 8300000, guid: b22e4202c26504effbc9beae385bc8ed, type: 3}
