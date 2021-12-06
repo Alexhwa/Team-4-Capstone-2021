@@ -202,3 +202,84 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     fadeIn: 0
+  - clipName: doll arm music
+    clip: {fileID: 8300000, guid: 4b47fe2f51b73406bbdd78f6d10ee567, type: 3}
+    overlaps: 0
+    loop: 1
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: level 2 highs reduced
+    clip: {fileID: 8300000, guid: 9328a5cbde3fa4c53acc2ca2f0db6390, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: environmental effect 1
+    clip: {fileID: 8300000, guid: b03831da433274700a1132a4f14d96a1, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: environmental effect 2
+    clip: {fileID: 8300000, guid: 69b3c10183faa40969d75aff673ce96d, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: environmental effect 3
+    clip: {fileID: 8300000, guid: dc3a3c234e27141f1abbc50d0e43cd7b, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: environmental effect 4
+    clip: {fileID: 8300000, guid: 465bb1c89270340f4a769f4f348805db, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: environmental effect 5
+    clip: {fileID: 8300000, guid: 5e275750faae74b8a92611910b050c9f, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: level 1 lows out
+    clip: {fileID: 8300000, guid: 57f34a726b1854c6d9299d1bef8ca9a8, type: 3}
+    overlaps: 0
+    loop: 1
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: doll sigh
+    clip: {fileID: 8300000, guid: b9b90a8dd6eee41a58ece6a3e538d4ab, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
