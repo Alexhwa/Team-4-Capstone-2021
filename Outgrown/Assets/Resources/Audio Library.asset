@@ -24,7 +24,7 @@ MonoBehaviour:
     fadeIn: 0
   - clipName: Level 1 chase
     clip: {fileID: 8300000, guid: e9a30ef33a58b489fa9b2461514e0aeb, type: 3}
-    overlaps: 0
+    overlaps: 1
     loop: 1
     volume: 0.95
     volumeVariance: 0
@@ -107,25 +107,34 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 0d7a45623fe8d4bd997d246e7a6d812f, type: 3}
     overlaps: 0
     loop: 0
-    volume: 1
+    volume: 0.14
     volumeVariance: 0
     pitch: 1
-    pitchVariance: 0
+    pitchVariance: 0.21
     fadeIn: 0
-  - clipName: spider scream
-    clip: {fileID: 8300000, guid: 2564c323a580744df9bb7870382d6e65, type: 3}
+  - clipName: ledge grab
+    clip: {fileID: 8300000, guid: 0d7a45623fe8d4bd997d246e7a6d812f, type: 3}
     overlaps: 0
     loop: 0
-    volume: 0.2
+    volume: 0.14
     volumeVariance: 0
-    pitch: 0.6
+    pitch: 1
+    pitchVariance: 0.24
+    fadeIn: 0
+  - clipName: spider scream
+    clip: {fileID: 8300000, guid: b22e4202c26504effbc9beae385bc8ed, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 0.94
+    volumeVariance: 0
+    pitch: 0.97
     pitchVariance: 0
     fadeIn: 0
   - clipName: spider steps
     clip: {fileID: 8300000, guid: afbeb5820c9e54205a21bb5d7c946894, type: 3}
     overlaps: 1
     loop: 0
-    volume: 0.4
+    volume: 0.62
     volumeVariance: 0.2
     pitch: 1.2
     pitchVariance: 0.2
@@ -143,9 +152,9 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 6b3e5ecf55abe4741900f3102a6e272b, type: 3}
     overlaps: 0
     loop: 0
-    volume: 0.3
+    volume: 0.96
     volumeVariance: 0.03
-    pitch: 0.8
+    pitch: 1.22
     pitchVariance: 0
     fadeIn: 0
   - clipName: level 1 music
@@ -170,7 +179,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: bd7bd6e0c2a444e188ef140033246155, type: 3}
     overlaps: 0
     loop: 1
-    volume: 0.2
+    volume: 1
     volumeVariance: 0
     pitch: 1.11
     pitchVariance: 0
@@ -197,6 +206,87 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b9dfd998f4a0e274e9d18b5b9e237853, type: 3}
     overlaps: 0
     loop: 1
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: doll arm music
+    clip: {fileID: 8300000, guid: 4b47fe2f51b73406bbdd78f6d10ee567, type: 3}
+    overlaps: 1
+    loop: 1
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 1
+  - clipName: level 2 highs reduced
+    clip: {fileID: 8300000, guid: 9328a5cbde3fa4c53acc2ca2f0db6390, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: environmental effect 1
+    clip: {fileID: 8300000, guid: b03831da433274700a1132a4f14d96a1, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: environmental effect 2
+    clip: {fileID: 8300000, guid: 69b3c10183faa40969d75aff673ce96d, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: environmental effect 3
+    clip: {fileID: 8300000, guid: dc3a3c234e27141f1abbc50d0e43cd7b, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: environmental effect 4
+    clip: {fileID: 8300000, guid: 465bb1c89270340f4a769f4f348805db, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: environmental effect 5
+    clip: {fileID: 8300000, guid: 5e275750faae74b8a92611910b050c9f, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: level 1 lows out
+    clip: {fileID: 8300000, guid: 57f34a726b1854c6d9299d1bef8ca9a8, type: 3}
+    overlaps: 0
+    loop: 1
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
+  - clipName: doll sigh
+    clip: {fileID: 8300000, guid: b9b90a8dd6eee41a58ece6a3e538d4ab, type: 3}
+    overlaps: 0
+    loop: 0
     volume: 1
     volumeVariance: 0
     pitch: 1

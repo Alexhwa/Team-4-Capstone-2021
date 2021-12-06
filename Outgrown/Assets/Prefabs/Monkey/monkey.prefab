@@ -382,11 +382,6 @@ PrefabInstance:
       propertyPath: m_ApplyToSortingLayers.Array.data[1]
       value: 1055937217
       objectReference: {fileID: 0}
-    - target: {fileID: 4022325713934286941, guid: a49aab60b8f01ad41a329d04dda3ac75,
-        type: 3}
-      propertyPath: monkey_scream
-      value: 
-      objectReference: {fileID: 8300000, guid: f887456a571b04651abf12518fbf1ece, type: 3}
     - target: {fileID: 6174968357105850799, guid: a49aab60b8f01ad41a329d04dda3ac75,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].x
@@ -603,11 +598,6 @@ PrefabInstance:
       propertyPath: m_ApplyToSortingLayers.Array.data[1]
       value: 1055937217
       objectReference: {fileID: 0}
-    - target: {fileID: 4022325713934286941, guid: a49aab60b8f01ad41a329d04dda3ac75,
-        type: 3}
-      propertyPath: monkey_scream
-      value: 
-      objectReference: {fileID: 8300000, guid: f887456a571b04651abf12518fbf1ece, type: 3}
     - target: {fileID: 6174968357105850799, guid: a49aab60b8f01ad41a329d04dda3ac75,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].x

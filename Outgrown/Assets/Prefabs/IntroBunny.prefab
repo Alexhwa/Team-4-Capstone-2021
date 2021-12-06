@@ -335,12 +335,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elapsedTime: 0
-  timeBetweenPaths: 0.8
+  timeBetweenPaths: 0.64
   path1: {fileID: 0}
   path2: {fileID: 0}
   path3: {fileID: 0}
   path4: {fileID: 0}
   path5: {fileID: 0}
+  interactButton: {fileID: 0}
   anim: {fileID: 5395695282074348813}
 --- !u!58 &8045445484349866917
 CircleCollider2D:
