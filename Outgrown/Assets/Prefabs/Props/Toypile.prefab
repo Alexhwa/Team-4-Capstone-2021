@@ -72,15 +72,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1c696ef5491ef9f469101bf7bad371da, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3205d30792dd8624d862e189eba2916e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 155.09, y: 98.7487}
+  m_Size: {x: 77.549995, y: 49.37754}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &3668148356973400631
@@ -120,7 +120,7 @@ MonoBehaviour:
   - {x: -65.14317, y: -12.294987, z: 0}
   m_ShapePathHash: 201019845
   m_Mesh: {fileID: 0}
-  m_InstanceId: 22774
+  m_InstanceId: 25496
 --- !u!68 &7362120237274315171
 EdgeCollider2D:
   m_ObjectHideFlags: 0

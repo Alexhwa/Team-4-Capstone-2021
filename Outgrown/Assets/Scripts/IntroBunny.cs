@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class IntroBunny : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class IntroBunny : MonoBehaviour
 	//	if true, stop and wait for player to get close
 	//	if false, move around path to next stop location
 	private bool waitForPlayer = true;
+	[SerializeField] GameObject interactButton;
 	
 	//	vars for storing current locations/speeds
 	private Vector3 prevLocation;
@@ -73,6 +75,8 @@ public class IntroBunny : MonoBehaviour
 					print("Bunny out of locations, waiting for player");
 					waitForPlayer = true;
 					currentPath++;
+					if (currentPath < paths.Count)
+						interactButton.SetActive(true);
 				}
 				//	else select next point to move towards
 				else {
@@ -88,8 +92,10 @@ public class IntroBunny : MonoBehaviour
 		{
 			print(collider.name + " triggered bunny");
 			if(waitForPlayer) {
+				/*
 				//	move to next path
 				anim.Play("Jump");
+
 				//	if all out of paths, do nothing
 				if(paths[currentPath] == null) {return;}
 				
@@ -98,10 +104,11 @@ public class IntroBunny : MonoBehaviour
 				//	ideally there will always be a nextLocation, add troubleshooting case here if needed
 				waitForPlayer = false;
 				iter = 0;
+				*/
 			}
 		}
 	}
-	
+
 	//	set vars for movement to first point in path
 	void setVarsForNewPoint(int iter) {
 		elapsedTime = 0f;
@@ -123,5 +130,25 @@ public class IntroBunny : MonoBehaviour
 		{
 			sprtRnd.flipX = true;
 		}
+	}
+
+	[YarnCommand("ContinuePath")]
+	public void ContinuePath()
+    {
+		//	move to next path
+		anim.Play("Jump");
+
+		//	if all out of paths, do nothing
+		if (paths.Count <= currentPath) {
+			interactButton.SetActive(false);
+		}
+
+		setVarsForNewPoint(0);
+
+		//	ideally there will always be a nextLocation, add troubleshooting case here if needed
+		waitForPlayer = false;
+		iter = 0;
+
+		interactButton.SetActive(false);
 	}
 }
