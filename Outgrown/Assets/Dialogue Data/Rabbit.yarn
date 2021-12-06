@@ -4,7 +4,12 @@ colorID: 0
 position: 49,-104
 ---
 <<SetSpeaker RabbitDialogueEvent npcBubble>>
-Follow me!
+oh hello
+who are you
+you don't look like a toy
+maybe you are lost
+i know the way out
+follow me
 <<ContinuePath IntroBunny>>
 <<SetTalkNode IntroBunny Rabbit.beforejump>>
 ===
@@ -14,7 +19,8 @@ colorID: 0
 position: 50,164
 ---
 <<SetSpeaker RabbitDialogueEvent npcBubble>>
-Push the box and jump across the pit
+it may be hard to jump this far
+you can use that box if you need to
 <<ContinuePath IntroBunny>>
 <<SetTalkNode IntroBunny Rabbit.afterjump>>
 ===
@@ -24,7 +30,8 @@ colorID: 0
 position: 51,437
 ---
 <<SetSpeaker RabbitDialogueEvent npcBubble>>
-This place is creepy
+it's dangerous around here
+but we'll be fine
 <<ContinuePath IntroBunny>>
 <<SetTalkNode IntroBunny Rabbit.top>>
 ===
@@ -34,9 +41,10 @@ colorID: 0
 position: 50,706
 ---
 <<SetSpeaker RabbitDialogueEvent npcBubble>>
-Not the monkey
+it's a long way to the top
+but we'll make it
 <<ContinuePath IntroBunny>>
-<<SetTalkNode IntroBunny Rabbit.monkey>>
+<<SetTalkNode IntroBunny Rabbit.top>>
 ===
 title: Rabbit.monkey
 tags: 
@@ -44,6 +52,7 @@ colorID: 0
 position: 24,956
 ---
 <<SetSpeaker RabbitDialogueEvent npcBubble>>
-Ahhh help me!
+uh oh
+stay behind me
 <<ContinuePath IntroBunny>>
 ===

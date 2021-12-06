@@ -3,7 +3,7 @@ tags:
 colorID: 0
 position: 0,0
 ---
-<<SetSpeaker DollDialogueEvent dollBubble>>
+<<SetSpeaker DialogueEvent npcBubble>>
 my sister lost my arm #line:000001
 can you find it for me? #line:000002
 ===
@@ -12,7 +12,7 @@ tags:
 colorID: 0
 position: 0,0
 ---
-<<SetSpeaker DollDialogueEvent dollBubble>>
+<<SetSpeaker DialogueEvent npcBubble>>
 thank you for finding my arm #line:000011
 you should not be here #line:000012
 you are in the quondam #line:000013
