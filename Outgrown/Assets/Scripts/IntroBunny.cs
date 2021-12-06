@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
+using Yarn.Unity.Example;
 
 public class IntroBunny : MonoBehaviour
 {
@@ -40,6 +41,8 @@ public class IntroBunny : MonoBehaviour
 		paths.Add(path3);
 		paths.Add(path4);
 		paths.Add(path5);
+		
+		GetComponent<NPC>().talkToNode = "Rabbit" + currentPath;
 		
 		//	set starting position based on currentPath
 		if(currentPath != 0) {

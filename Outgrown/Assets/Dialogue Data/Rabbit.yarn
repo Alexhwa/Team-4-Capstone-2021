@@ -1,4 +1,4 @@
-title: Rabbit.start
+title: Rabbit0
 tags: 
 colorID: 0
 position: 49,-104
@@ -11,9 +11,9 @@ maybe you are lost
 i know the way out
 follow me
 <<ContinuePath IntroBunny>>
-<<SetTalkNode IntroBunny Rabbit.beforejump>>
+<<SetTalkNode IntroBunny Rabbit1>>
 ===
-title: Rabbit.beforejump
+title: Rabbit1
 tags: 
 colorID: 0
 position: 50,164
@@ -22,9 +22,9 @@ position: 50,164
 it may be hard to jump this far
 you can use that box if you need to
 <<ContinuePath IntroBunny>>
-<<SetTalkNode IntroBunny Rabbit.afterjump>>
+<<SetTalkNode IntroBunny Rabbit2>>
 ===
-title: Rabbit.afterjump
+title: Rabbit2
 tags: 
 colorID: 0
 position: 51,437
@@ -33,9 +33,9 @@ position: 51,437
 it's dangerous around here
 but we'll be fine
 <<ContinuePath IntroBunny>>
-<<SetTalkNode IntroBunny Rabbit.top>>
+<<SetTalkNode IntroBunny Rabbit3>>
 ===
-title: Rabbit.top
+title: Rabbit3
 tags: 
 colorID: 0
 position: 50,706
@@ -44,9 +44,9 @@ position: 50,706
 it's a long way to the top
 but we'll make it
 <<ContinuePath IntroBunny>>
-<<SetTalkNode IntroBunny Rabbit.top>>
+<<SetTalkNode IntroBunny Rabbit4>>
 ===
-title: Rabbit.monkey
+title: Rabbit4
 tags: 
 colorID: 0
 position: 24,956
