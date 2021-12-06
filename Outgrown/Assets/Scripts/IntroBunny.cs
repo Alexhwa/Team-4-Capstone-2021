@@ -43,7 +43,7 @@ public class IntroBunny : MonoBehaviour
 		
 		//	set starting position based on currentPath
 		if(currentPath != 0) {
-			int lastPoint = paths[currentPath - 1].GetComponent<Path>().getGravs().Length - 1;
+			int lastPoint = paths[currentPath - 1].GetComponent<Path>().getGravs().Length;
 			transform.position = paths[currentPath - 1].GetComponent<Path>().getPointFromChildren(lastPoint);
 		}
 		
