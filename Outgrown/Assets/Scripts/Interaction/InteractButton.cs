@@ -44,20 +44,30 @@ public class InteractButton : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Canvas.SetActive(true);
+        if (collision.tag == "Player")
+        {
+            Canvas.SetActive(true);
+        }
     }
 
-    void OnTriggerExit2D(Collider2D collider)
+    void OnTriggerExit2D(Collider2D collision)
     {
-        Canvas.SetActive(false);
+        if (collision.tag == "Player")
+        {
+            Canvas.SetActive(false);
+        }
     }
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if ((InputController.Inst.inputMaster.Player.Interact.triggered || InputController.Inst.inputMaster.Player.Interact.triggered) && !dialogueRunner.IsDialogueRunning)
+        if(collision.tag == "Player")
         {
-            dialogueEvent.SetActive(true);
-            dialogueRunner.StartDialogue(npc.talkToNode);
+            if ((InputController.Inst.inputMaster.Player.Interact.triggered || InputController.Inst.inputMaster.Player.Interact.triggered) && !dialogueRunner.IsDialogueRunning)
+            {
+                dialogueEvent.SetActive(true);
+                dialogueRunner.StartDialogue(npc.talkToNode);
+            }
+
         }
     }
 }

@@ -25,6 +25,7 @@ public class IntroBunny : MonoBehaviour
 	//	if false, move around path to next stop location
 	private bool waitForPlayer = true;
 	[SerializeField] GameObject interactButton;
+	[SerializeField] GameObject canvas;
 	
 	//	vars for storing current locations/speeds
 	private Vector3 prevLocation;
@@ -79,8 +80,12 @@ public class IntroBunny : MonoBehaviour
 					print("Bunny out of locations, waiting for player");
 					waitForPlayer = true;
 					currentPath++;
-					if (currentPath < paths.Count)
 						interactButton.SetActive(true);
+						canvas.SetActive(false);
+					if (currentPath < paths.Count)
+                    {
+						//interactButton.transform.GetChild(0);
+                    }
 				}
 				//	else select next point to move towards
 				else {
@@ -126,7 +131,7 @@ public class IntroBunny : MonoBehaviour
 		TryFipSprite(nextLocation.x - transform.position.x > 0);
 		currentGravity = paths[currentPath].GetComponent<Path>().getGravity(iter);
 		initialV = nextLocation.y - prevLocation.y - (currentGravity/2);
-		print("Bunny moving from point " + (iter - 1) + " " + prevLocation + " to point " + iter + " " + nextLocation);
+		//print("Bunny moving from point " + (iter - 1) + " " + prevLocation + " to point " + iter + " " + nextLocation);
 	}
 	
 	private void TryFipSprite(bool isMovingRight)

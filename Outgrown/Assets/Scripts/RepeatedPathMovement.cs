@@ -51,7 +51,7 @@ public class RepeatedPathMovement : MonoBehaviour
 				
 				//	if we're all out of points, loop back around
 				if(path.GetComponent<Path>().getPoints().Length <= iter) {
-					print(name + " out of points, going back to 0");
+					//print(name + " out of points, going back to 0");
 					iter = 0;
 				}
 				//	select next point to move towards
