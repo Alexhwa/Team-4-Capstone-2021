@@ -71,7 +71,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: bbe13f836912c4e85bd12cae6bf78ea7, type: 3}
     overlaps: 0
     loop: 0
-    volume: 0.94
+    volume: 1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -233,7 +233,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b03831da433274700a1132a4f14d96a1, type: 3}
     overlaps: 0
     loop: 0
-    volume: 0.5
+    volume: 0.6
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -242,7 +242,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 69b3c10183faa40969d75aff673ce96d, type: 3}
     overlaps: 0
     loop: 0
-    volume: 0.5
+    volume: 0.6
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: dc3a3c234e27141f1abbc50d0e43cd7b, type: 3}
     overlaps: 0
     loop: 0
-    volume: 0.5
+    volume: 0.6
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 465bb1c89270340f4a769f4f348805db, type: 3}
     overlaps: 0
     loop: 0
-    volume: 0.5
+    volume: 0.6
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 5e275750faae74b8a92611910b050c9f, type: 3}
     overlaps: 0
     loop: 0
-    volume: 1
+    volume: 0.6
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
