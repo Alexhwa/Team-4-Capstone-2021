@@ -54,7 +54,8 @@ public class InteractButton : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (InputController.Inst.inputMaster.Player.Interact.triggered && !dialogueRunner.IsDialogueRunning)
+        print(InputController.Inst.inputMaster.Player.Interact.triggered);
+        if ((InputController.Inst.inputMaster.Player.Interact.triggered || InputController.Inst.inputMaster.Player.Interact.triggered) && !dialogueRunner.IsDialogueRunning)
         {
             dialogueEvent.SetActive(true);
             dialogueRunner.StartDialogue(npc.talkToNode);
