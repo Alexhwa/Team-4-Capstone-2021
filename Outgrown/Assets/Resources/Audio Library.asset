@@ -43,7 +43,7 @@ MonoBehaviour:
   - clipName: cymbal
     clip: {fileID: 8300000, guid: def89b3584645402fa1c3f92bf3306cc, type: 3}
     overlaps: 0
-    loop: 1
+    loop: 0
     volume: 0.9
     volumeVariance: 0
     pitch: 1.33
@@ -178,7 +178,7 @@ MonoBehaviour:
   - clipName: monkey scream
     clip: {fileID: 8300000, guid: bd7bd6e0c2a444e188ef140033246155, type: 3}
     overlaps: 0
-    loop: 1
+    loop: 0
     volume: 1
     volumeVariance: 0
     pitch: 1.11
