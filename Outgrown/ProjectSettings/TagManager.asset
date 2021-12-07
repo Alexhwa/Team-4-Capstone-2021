@@ -12,6 +12,7 @@ TagManager:
   - Ledge
   - Rope
   - MovingPlatform
+  - Cymbal
   layers:
   - Default
   - TransparentFX
@@ -24,8 +25,8 @@ TagManager:
   - Ground
   - Rope
   - Background
-  - 
-  - 
+  - Cymbal
+  - Bunny
   - 
   - 
   - 

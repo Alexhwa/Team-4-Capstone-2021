@@ -230,7 +230,10 @@ MonoBehaviour:
   KeyPressText: {fileID: 4990395725716856929}
   ActionText: {fileID: 8133019236910984274}
   Canvas: {fileID: 3601968233986511201}
-  newKeyPressText: 
+  dialogueEvent: {fileID: 0}
+  dialogueRunner: {fileID: 0}
+  npc: {fileID: 0}
+  newKeyPressText: SPC/X
   newActionText: 
 --- !u!61 &8708408237054744198
 BoxCollider2D:
@@ -484,7 +487,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
+  m_fontSize: 80
   m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
@@ -500,7 +503,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}

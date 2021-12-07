@@ -55,6 +55,7 @@ public class IntroBunny : MonoBehaviour
 		sprtRnd = GetComponent<SpriteRenderer>();
     }
     
+    
 	//	Somebody move this to some method that only runs when !waitForPlayer
 	void Update() {
 		if(!waitForPlayer) {
@@ -109,6 +110,11 @@ public class IntroBunny : MonoBehaviour
 				iter = 0;
 				*/
 			}
+		}
+		else if (collider.gameObject.tag.Equals("Cymbal"))
+		{
+			AudioManager.Instance.PlaySfx("single cymbal");
+			gameObject.SetActive(false);
 		}
 	}
 

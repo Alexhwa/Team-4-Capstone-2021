@@ -49,6 +49,15 @@ MonoBehaviour:
     pitch: 1.33
     pitchVariance: 0
     fadeIn: 0
+  - clipName: single cymbal
+    clip: {fileID: 8300000, guid: aba9422095a394d6daff7db978f6c09f, type: 3}
+    overlaps: 0
+    loop: 0
+    volume: 0.9
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
   - clipName: damage sound
     clip: {fileID: 8300000, guid: ea26cb6c200884ee89d3bc2f0923f84c, type: 3}
     overlaps: 0
