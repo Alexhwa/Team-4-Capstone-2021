@@ -168,7 +168,7 @@ MonoBehaviour:
     fadeIn: 0
   - clipName: level 1 music
     clip: {fileID: 8300000, guid: 40c4bdf371059584584bb873f2a45fed, type: 3}
-    overlaps: 0
+    overlaps: 1
     loop: 1
     volume: 0.75
     volumeVariance: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
     fadeIn: 1
   - clipName: level 2 music
     clip: {fileID: 8300000, guid: 05a66a7086dc74782a2dffd816567045, type: 3}
-    overlaps: 0
+    overlaps: 1
     loop: 1
     volume: 1
     volumeVariance: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
     fadeIn: 1
   - clipName: level 2 highs reduced
     clip: {fileID: 8300000, guid: 9328a5cbde3fa4c53acc2ca2f0db6390, type: 3}
-    overlaps: 0
+    overlaps: 1
     loop: 0
     volume: 1
     volumeVariance: 0
@@ -285,7 +285,7 @@ MonoBehaviour:
     fadeIn: 0
   - clipName: level 1 lows out
     clip: {fileID: 8300000, guid: 57f34a726b1854c6d9299d1bef8ca9a8, type: 3}
-    overlaps: 0
+    overlaps: 1
     loop: 1
     volume: 1
     volumeVariance: 0
