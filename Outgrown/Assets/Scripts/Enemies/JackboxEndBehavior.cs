@@ -30,7 +30,7 @@ public class JackboxEndBehavior : MonoBehaviour
     {
 	transform.parent.transform.position += movementSpeed * Time.deltaTime;
 	if(movementSpeed.x > 0 && movementSpeed.x < maxMoveSpeed) {
-            movementSpeed.x += Time.deltaTime * maxMoveSpeed;
+            movementSpeed.x += Time.deltaTime * maxMoveSpeed / 2.0f;
 	        if(movementSpeed.x > maxMoveSpeed)
 		    movementSpeed.x = maxMoveSpeed;
         }
