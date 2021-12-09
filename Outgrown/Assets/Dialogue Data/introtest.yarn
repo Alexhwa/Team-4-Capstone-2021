@@ -55,8 +55,8 @@ we have all missed you so much
 you should stay here with us
 <<ShowSprite JackboxEndBehavior>>
 you never have to leave us again
-<<ShowSprite JackboxEndBehavior>>
 stay with us
+<<ShowSprite JackboxEndBehavior>>
 f o r e v e r
 <<ChasePlayer JackboxEndBehavior>>
 ===
