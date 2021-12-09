@@ -30,7 +30,7 @@ public class JackboxEndBehavior : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        print("jacbox boo! (Collision)");
+        print("jacbox boo! (Collision, End)");
         if (collision.transform.tag == "Player")
         {
             animator.SetBool("eventTriggered", true);
@@ -41,14 +41,14 @@ public class JackboxEndBehavior : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        print("jacbox boo! (trigger)");
+        print("jacbox boo! (Trigger, End)");
         if (other.tag == "Player")
         {
             animator.SetBool("eventTriggered", true);
-  	    dialogueEvent.SetActive(true);
- 	    dialogueRunner.StartDialogue(npc.talkToNode);
             StartCoroutine(waitforseconds());
             gameObject.SetActive(false);
+  	    dialogueEvent.SetActive(true);
+ 	    dialogueRunner.StartDialogue(npc.talkToNode);
         }
     }
 
