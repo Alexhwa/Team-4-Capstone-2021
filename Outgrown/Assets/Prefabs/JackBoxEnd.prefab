@@ -438,6 +438,8 @@ MonoBehaviour:
   dialogueEvent: {fileID: 5702487934242101629}
   dialogueRunner: {fileID: 6871851128858230158}
   npc: {fileID: 6496561633940053318}
+  chaseMusic: {fileID: 8300000, guid: e9a30ef33a58b489fa9b2461514e0aeb, type: 3}
+  movementSpeed: {x: 0, y: 0, z: 0}
 --- !u!1 &5702487934242101629
 GameObject:
   m_ObjectHideFlags: 0

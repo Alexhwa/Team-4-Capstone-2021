@@ -14,6 +14,7 @@ public class JackboxEndBehavior : MonoBehaviour
     [SerializeField] GameObject dialogueEvent;
     [SerializeField] DialogueRunner dialogueRunner;
     [SerializeField] NPC npc;
+    public AudioClip chaseMusic;
     int spriteShown = 0;
     [SerializeField] Vector3 movementSpeed;
 
@@ -61,12 +62,15 @@ public class JackboxEndBehavior : MonoBehaviour
 
     [YarnCommand("ShowSprite")]
     public void ShowSprite() {
+        if(spriteShown == 0) {
+            AudioManager.Instance.PlayMusic(chaseMusic);
+        }
         GameObject[] go = bgsprites.GetComponentsInChildren<GameObject>();
 	go[spriteShown].SetActive(true);
 	spriteShown++;
     }
 
-    [YarnCommand("Run")]
+    [YarnCommand("ChasePlayer")]
     public void chasePlayer() {
         movementSpeed = new Vector3(1, 0, 0);
     }
