@@ -17,6 +17,7 @@ public class JackboxEndBehavior : MonoBehaviour
     public AudioClip chaseMusic;
     int spriteShown = 0;
     [SerializeField] Vector3 movementSpeed;
+    float maxMoveSpeed = 9.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,11 @@ public class JackboxEndBehavior : MonoBehaviour
     void Update()
     {
 	transform.parent.transform.position += movementSpeed * Time.deltaTime;
+	if(movementSpeed.x > 0 && movementSpeed.x < maxMoveSpeed) {
+            movementSpeed.x += Time.deltaTime * maxMoveSpeed;
+	        if(movementSpeed.x > maxMoveSpeed)
+		    movementSpeed.x = maxMoveSpeed;
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -75,7 +81,7 @@ public class JackboxEndBehavior : MonoBehaviour
     [YarnCommand("ChasePlayer")]
     public void chasePlayer() {
         print("mooving");
-        movementSpeed = new Vector3(1, 0, 0);
+        movementSpeed = new Vector3(0.01f, 0, 0);
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         //gameObject.SetActive(false);
     }
