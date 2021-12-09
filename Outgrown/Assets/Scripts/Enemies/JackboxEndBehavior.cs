@@ -48,7 +48,8 @@ public class JackboxEndBehavior : MonoBehaviour
         {
             animator.SetBool("eventTriggered", true);
             StartCoroutine(waitforseconds());
-            gameObject.SetActive(false);
+            gameObject.GetComponent<AreaEffector2D>().enabled = false;
+            //gameObject.SetActive(false);
   	    dialogueEvent.SetActive(true);
  	    dialogueRunner.StartDialogue(npc.talkToNode);
         }
@@ -62,16 +63,20 @@ public class JackboxEndBehavior : MonoBehaviour
 
     [YarnCommand("ShowSprite")]
     public void ShowSprite() {
+        print("hello");
         if(spriteShown == 0) {
             AudioManager.Instance.PlayMusic(chaseMusic);
         }
-        GameObject[] go = bgsprites.GetComponentsInChildren<GameObject>();
-	go[spriteShown].SetActive(true);
-	spriteShown++;
+        //GameObject[] go = bgsprites.transform.getchil<GameObject>();
+	    (bgsprites.transform.GetChild(spriteShown)).gameObject.SetActive(true);
+	    spriteShown++;
     }
 
     [YarnCommand("ChasePlayer")]
     public void chasePlayer() {
+        print("mooving");
         movementSpeed = new Vector3(1, 0, 0);
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        //gameObject.SetActive(false);
     }
 }

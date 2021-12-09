@@ -36,7 +36,7 @@ follow me
 title: JackInTheBox
 tags: 
 colorID: 0
-position: 0, 0
+position: -358,-310
 ---
 <<SetSpeaker DialogueEvent npcBubble>>
 wait
@@ -47,16 +47,16 @@ and now that i get a closer look at you
 all my questions have been answered
 i thought i recognized you
 our beloved long lost child
-<<ShowSprite JackboxEndBehavior>>
+<<ShowSprite LaunchEffector>>
 you have finally returned to us
-<<ShowSprite JackboxEndBehavior>>
+<<ShowSprite LaunchEffector>>
 we have all missed you so much
-<<ShowSprite JackboxEndBehavior>>
+<<ShowSprite LaunchEffector>>
 you should stay here with us
-<<ShowSprite JackboxEndBehavior>>
+<<ShowSprite LaunchEffector>>
 you never have to leave us again
 stay with us
-<<ShowSprite JackboxEndBehavior>>
+<<ShowSprite LaunchEffector>>
 f o r e v e r
-<<ChasePlayer JackboxEndBehavior>>
+<<ChasePlayer LaunchEffector>>
 ===
