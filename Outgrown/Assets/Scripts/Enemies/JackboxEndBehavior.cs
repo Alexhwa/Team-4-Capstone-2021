@@ -62,6 +62,7 @@ public class JackboxEndBehavior : MonoBehaviour
 
     [YarnCommand("ShowSprite")]
     public void ShowSprite() {
+	print("Showing sprite " + spriteShown);
         if(spriteShown == 0) {
             AudioManager.Instance.PlayMusic(chaseMusic);
         }
@@ -72,6 +73,7 @@ public class JackboxEndBehavior : MonoBehaviour
 
     [YarnCommand("ChasePlayer")]
     public void chasePlayer() {
-        movementSpeed = new Vector3(1, 0, 0);
+	print("Now chasing player " + spriteShown);
+        movementSpeed = new Vector3(10, 0, 0);
     }
 }
