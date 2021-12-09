@@ -15,6 +15,7 @@ public class JackboxEndBehavior : MonoBehaviour
     [SerializeField] DialogueRunner dialogueRunner;
     [SerializeField] NPC npc;
     int spriteShown = 0;
+    [SerializeField] Vector3 movementSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,7 @@ public class JackboxEndBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+	transform.parent.transform.position += movementSpeed * Time.deltaTime;
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -63,5 +64,10 @@ public class JackboxEndBehavior : MonoBehaviour
         GameObject[] go = bgsprites.GetComponentsInChildren<GameObject>();
 	go[spriteShown].SetActive(true);
 	spriteShown++;
+    }
+
+    [YarnCommand("Run")]
+    public void chasePlayer() {
+        movementSpeed = new Vector3(1, 0, 0);
     }
 }
