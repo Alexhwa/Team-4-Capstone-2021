@@ -42,8 +42,8 @@ public class JackboxEndBehavior : MonoBehaviour
         if (collision.transform.tag == "Player")
         {
             animator.SetBool("eventTriggered", true);
-  	    dialogueEvent.SetActive(true);
- 	    dialogueRunner.StartDialogue(npc.talkToNode);
+  	        dialogueEvent.SetActive(true);
+ 	        dialogueRunner.StartDialogue(npc.talkToNode);
         }
     }
 

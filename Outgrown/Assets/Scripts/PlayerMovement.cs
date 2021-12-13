@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
 	private Rigidbody2D rb;
 	private Vector2 walkVectorDebug;
 	private bool jumpLastFrame;
+	public float wolfJumpInterval;
+	private float canJump;
+	private bool wolfJumped;
 	public float walkDampenFactor;
 
 	//Ledgegrab Check
@@ -138,6 +141,16 @@ public class PlayerMovement : MonoBehaviour
 	    
 	    //Ground check
 		grounded = GroundCheck();
+
+		if (grounded)
+		{
+			canJump = wolfJumpInterval;
+			wolfJumped = false;
+		}
+		else
+		{
+			canJump -= Time.deltaTime;
+		}
 		
 		//Main movement state machine
 		if (deathScript.playerHealth > 0)
@@ -296,11 +309,12 @@ public class PlayerMovement : MonoBehaviour
 	    }
 
 	    //jump
-	    if (moveDir.y > 0 && !jumpLastFrame && grounded)
+	    if (moveDir.y > 0 && !jumpLastFrame && canJump > 0 && !wolfJumped)
 	    {
 		    var newVel = rb.velocity;
 		    newVel.y = jumpForce;
 		    rb.velocity = newVel;
+		    wolfJumped = true;
 	    }
 
 	    if (!grounded)
