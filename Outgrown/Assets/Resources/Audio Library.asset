@@ -292,6 +292,15 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     fadeIn: 0
+  - clipName: end music
+    clip: {fileID: 8300000, guid: 1e043784528e845bc9af856e4b06c379, type: 3}
+    overlaps: 1
+    loop: 1
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    fadeIn: 0
   - clipName: doll sigh
     clip: {fileID: 8300000, guid: b9b90a8dd6eee41a58ece6a3e538d4ab, type: 3}
     overlaps: 0
