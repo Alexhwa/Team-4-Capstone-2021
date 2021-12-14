@@ -17,7 +17,7 @@ public class JackboxEndBehavior : MonoBehaviour
     public AudioClip chaseMusic;
     int spriteShown = 0;
     [SerializeField] Vector3 movementSpeed;
-    float maxMoveSpeed = 9.0f;
+    float maxMoveSpeed = 7.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +26,9 @@ public class JackboxEndBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-	transform.parent.transform.position += movementSpeed * Time.deltaTime;
+	transform.parent.position += movementSpeed * Time.deltaTime;
 	if(movementSpeed.x > 0 && movementSpeed.x < maxMoveSpeed) {
             movementSpeed.x += Time.deltaTime * maxMoveSpeed / 2.3f;
 	        if(movementSpeed.x > maxMoveSpeed)
